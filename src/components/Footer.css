@@ -117,3 +117,33 @@
     transform: translateX(-100%);
   }
 }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .footer-section {
+    padding-top: 60px;
+  }
+
+  .footer-title {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .footer-email {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .footer-actions {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .footer-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

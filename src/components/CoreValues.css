@@ -98,3 +98,40 @@
   line-height: 1.6;
   color: #a0a0a0; /* Grey text matching design */
 }
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+  .core-values-section {
+    padding: 40px 0;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .decor-triangle-outline {
+    left: 20px;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .decor-cross-right {
+    display: none;
+  }
+
+  /* Thêm đoạn này để ép text xuống dòng y hệt wireframe */
+  .value-description {
+    max-width: 280px; /* Giới hạn độ rộng để ép chữ rớt dòng */
+    margin: 0 auto;   /* Căn giữa khối chữ */
+  }
+}
