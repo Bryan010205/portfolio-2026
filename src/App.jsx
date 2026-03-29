@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import CoreValues from './components/CoreValues';
 import Projects from './components/Projects';
-import Footer from './components/Footer'; // Thêm dòng này
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <About />
       <CoreValues />
       <Projects />
-      <Footer /> {/* Thêm dòng này */}
+      <Footer />
     </div>
   );
 }
