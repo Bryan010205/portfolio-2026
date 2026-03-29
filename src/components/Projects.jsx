@@ -36,6 +36,7 @@ const Projects = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeCardIndex, setActiveCardIndex] = useState(0); 
   const carouselRef = useRef(null);
   
   const isClickScrolling = useRef(false);
@@ -61,7 +62,10 @@ const Projects = () => {
   const handleScroll = (index) => {
     if (carouselRef.current) {
       isClickScrolling.current = true;
+      
+      // Đồng bộ cả dấu chấm và thẻ bài cùng lúc
       setCurrentIndex(index);
+      setActiveCardIndex(index); 
       
       const { scrollWidth, clientWidth } = carouselRef.current;
       const maxScrollLeft = scrollWidth - clientWidth;
@@ -102,8 +106,9 @@ const Projects = () => {
         <div className="projects-track">
           {projectsData.map((project, index) => (
             <div 
-              className={`project-card ${currentIndex === index ? 'active-card' : ''}`} 
+              className={`project-card ${activeCardIndex === index ? 'active-card' : ''}`} 
               key={project.id}
+              // Gắn trực tiếp handleScroll vào onClick của thẻ bài
               onClick={() => handleScroll(index)}
             >
               <div className="project-image-container">

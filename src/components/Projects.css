@@ -31,17 +31,27 @@
 
 /* Card Styling */
 .project-card {
-  width: 320px; /* Fixed width for each card */
+  width: 320px;
   border: 1px solid #333;
   border-radius: 12px;
   padding: 15px;
   background-color: transparent;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-  border-color: #5d5fef;
+}
+
+/* Thẻ được click sẽ to lên, có viền và đổ bóng */
+.project-card.active-card {
+  transform: translateY(-5px) scale(1.05); 
+  border-color: #5d5fef; 
+  box-shadow: 0 10px 25px rgba(93, 95, 239, 0.2); 
+  z-index: 2; 
 }
 
 .project-image-container {
