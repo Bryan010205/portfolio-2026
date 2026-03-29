@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import CoreValues from './components/CoreValues';
+import Projects from './components/Projects'; 
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Hero />
       <About />
       <CoreValues />
+      <Projects /> 
     </div>
   );
 }
