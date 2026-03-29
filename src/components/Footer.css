@@ -1,0 +1,119 @@
+.footer-section {
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden; /* Prevents the massive text from causing horizontal scrolling */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-zigzag {
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+
+.footer-email {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.footer-btn {
+  background-color: #5d5fef;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-btn:hover {
+  background-color: #4a4cd6;
+  transform: translateY(-2px);
+}
+
+.social-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.social-icon {
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  color: #5d5fef;
+  transform: translateY(-3px);
+}
+
+/* Infinite Marquee Styling */
+.footer-bottom-text {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  margin-top: 60px;
+  white-space: nowrap;
+  user-select: none; /* Prevents text highlighting while scrolling */
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  /* Adjust the '20s' to make it scroll faster or slower */
+  animation: marquee 20s linear infinite; 
+}
+
+.marquee-content h1 {
+  font-size: clamp(5rem, 16vw, 15rem); 
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -2px;
+  margin: 0;
+  line-height: 0.9;
+  padding: 0 20px;
+}
+
+.separator {
+  font-size: clamp(3rem, 8vw, 8rem);
+  color: #5d5fef; /* Purple accent dot */
+  padding: 0 20px;
+}
+
+/* Keyframes for the infinite scroll */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
