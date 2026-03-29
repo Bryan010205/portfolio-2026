@@ -1,0 +1,100 @@
+.core-values-section {
+  padding: 80px 0;
+  position: relative;
+  text-align: center;
+}
+
+.core-values-section .section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #ffffff;
+}
+
+/* Decor Elements */
+.decor-triangle-left {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid white;
+  background-color: transparent;
+}
+
+.decor-cross-right {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  font-size: 24px;
+  color: white;
+  font-weight: 300;
+}
+
+.decor-circles-bottom {
+  position: absolute;
+  right: 10%;
+  bottom: -40px;
+  display: flex;
+}
+
+.circle-outline {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.circle-outline.offset {
+  left: 15px;
+}
+
+/* Grid Layout */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 40px; /* Space between cards */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Individual Card Styling */
+.value-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05); /* Slight background for icon */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon-placeholder {
+  color: #5d5fef; /* Purple accent color matching your design */
+  font-size: 20px;
+}
+
+.value-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.value-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a0a0a0; /* Grey text matching design */
+}
