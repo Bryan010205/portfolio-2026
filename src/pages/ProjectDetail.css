@@ -1,6 +1,8 @@
 .project-detail-page {
   padding: 40px 0;
   color: white;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .section-header {
@@ -10,144 +12,125 @@
   margin-bottom: 20px;
 }
 
-.decor-triangle { font-size: 24px; }
-
-/* Tìm và sửa đoạn này trong ProjectDetail.css */
+/* Hero Section */
 .hero-img-wrapper {
   position: relative;
-  /* Chỉnh lại chiều rộng: thay vì 100%, mình để tầm 80% hoặc con số cụ thể */
-  width: 80%; 
-  max-width: 900px; /* Đặt giới hạn chiều ngang lớn nhất */
-  
-  /* Căn giữa cái khung ảnh */
-  margin: 0 auto 60px auto; 
-  
+  width: 70%; 
+  max-width: 850px;
+  margin: 0 auto 80px auto; 
   border: 1px solid #444;
-  padding: 15px; /* Tăng padding lên cho cái viền nhìn thanh thoát hơn */
-  background-color: rgba(255, 255, 255, 0.02); /* Thêm một chút nền tối cho xịn */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .hero-img-wrapper img {
   width: 100%;
-  height: auto; /* Đảm bảo ảnh không bị méo */
   display: block;
 }
 
-/* Info Grid */
+/* Typography */
 .project-info-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 80px;
+  margin-bottom: 80px;
 }
 
-/* Thêm/Sửa đoạn này để chữ Overview nhìn mướt hơn */
 .overview-content p, .problem-box p, .solution-inner p {
-  color: #d1d1d1; /* Màu chữ sáng hơn chút cho dễ đọc */
-  line-height: 1.8; /* Tăng khoảng cách dòng */
+  color: #d1d1d1;
+  line-height: 1.8;
   font-size: 16px;
-  text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
+  text-align: justify;
 }
 
 .skills-list {
   padding: 0;
-  margin: 0;
+  list-style: none;
 }
 
 .skills-list li {
-  color: #5d5fef; /* Cho màu Skills nổi bật lên */
+  color: #5d5fef;
   font-weight: 600;
-  margin-bottom: 8px;
-  list-style: square;
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 
-/* Đảm bảo phần Problem không bị quá rộng */
-.problem-box p {
-  max-width: 900px;
-  margin: 0 auto 50px;
-}
-
-/* Problem & Solution */
+/* Challenge & Solution */
 .problem-solution {
-  text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 }
 
 .problem-box h3, .solution-box h3 {
-  font-size: 28px;
+  font-size: 26px;
   margin-bottom: 20px;
-}
-
-.problem-box p {
-  max-width: 800px;
-  margin: 0 auto 60px;
-  color: #a0a0a0;
+  text-align: center;
 }
 
 .solution-box .solution-inner {
   border: 1px solid #444;
   border-radius: 12px;
-  padding: 30px;
-  text-align: left;
-  position: relative;
+  padding: 40px;
+  background: rgba(255,255,255,0.02);
 }
 
-/* Process Section */
-.process-section {
-  position: relative;
-}
-
-.process-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
+/* --- FIX: DESIGN PROCESS GRID --- */
 .process-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  gap: 50px;
+  margin-top: 50px;
 }
 
 .process-item {
-  position: relative;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .process-item img {
-  width: 100%;
+  /* Giữ nguyên tỉ lệ ảnh, không cắt xén */
+  width: 100%; 
+  max-height: 350px; /* Khống chế độ cao để trang web không quá dài */
+  object-fit: contain; 
+  
+  border: 1px solid #333;
   border-radius: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
 }
 
-.placeholder-img {
-  width: 100%;
-  height: 250px;
-  background: #222;
-  border: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
+/* Riêng tấm Detail Execution (Leftside) */
+.full-width {
+  grid-column: span 2;
+  margin-top: 20px;
+}
+
+.full-width img {
+  width: 60%; /* Cho tấm này nhỏ lại cho thanh thoát */
+  max-height: 500px; 
+}
+
+.process-item img:hover {
+  transform: translateY(-5px);
+  border-color: #5d5fef;
 }
 
 .label-btn {
-  display: inline-block;
-  border: 1px solid white;
-  padding: 8px 30px;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 16px;
   border-radius: 20px;
-  font-size: 14px;
-  background: rgba(255,255,255,0.05);
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.full-width { grid-column: span 2; }
-
 /* Decor Icons */
-.decor-zigzag { position: absolute; left: -30px; top: -10px; }
-.plus-icon { font-size: 24px; margin-left: auto; }
+.decor-zigzag { position: absolute; left: -40px; top: -10px; font-size: 30px; opacity: 0.4; }
+.plus-icon { color: #5d5fef; font-size: 20px; margin-left: auto; }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .project-info-grid { grid-template-columns: 1fr; }
-  .process-grid { grid-template-columns: 1fr; }
+  .project-info-grid, .process-grid { grid-template-columns: 1fr; }
   .full-width { grid-column: span 1; }
+  .full-width img, .hero-img-wrapper { width: 100%; }
 }
