@@ -12,17 +12,24 @@
 
 .decor-triangle { font-size: 24px; }
 
-/* Hero Section */
+/* Tìm và sửa đoạn này trong ProjectDetail.css */
 .hero-img-wrapper {
   position: relative;
-  width: 100%;
+  /* Chỉnh lại chiều rộng: thay vì 100%, mình để tầm 80% hoặc con số cụ thể */
+  width: 80%; 
+  max-width: 900px; /* Đặt giới hạn chiều ngang lớn nhất */
+  
+  /* Căn giữa cái khung ảnh */
+  margin: 0 auto 60px auto; 
+  
   border: 1px solid #444;
-  padding: 10px;
-  margin-bottom: 60px;
+  padding: 15px; /* Tăng padding lên cho cái viền nhìn thanh thoát hơn */
+  background-color: rgba(255, 255, 255, 0.02); /* Thêm một chút nền tối cho xịn */
 }
 
 .hero-img-wrapper img {
   width: 100%;
+  height: auto; /* Đảm bảo ảnh không bị méo */
   display: block;
 }
 
@@ -34,15 +41,30 @@
   margin-bottom: 60px;
 }
 
-.overview-content p {
-  color: #a0a0a0;
-  line-height: 1.6;
-  font-size: 15px;
+/* Thêm/Sửa đoạn này để chữ Overview nhìn mướt hơn */
+.overview-content p, .problem-box p, .solution-inner p {
+  color: #d1d1d1; /* Màu chữ sáng hơn chút cho dễ đọc */
+  line-height: 1.8; /* Tăng khoảng cách dòng */
+  font-size: 16px;
+  text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
 }
 
-.skills-content ul {
-  list-style: none;
-  color: #a0a0a0;
+.skills-list {
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  color: #5d5fef; /* Cho màu Skills nổi bật lên */
+  font-weight: 600;
+  margin-bottom: 8px;
+  list-style: square;
+}
+
+/* Đảm bảo phần Problem không bị quá rộng */
+.problem-box p {
+  max-width: 900px;
+  margin: 0 auto 50px;
 }
 
 /* Problem & Solution */

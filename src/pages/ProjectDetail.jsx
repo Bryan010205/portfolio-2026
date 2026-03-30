@@ -11,7 +11,7 @@ const ProjectDetail = () => {
       {/* 1. HERO SECTION */}
       <section className="project-hero">
         <div className="hero-img-wrapper">
-          <img src={projectHero} alt="Instant Coffee Packaging" />
+          <img src={projectHero} alt="Trung Nguyen Legend Instant Coffee Packaging" />
           <div className="decor-zigzag top-left">〰</div>
           <div className="decor-circle top-right">○</div>
         </div>
@@ -25,10 +25,10 @@ const ProjectDetail = () => {
             <h2>Overview</h2>
           </div>
           <p>
-            The goal of this project was to design a complete product packaging concept, 
-            including branding and logo design, while demonstrating an understanding 
-            of Photoshop for layout design and Adobe After Effects for creating a 
-            realistic 3D presentation.
+            This project focuses on revitalizing the visual identity for <strong>Trung Nguyen Legend</strong>'s instant coffee line. 
+            The objective was to craft a comprehensive packaging system that honors traditional heritage while embracing modern aesthetic 
+            standards. By applying advanced 3D visualization techniques, I aimed to bridge the gap between 2D graphic layouts 
+            and realistic commercial presentations, ensuring the brand's premium essence is captured in every pixel.
           </p>
         </div>
         <div className="skills-content">
@@ -36,9 +36,10 @@ const ProjectDetail = () => {
             <h2>Skills</h2>
             <span className="plus-icon">+</span>
           </div>
-          <ul>
-            <li>Photoshop</li>
-            <li>After Effect</li>
+          <ul className="skills-list">
+            <li>Adobe Photoshop (Layout & Branding)</li>
+            <li>Adobe After Effects (3D Compositing)</li>
+            <li>Visual Storytelling</li>
           </ul>
         </div>
       </section>
@@ -46,25 +47,28 @@ const ProjectDetail = () => {
       {/* 3. PROBLEM & SOLUTION */}
       <section className="problem-solution">
         <div className="problem-box">
-          <h3>Problem</h3>
+          <h3>The Challenge</h3>
           <p>
-            This project was about coffee so every logo, slogan, images need to be related to coffee vibe. 
-            The most problem that I felt so heavy should be putting product on 3D in After Effect. 
-            At the time of making it, I had no ideas of how to use After Effect and it took me a huge amount of time.
+            Coffee is more than a drink; it's a "vibe." The primary challenge was maintaining visual consistency across multiple sides 
+            of the packaging while integrating complex cultural motifs. Technically, I faced a significant hurdle in 
+            <strong> 3D spatial compositing</strong>. Mapping 2D assets onto a realistic 3D model in After Effects without previous experience 
+            proved to be an intensive, time-consuming process that demanded a steep learning curve in motion graphics and 3D lighting.
           </p>
         </div>
 
         <div className="solution-box">
           <div className="section-header">
             <span className="decor-triangle">▷</span>
-            <h3>Solution</h3>
+            <h3>Strategic Solution</h3>
             <span className="close-icon">✕</span>
           </div>
           <div className="solution-inner">
             <p>
-              I had some research about coffee brands to get inspiration such as logo, slogan, how the packaging should looks like... 
-              From that point, I designed every sides with data from research. For 3D After Effect, I watched some videos on Youtube 
-              as well as asking from instructor for more techniques or feedbacks from my classmates.
+              I initiated deep-dive market research into premium coffee branding to refine the color palette and typography. 
+              To solve the technical barrier, I adopted an <strong>agile learning approach</strong>: dissecting professional YouTube 
+              workflows, experimenting with 3D camera tracking, and iterating based on peer feedback and instructor guidance. 
+              The final result is a seamless fusion of graphic design and 3D simulation that effectively communicates the 
+              product's high-end market positioning.
             </p>
           </div>
         </div>
@@ -73,34 +77,32 @@ const ProjectDetail = () => {
       {/* 4. PROCESS */}
       <section className="process-section">
         <div className="process-header">
-          <h2>Process</h2>
+          <h2>Design Process</h2>
           <div className="decor-circle">○</div>
         </div>
 
         <div className="process-grid">
-          {/* Row 1: Sketch */}
           <div className="process-item large">
-            <img src={process1} alt="Paper sketch" />
-            <span className="label-btn">Paper sketch</span>
+            <img src={process1} alt="Conceptual Paper Sketch" />
+            <span className="label-btn">Conceptual Sketch</span>
           </div>
           <div className="process-item">
-            <img src={process2} alt="Digital sketch" />
-            <span className="label-btn">digital sketch</span>
+            <img src={process2} alt="Digital Layout Drafting" />
+            <span className="label-btn">Digital Drafting</span>
           </div>
 
-          {/* Row 2: Sides */}
           <div className="process-item">
-            <div className="placeholder-img">Top side</div> {/* Dùng placeholder nếu chưa có ảnh riêng */}
-            <span className="label-btn">Top side</span>
+            <div className="placeholder-img">3D Projection / Top side</div>
+            <span className="label-btn">Technical Mapping</span>
           </div>
           <div className="process-item large">
-            <img src={process3} alt="Front side" />
-            <span className="label-btn">Front side</span>
+            <img src={process3} alt="Final Packaging Front View" />
+            <span className="label-btn">Final Render</span>
           </div>
           
           <div className="process-item full-width">
-            <div className="placeholder-img">Left side / Detail layout</div>
-            <span className="label-btn">Left side</span>
+            <div className="placeholder-img">Side Panel / Nutritional Info Layout</div>
+            <span className="label-btn">Detail Execution</span>
           </div>
         </div>
       </section>
