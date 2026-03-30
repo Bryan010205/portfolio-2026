@@ -1,30 +1,31 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom'; // Thêm dòng này
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-// SỬA Ở ĐÂY: Vì file của bạn đang nằm trong thư mục "pages" 
-// nên mình phải import từ "./pages/ProjectDetail" mới đúng nha!
+import Hero from './components/Hero';
+import CoreValues from './components/CoreValues';
 import ProjectDetail from './pages/ProjectDetail';
-
-// Tạm thời ẩn các phần của trang chủ để tập trung làm trang chi tiết dự án
-// import Hero from './components/Hero';
-// import About from './components/About';
-// import CoreValues from './components/CoreValues';
-// import Projects from './components/Projects';
 
 function App() {
   return (
     <div className="portfolio-container">
-      {/* Navbar luôn xuất hiện ở đầu trang */}
       <Navbar />
 
-      <main>
-        {/* Component hiển thị nội dung chi tiết dự án coffee packaging */}
-        <ProjectDetail />
-      </main>
+      <Routes>
+        {/* TRANG CHỦ: Gom Hero và CoreValues lại */}
+        <Route path="/" element={
+          <main>
+            <Hero />
+            <CoreValues />
+            {/* Bạn có thể thêm About hay Projects component ở đây nếu muốn */}
+          </main>
+        } />
 
-      {/* Footer luôn xuất hiện ở cuối trang */}
+        {/* TRANG CHI TIẾT DỰ ÁN */}
+        <Route path="/project" element={<ProjectDetail />} />
+      </Routes>
+
       <Footer />
     </div>
   );
