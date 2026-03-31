@@ -1,154 +1,171 @@
 .projects-section {
-  padding: 80px 0;
+  padding: 60px 0;
   position: relative;
-}
-
-.projects-section .section-title {
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-.projects-carousel {
-  width: 100%;
-  overflow-x: auto;
-  padding-bottom: 20px;
-  /* Hide scrollbar for cleaner look but keep functionality */
-  scrollbar-width: none; 
-  -ms-overflow-style: none;
-}
-
-.projects-carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.projects-track {
-  display: flex;
-  gap: 30px;
-  width: max-content; /* Allows track to grow based on content */
-}
-
-/* Card Styling */
-.project-card {
-  width: 320px;
-  border: 1px solid #333;
-  border-radius: 12px;
-  padding: 15px;
-  background-color: transparent;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Thẻ được click sẽ to lên, có viền và đổ bóng */
-.project-card.active-card {
-  transform: translateY(-5px) scale(1.05); 
-  border-color: #5d5fef; 
-  box-shadow: 0 10px 25px rgba(93, 95, 239, 0.2); 
-  z-index: 2; 
-}
-
-.project-image-container {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
+  background-color: #000;
   overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.project-category {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: transparent;
-  color: #FFD700; /* Yellow text matching design */
-  font-weight: 700;
-  font-size: 14px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-}
-
-.project-info {
+  /* Thu nhỏ chiều cao section để không bị quá loãng */
+  min-height: 85vh; 
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.project-title {
-  font-size: 18px;
-  font-weight: 600;
+.projects-section .section-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  margin-bottom: 30px;
   color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
 }
 
-.view-btn {
-  background: transparent;
+/* KHÔNG GIAN 3D VIEWPORT */
+.carousel-3d-viewport {
+  width: 100%;
+  height: 500px; /* Thu nhỏ khung nhìn từ 600px xuống 500px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px; 
+  cursor: grab;
+  /* Ngăn chặn các hành động mặc định của trình duyệt để drag mượt hơn */
+  touch-action: none; 
+}
+
+.carousel-3d-viewport:active {
+  cursor: grabbing;
+}
+
+/* CONTAINER CỐ ĐỊNH TẠI TÂM */
+.carousel-3d-container {
+  position: relative;
+  /* Thu nhỏ kích thước khung card */
+  width: 300px; 
+  height: 420px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CARD TRONG KHÔNG GIAN 3D */
+.project-card-3d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  transform-style: preserve-3d;
+  /* Giúp card mượt mà hơn khi xoay */
+  will-change: transform; 
+}
+
+.card-3d-inner {
+  width: 100%;
+  height: 100%;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-3d-inner:hover {
+  border-color: #5d5fef;
+  box-shadow: 0 0 20px rgba(93, 95, 239, 0.2);
+}
+
+.card-3d-image {
+  position: relative;
+  width: 100%;
+  height: 65%; /* Giảm tỉ lệ ảnh một chút để cân đối thông tin bên dưới */
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background: #1a1a1a;
+}
+
+.card-3d-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none; 
+}
+
+.card-3d-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(93, 95, 239, 0.95);
   color: white;
-  border: 1px solid white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.card-3d-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 12px 0;
+  /* Giới hạn dòng tiêu đề nếu quá dài */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-3d-info button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 6px 16px;
   border-radius: 20px;
   cursor: pointer;
   font-size: 12px;
   transition: all 0.3s ease;
+  width: fit-content;
 }
 
-.view-btn:hover {
-  background: white;
-  color: #19191b;
+.card-3d-info button:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
 }
 
-/* Controls */
-.slider-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 40px;
+/* HƯỚNG DẪN KÉO */
+.drag-instruction {
+  margin-top: 25px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.arrow {
-  font-size: 24px;
-  color: white;
-  cursor: pointer;
-}
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .carousel-3d-viewport {
+    height: 400px;
+  }
 
-.dots {
-  display: flex;
-  gap: 10px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #444;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #5d5fef;
-  transform: scale(1.2);
-}
-
-.decor-zigzag {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 50px;
-  height: 20px;
-  /* Simple placeholder for zigzag */
-  border-bottom: 2px solid white;
-  border-left: 2px solid white;
-  transform: skewX(-45deg);
+  .carousel-3d-container {
+    width: 240px;
+    height: 340px;
+  }
+  
+  .card-3d-info h3 {
+    font-size: 16px;
+  }
+  
+  .projects-section .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 }
