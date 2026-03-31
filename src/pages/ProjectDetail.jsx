@@ -72,9 +72,8 @@ const ProjectDetail = () => {
             <span className="plus-icon">+</span>
           </div>
           <ul className="skills-list">
-            <li>Adobe Photoshop (Layout & Branding)</li>
-            <li>Adobe After Effects (3D Compositing)</li>
-            <li>Visual Storytelling</li>
+            <li>Adobe Photoshop </li>
+            <li>Adobe After Effects </li>
           </ul>
         </motion.div>
       </motion.section>
@@ -104,6 +103,8 @@ const ProjectDetail = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
+          <br></br>
+          <br></br>
           <h3>Strategic Solution</h3> 
           <div className="solution-inner">
             <div className="section-header">
@@ -136,9 +137,9 @@ const ProjectDetail = () => {
           {[
             { img: paperSketch, label: "Conceptual Sketch", size: "large" },
             { img: digitalSketch, label: "Digital Drafting", size: "" },
-            { img: topside, label: "Technical Mapping", size: "" },
-            { img: frontside, label: "Final Render", size: "large" },
-            { img: leftside, label: "Detail Execution", size: "full-width" }
+            { img: topside, label: "Top Side", size: "" },
+            { img: frontside, label: "Front Side", size: "large" },
+            { img: leftside, label: "Detail Side", size: "full-width" }
           ].map((item, index) => (
             <motion.div 
               key={index}
