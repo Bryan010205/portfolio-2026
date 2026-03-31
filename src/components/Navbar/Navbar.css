@@ -5,64 +5,92 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
-  background-color: #19191B;
-  position: sticky;
+  background-color: rgba(25, 25, 27, 0.85); /* Chỉnh mờ nhẹ để thấy hiệu ứng kính */
+  backdrop-filter: blur(12px); /* Hiệu ứng kính mờ cao cấp */
+  -webkit-backdrop-filter: blur(12px);
+  position: fixed; /* Đổi từ sticky sang fixed để đảm bảo độ ổn định */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Viền mảnh sang trọng */
   transition: all 0.3s ease;
 }
 
-/* === LOGO 1 (CHỮ BRYAN) === */
+/* === 🔴 FIX LOGO (CHỮ BRYAN) === */
 .navbar-logo {
   display: flex;
   align-items: center;
+  height: 100%; /* Lấy hết chiều cao navbar để căn giữa dọc */
   text-decoration: none;
-  flex-shrink: 0; /* Giữ logo không bị méo */
+  flex-shrink: 0;
 }
 
 .navbar-logo img {
-  width: 110px;
+  width: 120px; /* Tăng nhẹ size logo cho cân đối với font mới */
   height: auto;
   object-fit: contain;
+  /* Đảm bảo ảnh không bị lệch trục */
+  display: block; 
 }
 
-/* === MENU LINKS === */
+/* === MENU LINKS (Font Space Grotesk) === */
 .navbar-links {
   display: flex;
   list-style: none;
-  gap: 40px;
+  gap: 45px; /* Tăng khoảng cách cho thoáng */
   margin: 0;
   padding: 0;
 }
 
 .navbar-links li a {
   text-decoration: none;
-  color: #a0a0a0;
+  color: rgba(255, 255, 255, 0.6); /* Trắng mờ tinh tế */
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   font-weight: 500;
-  transition: color 0.3s ease;
+  text-transform: uppercase; /* Viết hoa nhìn sẽ "Designer" hơn */
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hiệu ứng gạch chân mượt mà khi hover */
+.navbar-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: #5d5fef;
+  transition: width 0.3s ease;
 }
 
 .navbar-links li a:hover {
   color: #ffffff;
 }
 
+.navbar-links li a:hover::after {
+  width: 100%;
+}
+
 /* === ACTIONS (CONTACT & AVATAR) === */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 25px; /* Tăng khoảng cách để Avatar có không gian thở */
+  gap: 30px; 
   flex-shrink: 0; 
 }
 
-/* Nút Contact (Giờ là thẻ NavHashLink) */
 .contact-btn {
   background-color: transparent;
   color: #ffffff;
-  border: 1px solid #ffffff;
-  padding: 10px 24px;
-  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 26px;
+  border-radius: 50px; /* Bo tròn hoàn toàn */
   cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -76,62 +104,44 @@
 .contact-btn:hover {
   background-color: #ffffff;
   color: #19191B;
+  border-color: #ffffff;
   transform: translateY(-2px);
 }
 
-/* === LOGO 3 (AVATAR TRÒN) - FIX THU NHỎ === */
+/* === AVATAR TRÒN === */
 .profile-img-nav {
-  width: 60px !important; /* Tăng size lên cho rõ nét */
-  height: 60px !important;
-  min-width: 60px !important; /* Chặn tuyệt đối việc bị thu nhỏ */
-  flex-shrink: 0 !important;   /* Chặn tuyệt đối việc bị thu nhỏ */
-  
+  width: 50px !important; /* Giảm size xuống một chút để không lấn át logo */
+  height: 50px !important;
+  min-width: 50px !important;
+  flex-shrink: 0 !important;
   border-radius: 50% !important;
   object-fit: cover !important;
-  border: 2px solid transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .profile-img-nav:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(8deg);
   border-color: #5d5fef;
-  filter: drop-shadow(0 0 10px rgba(93, 95, 239, 0.3));
+  box-shadow: 0 0 15px rgba(93, 95, 239, 0.4);
 }
 
-/* --- MOBILE RESPONSIVE (MAX-WIDTH: 768PX) --- */
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
   .navbar {
-    height: 70px !important;
-    padding: 0 15px !important;
-    justify-content: space-between !important;
-  }
-
-  .navbar-logo img {
-    width: 80px !important;
+    padding: 0 20px !important;
   }
 
   .navbar-links {
-    gap: 15px !important;
+    display: none; /* Tạm ẩn menu trên mobile để tránh chật chội */
   }
 
-  .navbar-links li a {
-    font-size: 13px !important;
-  }
-
-  .navbar-actions {
-    gap: 10px !important;
+  .navbar-logo img {
+    width: 90px !important;
   }
 
   .contact-btn {
-    padding: 6px 14px !important;
-    font-size: 12px !important;
-    border-radius: 15px !important;
-  }
-
-  .profile-img-nav {
-    width: 50px !important; /* Thu nhỏ nhẹ trên mobile cho cân đối */
-    height: 50px !important;
-    min-width: 50px !important;
+    display: none; /* Ẩn nút contact trên mobile để giữ chỗ cho logo và avatar */
   }
 }

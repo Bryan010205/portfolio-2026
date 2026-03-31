@@ -1,93 +1,104 @@
-/* === HERO CONTENT (Phần text và nút bên trái) === */
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 80px 0;
-  min-height: 80vh;
+  padding: 120px 0;
+  min-height: 90vh;
+  position: relative;
+  overflow: visible; 
 }
 
+/* === LEFT CONTENT (Giữ nguyên) === */
 .hero-content {
   flex: 1;
-  max-width: 55%;
+  max-width: 50%;
+  z-index: 2;
+  position: relative;
 }
 
 .hero-title {
-  font-size: 56px;
+  font-size: clamp(48px, 6vw, 72px);
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .hero-subtitle {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #ffffff;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 500;
+  margin-bottom: 35px;
+  color: #5d5fef;
+  letter-spacing: -0.02em;
 }
 
 .hero-description {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #a0a0a0;
-  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+  max-width: 90%;
 }
 
 .more-info-btn {
-  background-color: #5d5fef;
+  background: linear-gradient(135deg, #5d5fef 0%, #3f41c2 100%);
   color: white;
   border: none;
-  padding: 12px 24px;
+  padding: 16px 32px;
   font-size: 16px;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
+  gap: 12px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(93, 95, 239, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.more-info-btn:hover {
-  background-color: #4a4cd6;
-}
-
-
-/* === HERO VISUALS (Phần 2 khung ảnh bên phải) === */
+/* === RIGHT VISUALS (Phép thuật nằm ở đây) === */
 .hero-visuals {
   flex: 1;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: center;
   position: relative;
-  padding-right: 40px; 
+  z-index: 1;
 }
 
-/* KHUNG CHÍNH (Nền xanh lượn sóng) */
 .image-wrapper {
   position: relative;
-  width: 360px; 
-  height: 400px; 
+  width: 380px; /* Chỉnh lại size cho cân đối */
+  height: 460px;
+  
+  /* 🪄 CHIÊU THỨC QUYẾT ĐỊNH: */
+  overflow: hidden; /* Cắt bỏ mọi thứ thò ra ngoài khung */
+  border-radius: 30px; /* Bo góc cho khung tranh */
+  
+  background-color: #1a1a1a; /* Màu nền dự phòng */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
   z-index: 2;
-  margin-top: 40px; 
 }
 
-/* KHUNG VIỀN TRẮNG: Lệch xuống dưới 20px */
-.image-wrapper::before {
+/* KHUNG VIỀN TRẮNG (Phía sau wrapper - không bị overflow cắt) */
+.hero-visuals::before {
   content: '';
   position: absolute;
-  top: 20px; /* Viền trắng thấp hơn nền xanh 20px */
-  left: -20px; 
-  width: 100%;
-  height: 100%;
-  border: 2px solid #ffffff; 
-  border-radius: 24px; 
-  z-index: -1; 
-  box-sizing: border-box;
+  /* Lệch ra ngoài wrapper một chút để tạo chiều sâu */
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%) translate(25px, 25px); 
+  
+  width: 380px;
+  height: 460px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  z-index: 0;
 }
 
-/* LỚP NỀN: Ảnh lượn sóng xanh */
+/* ẢNH NỀN XANH */
 .hero-background {
   position: absolute;
   top: 0;
@@ -95,106 +106,59 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
-  z-index: 0; 
+  z-index: 1;
+  filter: brightness(0.7);
 }
 
-/* LỚP ẢNH CHÂN DUNG (logo2) - ĐÃ CẬP NHẬT */
+/* 🪄 ẢNH CHÂN DUNG (LOGO2) LỌT GỌN TRONG KHUNG */
 .profile-image {
   position: absolute;
-  /* FIX: Cho bottom âm đúng bằng độ lệch của viền trắng (20px) 
-     để mép áo đụng khít viền trắng */
-  bottom: -20px; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   
-  left: 50%;
-  transform: translateX(-50%); 
-  width: 95%; 
+  /* 🪄 DÙNG COVER ĐỂ ẢNH TỰ ĐIỀN ĐẦY KHUNG MÀ KHÔNG MÉO */
+  object-fit: cover; 
+  object-position: center top; /* Lấy từ đỉnh đầu xuống */
   
-  /* Tăng height một chút để bù đắp phần dôi ra ở dưới mà đầu vẫn lòi lên trên được */
-  height: 120%; 
-  
-  object-fit: cover;
-  object-position: bottom;
-  
-  /* Bo góc dưới của ảnh để khớp với viền trắng */
-  border-radius: 0 0 24px 24px; 
-  z-index: 1; 
+  z-index: 2;
+  /* Giữ lại bóng đổ nhẹ bên trong để tách người khỏi nền xanh */
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
 }
 
-/* HỌA TIẾT TRANG TRÍ */
+/* HỌA TIẾT TRANG TRÍ (Cho nằm ra ngoài visuals để không bị overflow cắt) */
 .decorative-circle {
   position: absolute;
-  top: -20px;
-  right: -30px;
-  width: 45px;
-  height: 45px;
-  border: 1px solid white;
+  top: 40px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   z-index: 3;
 }
 
 .decorative-plus {
   position: absolute;
-  bottom: -10px;
-  right: -50px;
+  bottom: 80px;
+  right: 10px;
   font-size: 40px;
-  font-weight: 300;
-  color: white;
+  color: #5d5fef;
   z-index: 3;
 }
 
-
-@media (max-width: 768px) {
+/* === MOBILE RESPONSIVE === */
+@media (max-width: 992px) {
   .hero-section {
-    display: flex;
-    flex-direction: column !important; /* Buộc xếp dọc */
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    gap: 30px; /* Tạo khoảng cách giữa Ảnh và Chữ */
+    flex-direction: column-reverse;
+    padding: 80px 20px;
   }
-
-  .hero-visuals {
-    order: 1; /* Cho ảnh nằm trên */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    margin: 0 auto;
-  }
-
   .image-wrapper {
     width: 280px;
-    height: 320px;
-    position: relative;
-    margin: 0 auto;
-    /* Bỏ các thuộc tính left/right cũ nếu có để nó vào giữa */
-    left: 0; 
+    height: 340px;
   }
-
-  .hero-content {
-    order: 2; /* Cho chữ nằm dưới ảnh */
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-title {
-    font-size: 42px;
-    line-height: 1.1;
-    margin: 20px 0 10px 0;
-  }
-
-  .hero-subtitle {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .hero-description {
-    text-align: center;
-    font-size: 14px;
-    padding: 0 10px;
+  .hero-visuals::before {
+    display: none; /* Ẩn viền trang trí trên mobile cho gọn */
   }
 }

@@ -11,7 +11,7 @@ import topside from '../assets/Topside.jpg';
 import leftside from '../assets/Leftside.jpg';
 
 const ProjectDetail = () => {
-  // Biến cấu hình hiệu ứng hiện hình
+  // Biến cấu hình hiệu ứng hiện hình (Dùng cho các phần tử con)
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
@@ -28,8 +28,11 @@ const ProjectDetail = () => {
   return (
     <motion.div 
       className="project-detail-page"
-      initial="hidden"
-      animate="visible"
+      // 🪄 TÍCH HỢP CHUYỂN CẢNH (Page Transition)
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }} // Trượt nhẹ lên khi thoát trang
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* 1. HERO SECTION */}
       <section className="project-hero">
@@ -37,7 +40,7 @@ const ProjectDetail = () => {
           className="hero-img-wrapper"
           initial={{ clipPath: 'inset(0% 100% 0% 0%)' }}
           animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 1.2, ease: "easeInOut", delay: 0.2 }}
         >
           <img src={projectHero} alt="Trung Nguyen Legend Instant Coffee Packaging" />
           <div className="decor-zigzag top-left">〰</div>
@@ -103,8 +106,8 @@ const ProjectDetail = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <br></br>
-          <br></br>
+          <br />
+          <br />
           <h3>Strategic Solution</h3> 
           <div className="solution-inner">
             <div className="section-header">

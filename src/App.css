@@ -1,44 +1,92 @@
+/* 1. SETUP HỆ THỐNG CUỘN & FONT */
 html {
-  scroll-behavior: smooth; /* Ép toàn bộ trình duyệt cuộn mượt */
-  scroll-padding-top: 80px; /* Quan trọng: Để khi cuộn tới, tiêu đề không bị cái Navbar che mất */
+  scroll-behavior: smooth;
+  /* Giúp tiêu đề section không bị Navbar đè lên khi chuyển hướng từ menu */
+  scroll-padding-top: 90px; 
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* ĐỔI TỪ 'Inter' SANG 'Space Grotesk' */
+  /* Font Space Grotesk đã nhúng ở index.html */
   font-family: 'Space Grotesk', sans-serif;
+  /* Chặn highlight xanh mặc định của mobile để web trông như app cao cấp */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. PHÉP THUẬT: NOISE OVERLAY (Hiệu ứng nhiễu phim nghệ thuật) */
+/* Tạo một lớp hạt li ti giúp nền #19191B nhìn sâu và chuyên nghiệp hơn */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.04; /* Độ mờ cực thấp để không làm bẩn thiết kế */
+  pointer-events: none;
+  z-index: 9999;
 }
 
 body {
-  background-color: #19191B; /* GIỮ NGUYÊN MÀU CŨ CỦA HOÀNG */
+  background-color: #19191B; /* Màu nền xám tối chuẩn của Bryan */
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden; /* Giữ cái này để vòng xoay 3D Projects không bị lỗi scroll ngang */
+  /* Quan trọng: Chặn scroll ngang để các vật thể Parallax/3D không làm hỏng layout */
+  overflow-x: hidden; 
+  line-height: 1.6;
 }
 
+/* 3. PHÉP THUẬT: CUSTOM SELECTION (Màu tím khi bôi đen chữ) */
+::selection {
+  background-color: #5d5fef;
+  color: #ffffff;
+}
+
+/* 4. TYPOGRAPHY (Tối ưu hóa phông chữ) */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  /* Thu hẹp khoảng cách chữ giúp Space Grotesk nhìn "vibe" công nghệ hơn */
+  letter-spacing: -0.03em; 
+}
+
+p {
+  color: rgba(255, 255, 255, 0.8); /* Giảm nhẹ độ sáng text body để phân cấp thị giác */
+}
+
+/* 5. LAYOUT UTILITIES */
 .portfolio-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* TỐI ƯU CÁC TIÊU ĐỀ CHO SPACE GROTESK */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  letter-spacing: -0.02em; /* Giúp font này nhìn gọn gàng và "pro" hơn */
+/* Ép con trỏ thành bàn tay cho mọi thứ có thể tương tác */
+a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn {
+  cursor: pointer !important;
 }
 
-/* Nút bấm cũng dùng font mới */
-button {
+/* 6. PHÉP THUẬT: PARALLAX DECOR STYLING */
+.parallax-decor {
+  position: absolute;
+  color: rgba(93, 95, 239, 0.12); /* Màu tím thương hiệu siêu mờ */
   font-family: 'Space Grotesk', sans-serif;
+  font-weight: 300;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
 }
 
-/* Giữ lại cái custom scrollbar màu tím cho đồng bộ với thiết kế của Hoàng nha */
+.p-1 { top: 15%; left: 8%; font-size: 40px; }
+.p-2 { top: 45%; right: 12%; font-size: 24px; }
+.p-3 { bottom: 15%; left: 25%; font-size: 60px; }
+
+/* 7. CUSTOM SCROLLBAR (Thanh cuộn đen-tím mỏng) */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -46,10 +94,33 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #5d5fef;
+}
+
+/* 8. NÚT BẤM & TƯƠNG TÁC */
+button, .more-info-btn, .view-project-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(93, 95, 239, 0.2);
+}
+
+/* 9. RESPONSIVE */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+  
+  /* Ẩn bớt decor trên mobile để tránh rối mắt */
+  .parallax-decor {
+    display: none;
+  }
 }
