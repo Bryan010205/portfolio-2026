@@ -1,31 +1,43 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Thêm dòng này
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
+
+// Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
+import About from './components/About'; // 1. THÊM DÒNG NÀY
 import CoreValues from './components/CoreValues';
 import Projects from './components/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
+
 function App() {
   return (
     <div className="portfolio-container">
+      <ScrollToTop />
       <Navbar />
 
       <Routes>
-        {/* TRANG CHỦ: Phải đưa Projects vào trong này thì nó mới hiện ở trang chủ */}
         <Route path="/" element={
           <main>
             <Hero />
-            <CoreValues />
             
-            {/* THÊM DÒNG NÀY VÀO ĐÂY NÈ HOÀNG! */}
+            {/* 2. ĐƯA ABOUT VÀO ĐÂY NÈ HOÀNG! */}
+            <About /> 
+            
+            <CoreValues />
             <Projects /> 
           </main>
         } />
 
-        {/* TRANG CHI TIẾT DỰ ÁN */}
         <Route path="/project" element={<ProjectDetail />} />
       </Routes>
 

@@ -1,12 +1,16 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. Thêm cái này
 import './Projects.css';
 
 const Projects = () => {
+  const navigate = useNavigate(); // 2. Khởi tạo điều hướng
+
   const projectsData = [
     {
       id: 1,
       title: 'Coffee Packaging Box',
       category: 'Design',
+      // Dùng ảnh gốc của bạn cho đồng bộ trang chi tiết
       image: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=500&q=80', 
     },
     {
@@ -38,21 +42,18 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeCardIndex, setActiveCardIndex] = useState(0); 
   const carouselRef = useRef(null);
-  
   const isClickScrolling = useRef(false);
 
+  // --- GIỮ NGUYÊN LOGIC SCROLL CỦA HOÀNG ---
   const handleContainerScroll = () => {
     if (!isClickScrolling.current && carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      
       if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 10) {
         setCurrentIndex(projectsData.length - 1);
         return;
       }
-
       const itemWidth = 350; 
       const newIndex = Math.round(scrollLeft / itemWidth);
-      
       if (newIndex !== currentIndex) {
         setCurrentIndex(newIndex);
       }
@@ -62,14 +63,10 @@ const Projects = () => {
   const handleScroll = (index) => {
     if (carouselRef.current) {
       isClickScrolling.current = true;
-      
-      // Đồng bộ cả dấu chấm và thẻ bài cùng lúc
       setCurrentIndex(index);
       setActiveCardIndex(index); 
-      
       const { scrollWidth, clientWidth } = carouselRef.current;
       const maxScrollLeft = scrollWidth - clientWidth;
-      
       const targetScroll = Math.min(index * 350, maxScrollLeft);
 
       carouselRef.current.scrollTo({
@@ -94,6 +91,16 @@ const Projects = () => {
     handleScroll(newIndex);
   };
 
+  // 3. Hàm xử lý khi bấm nút View
+  const handleViewProject = (e, id) => {
+    e.stopPropagation(); // Chặn việc click vào nút mà nó lại chạy handleScroll của thẻ bài
+    if (id === 1) {
+      navigate('/project'); // Nếu là Coffee (id: 1) thì qua trang detail
+    } else {
+      alert("Dự án này đang cập nhật nội dung!");
+    }
+  };
+
   return (
     <section className="projects-section" id="projects">
       <h2 className="section-title">My projects</h2>
@@ -108,7 +115,6 @@ const Projects = () => {
             <div 
               className={`project-card ${activeCardIndex === index ? 'active-card' : ''}`} 
               key={project.id}
-              // Gắn trực tiếp handleScroll vào onClick của thẻ bài
               onClick={() => handleScroll(index)}
             >
               <div className="project-image-container">
@@ -117,7 +123,13 @@ const Projects = () => {
               </div>
               <div className="project-info">
                 <h3 className="project-title">{project.title}</h3>
-                <button className="view-btn">View</button>
+                {/* 4. Gắn sự kiện vào nút View */}
+                <button 
+                  className="view-btn"
+                  onClick={(e) => handleViewProject(e, project.id)}
+                >
+                  View
+                </button>
               </div>
             </div>
           ))}

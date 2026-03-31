@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth; /* Ép toàn bộ trình duyệt cuộn mượt */
+  scroll-padding-top: 80px; /* Quan trọng: Để khi cuộn tới, tiêu đề không bị cái Navbar che mất */
+}
+
 * {
   margin: 0;
   padding: 0;
