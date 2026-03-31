@@ -1,47 +1,93 @@
 .projects-section {
-  /* Tăng padding-top để tiêu đề có chỗ đứng cao hẳn lên */
   padding: 100px 0 60px 0; 
   position: relative;
-  background-color: #000;
+  /* 🪄 NỀN GALAXY SÂU: Kết hợp tinh vân (Nebula) xanh và tím */
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(93, 95, 239, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(63, 65, 194, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at center, #0d0e23 0%, #050508 100%);
   overflow: hidden;
   min-height: 85vh; 
   display: flex;
   flex-direction: column;
-  /* Bỏ căn giữa dọc để tiêu đề nằm cố định ở trên */
   justify-content: flex-start; 
   align-items: center;
 }
 
-.projects-section .section-title {
-  font-size: clamp(28px, 4vw, 40px); /* Tăng nhẹ size cho uy lực */
-  font-weight: 800;
-  /* 🪄 KHOẢNG CÁCH QUAN TRỌNG: Đẩy vòng xoay xuống dưới */
-  margin-bottom: 80px; 
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  z-index: 10;
-  position: relative;
+/* 🪄 LỚP SAO SÁNG (STARS PARTICLES) */
+/* Dùng chiêu tạo sao bằng box-shadow để hạt sao sắc nét và rực rỡ hơn gradient */
+.projects-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Tạo hàng trăm hạt sao li ti với độ sáng khác nhau */
+  background-image: 
+    radial-gradient(1px 1px at 25px 35px, white, rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 50px 100px, white, rgba(255,255,255,0)),
+    radial-gradient(2px 2px at 125px 150px, rgba(255,255,255,0.9), rgba(255,255,255,0)),
+    radial-gradient(1.5px 1.5px at 200px 50px, white, rgba(255,255,255,0));
+  background-size: 250px 250px; /* Lặp lại các cụm sao */
+  opacity: 0.4; /* Tăng độ rõ để nhìn thấy được trên màn hình */
+  animation: galaxyMove 150s linear infinite;
+  z-index: 1;
 }
 
-/* KHÔNG GIAN 3D VIEWPORT */
+/* === TIÊU ĐỀ NEON (Khớp vibe Galaxy) === */
+.projects-section .section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(38px, 6vw, 75px); 
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 4px;
+  margin-bottom: 80px; 
+  z-index: 20;
+  position: relative;
+  cursor: pointer;
+
+  text-shadow: 
+    0 0 10px #fff,
+    0 0 20px #5d5fef,
+    0 0 40px #5d5fef,
+    0 0 80px rgba(93, 95, 239, 0.5);
+
+  animation: neonFlicker 2s infinite alternate;
+  transition: all 0.3s ease;
+}
+
+.projects-section .section-title::after {
+  content: "THE NEBULA ARCHIVE";
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 12px;
+  color: rgba(165, 166, 246, 0.6); /* Màu tím nhạt */
+  text-shadow: 0 0 8px rgba(93, 95, 239, 0.4);
+}
+
+/* === HỆ THỐNG THẺ PROJECT (GIỮ NGUYÊN FORM CỦA HOÀNG) === */
 .carousel-3d-viewport {
   width: 100%;
-  height: 450px; 
+  height: 420px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Tăng perspective để cảm giác 3D rõ rệt hơn, card ở xa sẽ nhỏ hơn */
-  perspective: 1400px; 
+  perspective: 1200px; 
   cursor: grab;
   touch-action: none; 
+  z-index: 10;
 }
 
 .carousel-3d-viewport:active {
   cursor: grabbing;
 }
 
-/* CONTAINER CỐ ĐỊNH TẠI TÂM */
 .carousel-3d-container {
   position: relative;
   width: 260px; 
@@ -50,12 +96,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 🪄 MẸO NHỎ: Nghiêng nhẹ trục X 5 độ để nhìn từ trên xuống, 
-     giúp lộ rõ tiêu đề hơn nếu card có lỡ bay cao */
-  transform: rotateX(-5deg); 
 }
 
-/* CARD TRONG KHÔNG GIAN 3D */
 .project-card-3d {
   position: absolute;
   width: 100%;
@@ -68,22 +110,23 @@
 .card-3d-inner {
   width: 100%;
   height: 100%;
-  background: #121212;
+  background: rgba(13, 13, 15, 0.9); /* Làm trong suốt nhẹ để thấy nền sau */
+  backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 12px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
   transition: all 0.3s ease;
 }
 
-/* Hiệu ứng mờ dần cho các card ở xa (tùy thuộc vào code JS của bạn) */
 .card-3d-inner:hover {
   border-color: #5d5fef;
-  box-shadow: 0 0 20px rgba(93, 95, 239, 0.3);
+  box-shadow: 0 0 25px rgba(93, 95, 239, 0.4);
 }
 
+/* CÁC THÀNH PHẦN KHÁC GIỮ NGUYÊN... */
 .card-3d-image {
   position: relative;
   width: 100%;
@@ -112,33 +155,28 @@
   background: transparent;
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 16px;
-  border-radius: 20px;
-  cursor: pointer;
+  padding: 5px 14px;
+  border-radius: 15px;
   font-size: 11px;
 }
 
-/* HƯỚNG DẪN KÉO */
-.drag-instruction {
-  margin-top: 40px; /* Tăng khoảng cách xuống dưới */
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 10px;
-  letter-spacing: 2px;
+/* 🪄 KEYFRAMES GALAXY MOVE (Sao trôi mượt hơn) */
+@keyframes galaxyMove {
+  from { background-position: 0 0; }
+  to { background-position: 500px 1000px; }
 }
 
-/* MOBILE RESPONSIVE */
+@keyframes neonFlicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 7px #fff, 0 0 21px #fff, 0 0 42px #5d5fef, 0 0 82px #5d5fef;
+    opacity: 1;
+  }
+  20%, 24%, 55% {        
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
+
 @media (max-width: 768px) {
-  .projects-section {
-    padding-top: 60px;
-  }
-  .projects-section .section-title {
-    margin-bottom: 40px;
-  }
-  .carousel-3d-viewport {
-    height: 340px;
-  }
-  .carousel-3d-container {
-    width: 200px;
-    height: 280px;
-  }
+  .projects-section .section-title { font-size: 34px; }
 }
