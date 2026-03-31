@@ -1,35 +1,39 @@
 .projects-section {
-  padding: 60px 0;
+  /* Tăng padding-top để tiêu đề có chỗ đứng cao hẳn lên */
+  padding: 100px 0 60px 0; 
   position: relative;
   background-color: #000;
   overflow: hidden;
-  /* Thu nhỏ chiều cao section để không bị quá loãng */
   min-height: 85vh; 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* Bỏ căn giữa dọc để tiêu đề nằm cố định ở trên */
+  justify-content: flex-start; 
   align-items: center;
 }
 
 .projects-section .section-title {
-  font-size: clamp(28px, 4vw, 42px);
+  font-size: clamp(28px, 4vw, 40px); /* Tăng nhẹ size cho uy lực */
   font-weight: 800;
-  margin-bottom: 30px;
+  /* 🪄 KHOẢNG CÁCH QUAN TRỌNG: Đẩy vòng xoay xuống dưới */
+  margin-bottom: 80px; 
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
+  z-index: 10;
+  position: relative;
 }
 
 /* KHÔNG GIAN 3D VIEWPORT */
 .carousel-3d-viewport {
   width: 100%;
-  height: 500px; /* Thu nhỏ khung nhìn từ 600px xuống 500px */
+  height: 450px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1500px; 
+  /* Tăng perspective để cảm giác 3D rõ rệt hơn, card ở xa sẽ nhỏ hơn */
+  perspective: 1400px; 
   cursor: grab;
-  /* Ngăn chặn các hành động mặc định của trình duyệt để drag mượt hơn */
   touch-action: none; 
 }
 
@@ -40,13 +44,15 @@
 /* CONTAINER CỐ ĐỊNH TẠI TÂM */
 .carousel-3d-container {
   position: relative;
-  /* Thu nhỏ kích thước khung card */
-  width: 300px; 
-  height: 420px;
+  width: 260px; 
+  height: 360px;
   transform-style: preserve-3d;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* 🪄 MẸO NHỎ: Nghiêng nhẹ trục X 5 độ để nhìn từ trên xuống, 
+     giúp lộ rõ tiêu đề hơn nếu card có lỡ bay cao */
+  transform: rotateX(-5deg); 
 }
 
 /* CARD TRONG KHÔNG GIAN 3D */
@@ -56,7 +62,6 @@
   height: 100%;
   backface-visibility: hidden; 
   transform-style: preserve-3d;
-  /* Giúp card mượt mà hơn khi xoay */
   will-change: transform; 
 }
 
@@ -65,26 +70,27 @@
   height: 100%;
   background: #121212;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 15px;
+  border-radius: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
 }
 
+/* Hiệu ứng mờ dần cho các card ở xa (tùy thuộc vào code JS của bạn) */
 .card-3d-inner:hover {
   border-color: #5d5fef;
-  box-shadow: 0 0 20px rgba(93, 95, 239, 0.2);
+  box-shadow: 0 0 20px rgba(93, 95, 239, 0.3);
 }
 
 .card-3d-image {
   position: relative;
   width: 100%;
-  height: 65%; /* Giảm tỉ lệ ảnh một chút để cân đối thông tin bên dưới */
-  border-radius: 12px;
+  height: 60%;
+  border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   background: #1a1a1a;
 }
 
@@ -93,79 +99,46 @@
   height: 100%;
   object-fit: cover;
   user-select: none;
-  -webkit-user-drag: none; 
-}
-
-.card-3d-tag {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(93, 95, 239, 0.95);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 10px;
-  text-transform: uppercase;
 }
 
 .card-3d-info h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 12px 0;
-  /* Giới hạn dòng tiêu đề nếu quá dài */
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0 0 8px 0;
 }
 
 .card-3d-info button {
   background: transparent;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 6px 16px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 12px;
-  transition: all 0.3s ease;
-  width: fit-content;
-}
-
-.card-3d-info button:hover {
-  background: #fff;
-  color: #000;
-  border-color: #fff;
+  font-size: 11px;
 }
 
 /* HƯỚNG DẪN KÉO */
 .drag-instruction {
-  margin-top: 25px;
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 12px;
-  font-family: 'Space Mono', monospace;
-  text-transform: uppercase;
+  margin-top: 40px; /* Tăng khoảng cách xuống dưới */
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 10px;
   letter-spacing: 2px;
 }
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-  .carousel-3d-viewport {
-    height: 400px;
+  .projects-section {
+    padding-top: 60px;
   }
-
-  .carousel-3d-container {
-    width: 240px;
+  .projects-section .section-title {
+    margin-bottom: 40px;
+  }
+  .carousel-3d-viewport {
     height: 340px;
   }
-  
-  .card-3d-info h3 {
-    font-size: 16px;
-  }
-  
-  .projects-section .section-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+  .carousel-3d-container {
+    width: 200px;
+    height: 280px;
   }
 }

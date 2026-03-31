@@ -42,7 +42,7 @@ const Projects = () => {
                 key={project.id}
                 style={{
                   // Thu nhỏ bán kính vòng xoay xuống 380px để không bị tràn
-                  transform: `rotateY(${theta}deg) translateZ(380px)` 
+                  transform: `rotateY(${theta}deg) translateZ(290px)` 
                 }}
               >
                 <div className="card-3d-inner">
@@ -63,7 +63,6 @@ const Projects = () => {
         </motion.div>
       </div>
 
-      <div className="drag-instruction">⟷ Drag to spin</div>
     </section>
   );
 };
