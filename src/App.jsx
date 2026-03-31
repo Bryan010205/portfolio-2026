@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import CoreValues from './components/CoreValues';
+import Projects from './components/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 
 function App() {
@@ -13,12 +14,14 @@ function App() {
       <Navbar />
 
       <Routes>
-        {/* TRANG CHỦ: Gom Hero và CoreValues lại */}
+        {/* TRANG CHỦ: Phải đưa Projects vào trong này thì nó mới hiện ở trang chủ */}
         <Route path="/" element={
           <main>
             <Hero />
             <CoreValues />
-            {/* Bạn có thể thêm About hay Projects component ở đây nếu muốn */}
+            
+            {/* THÊM DÒNG NÀY VÀO ĐÂY NÈ HOÀNG! */}
+            <Projects /> 
           </main>
         } />
 

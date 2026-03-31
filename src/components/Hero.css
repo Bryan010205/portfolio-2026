@@ -58,36 +58,36 @@
 .hero-visuals {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* Đẩy sát sang phải cho giống wireframe */
+  justify-content: flex-end; 
   align-items: center;
   position: relative;
-  padding-right: 40px; /* Chừa chỗ cho dấu cộng và vòng tròn */
+  padding-right: 40px; 
 }
 
-/* KHUNG CHÍNH (Kích thước chuẩn của nền xanh) */
+/* KHUNG CHÍNH (Nền xanh lượn sóng) */
 .image-wrapper {
   position: relative;
-  width: 360px; /* Bề ngang to ra */
-  height: 400px; /* Chiều cao chuẩn */
+  width: 360px; 
+  height: 400px; 
   z-index: 2;
-  margin-top: 40px; /* Đẩy xuống một tí để chừa không gian cho đầu lòi lên */
+  margin-top: 40px; 
 }
 
-/* KHUNG VIỀN TRẮNG: To đúng bằng nền xanh, lệch góc DƯỚI - TRÁI */
+/* KHUNG VIỀN TRẮNG: Lệch xuống dưới 20px */
 .image-wrapper::before {
   content: '';
   position: absolute;
-  top: 20px; /* Lệch xuống dưới */
-  left: -20px; /* Lệch sang trái */
+  top: 20px; /* Viền trắng thấp hơn nền xanh 20px */
+  left: -20px; 
   width: 100%;
   height: 100%;
   border: 2px solid #ffffff; 
-  border-radius: 24px; /* Bo góc to ra cho mềm mại giống wireframe */
+  border-radius: 24px; 
   z-index: -1; 
   box-sizing: border-box;
 }
 
-/* LỚP NỀN: Ảnh lượn sóng xanh (background_hero) */
+/* LỚP NỀN: Ảnh lượn sóng xanh */
 .hero-background {
   position: absolute;
   top: 0;
@@ -99,17 +99,25 @@
   z-index: 0; 
 }
 
-/* LỚP ẢNH CHÂN DUNG (logo2) */
+/* LỚP ẢNH CHÂN DUNG (logo2) - ĐÃ CẬP NHẬT */
 .profile-image {
   position: absolute;
-  bottom: 0; /* Ép dính chặt xuống đáy nền xanh */
+  /* FIX: Cho bottom âm đúng bằng độ lệch của viền trắng (20px) 
+     để mép áo đụng khít viền trắng */
+  bottom: -20px; 
+  
   left: 50%;
-  transform: translateX(-50%); /* Căn giữa */
-  width: 95%; /* Chiếm 95% bề ngang nền xanh để lộ viền xanh 2 bên */
-  height: 115%; /* Cao hơn 15% để phần tóc lòi lên trên */
+  transform: translateX(-50%); 
+  width: 95%; 
+  
+  /* Tăng height một chút để bù đắp phần dôi ra ở dưới mà đầu vẫn lòi lên trên được */
+  height: 120%; 
+  
   object-fit: cover;
   object-position: bottom;
-  border-radius: 0 0 24px 24px; /* Bo tròn 2 góc dưới khớp y xì với nền xanh */
+  
+  /* Bo góc dưới của ảnh để khớp với viền trắng */
+  border-radius: 0 0 24px 24px; 
   z-index: 1; 
 }
 
@@ -157,7 +165,11 @@
     margin-top: 30px;
   }
   .image-wrapper {
-    width: 260px; /* Thu nhỏ một chút trên mobile cho vừa màn hình */
+    width: 260px; 
     height: 300px;
+  }
+  /* Mobile cũng cần fix bottom tương ứng */
+  .profile-image {
+    bottom: -20px;
   }
 }
