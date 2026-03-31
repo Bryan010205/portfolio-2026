@@ -7,16 +7,49 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  /* ĐỔI TỪ 'Inter' SANG 'Space Grotesk' */
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 body {
-  background-color: #19191B; /* Màu nền chuẩn wireframe */
+  background-color: #19191B; /* GIỮ NGUYÊN MÀU CŨ CỦA HOÀNG */
   color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Giữ cái này để vòng xoay 3D Projects không bị lỗi scroll ngang */
 }
 
 .portfolio-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+/* TỐI ƯU CÁC TIÊU ĐỀ CHO SPACE GROTESK */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Giúp font này nhìn gọn gàng và "pro" hơn */
+}
+
+/* Nút bấm cũng dùng font mới */
+button {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Giữ lại cái custom scrollbar màu tím cho đồng bộ với thiết kế của Hoàng nha */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #19191B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5d5fef;
 }
