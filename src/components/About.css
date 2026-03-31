@@ -63,3 +63,18 @@
   transform: translate(-50%, -50%) scale(1.1);
   background-color: #4a4cd6;
 }
+
+@media (max-width: 768px) {
+  .about-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .about-video-container {
+    width: 100%;
+    max-width: 350px; /* Giới hạn độ rộng video trên mobile */
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}

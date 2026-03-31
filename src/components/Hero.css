@@ -144,32 +144,57 @@
 }
 
 
-/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
   .hero-section {
-    flex-direction: column-reverse;
-    padding: 40px 0;
-    gap: 60px;
+    display: flex;
+    flex-direction: column !important; /* Buộc xếp dọc */
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    gap: 30px; /* Tạo khoảng cách giữa Ảnh và Chữ */
   }
+
+  .hero-visuals {
+    order: 1; /* Cho ảnh nằm trên */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .image-wrapper {
+    width: 280px;
+    height: 320px;
+    position: relative;
+    margin: 0 auto;
+    /* Bỏ các thuộc tính left/right cũ nếu có để nó vào giữa */
+    left: 0; 
+  }
+
   .hero-content {
+    order: 2; /* Cho chữ nằm dưới ảnh */
+    width: 100%;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
   .hero-title {
     font-size: 42px;
+    line-height: 1.1;
+    margin: 20px 0 10px 0;
   }
+
   .hero-subtitle {
     font-size: 20px;
+    margin-bottom: 20px;
   }
-  .hero-visuals {
-    width: 100%;
-    margin-top: 30px;
-  }
-  .image-wrapper {
-    width: 260px; 
-    height: 300px;
-  }
-  /* Mobile cũng cần fix bottom tương ứng */
-  .profile-image {
-    bottom: -20px;
+
+  .hero-description {
+    text-align: center;
+    font-size: 14px;
+    padding: 0 10px;
   }
 }

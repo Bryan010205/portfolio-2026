@@ -92,12 +92,90 @@
   filter: drop-shadow(0 0 15px rgba(93, 95, 239, 0.5));
 }
 
-/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 768px) {
+  /* 1. Ép tất cả nằm trên 1 hàng ngang duy nhất */
   .navbar {
-    padding: 0 20px;
+    display: flex !important;
+    flex-direction: row !important; /* Buộc nằm ngang */
+    align-items: center !important;
+    justify-content: space-between !important; /* Chia đều khoảng cách 3 cụm */
+    height: 70px !important; /* Thu hẹp chiều cao cho gọn */
+    padding: 0 15px !important; /* Giảm padding hai bên để có thêm chỗ */
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
+
+  /* 2. Thu nhỏ Logo Bryan một chút */
+  .navbar-logo {
+    flex: 0 0 auto !important;
+  }
+  .navbar-logo img {
+    width: 70px !important; /* Thu nhỏ logo chữ để nhường chỗ */
+  }
+
+  /* 3. Thu hẹp Menu Links (Home, About, Projects) */
   .navbar-links {
-    display: none;
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 12px !important; /* Giảm khoảng cách giữa các chữ */
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navbar-links li a {
+    font-size: 12px !important; /* Giảm size chữ để không bị tràn hàng */
+    white-space: nowrap !important;
+  }
+
+  /* 4. Cụm Actions (Contact + Profile) */
+  .navbar-actions {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 8px !important; /* Khoảng cách nút và ảnh tròn hẹp lại */
+  }
+
+  /* 5. Nút Contact mini */
+  .contact-btn {
+    padding: 5px 12px !important; /* Nút nhỏ lại */
+    font-size: 11px !important;
+    border-radius: 15px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 6. Ảnh Profile tròn */
+  .profile-img-nav {
+    width: 32px !important; /* Size nhỏ xinh để vừa hàng ngang */
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    margin: 0 !important;
+    filter: none !important; /* Bỏ shadow cho nhẹ mobile */
+  }
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
+    width: 100% !important;
+    padding: 0 30px !important; /* Tăng padding để ép chữ vào giữa */
+  }
+
+  .hero-description {
+    /* CHÌA KHÓA Ở ĐÂY NÈ HOÀNG */
+    text-align: justify !important;   /* Ép hai bên lề thẳng hàng tắp lự */
+    text-align-last: center !important; /* Ép dòng cuối cùng của đoạn văn nằm giữa */
+    
+    font-size: 14px !important;
+    line-height: 1.8 !important;
+    color: #a0a0a0 !important;
+    
+    max-width: 400px !important; /* Bóp chiều ngang lại để khối chữ trông đặc và đẹp hơn */
+    margin: 0 auto 35px auto !important;
+  }
+
+  .hero-title, .hero-subtitle {
+    text-align: center !important;
+    width: 100% !important;
   }
 }
