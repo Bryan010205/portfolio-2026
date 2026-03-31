@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link'; 
 import './Navbar.css';
-import logo1 from '../assets/logo1.png'; 
-import logo3 from '../assets/logo3.png'; 
+
+// 💡 CẬP NHẬT ĐƯỜNG DẪN: Lùi ra 2 cấp (../../) để tìm thư mục assets
+import logo1 from '../../assets/logo1.png'; 
+import logo3 from '../../assets/logo3.png'; 
 
 const Navbar = () => {
   return (
@@ -13,6 +15,7 @@ const Navbar = () => {
       </Link>
 
       <ul className="navbar-links">
+        {/* Đảm bảo ở các Section như Hero, About, Projects Hoàng đã đặt id tương ứng */}
         <li>
           <NavHashLink smooth to="/#home">Home</NavHashLink>
         </li>
@@ -25,7 +28,7 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-actions">
-        {/* 💡 SỬA NÚT CONTACT Ở ĐÂY: Trỏ về #contact-section ở Footer */}
+        {/* Trỏ về id="contact-section" nằm ở Footer */}
         <NavHashLink smooth to="/#contact-section" className="contact-btn">
           Contact
         </NavHashLink>

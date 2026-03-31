@@ -1,16 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom'; // 1. Thêm cái này
+import { useNavigate } from 'react-router-dom'; 
+import { motion } from 'framer-motion'; // Thêm hiệu ứng cho card
 import './Projects.css';
 
 const Projects = () => {
-  const navigate = useNavigate(); // 2. Khởi tạo điều hướng
+  const navigate = useNavigate();
 
   const projectsData = [
     {
       id: 1,
       title: 'Coffee Packaging Box',
       category: 'Design',
-      // Dùng ảnh gốc của bạn cho đồng bộ trang chi tiết
       image: 'https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=500&q=80', 
     },
     {
@@ -44,7 +44,7 @@ const Projects = () => {
   const carouselRef = useRef(null);
   const isClickScrolling = useRef(false);
 
-  // --- GIỮ NGUYÊN LOGIC SCROLL CỦA HOÀNG ---
+  // --- LOGIC SCROLL ---
   const handleContainerScroll = () => {
     if (!isClickScrolling.current && carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
@@ -91,19 +91,23 @@ const Projects = () => {
     handleScroll(newIndex);
   };
 
-  // 3. Hàm xử lý khi bấm nút View
+  // Hàm xử lý điều hướng sang trang Detail
   const handleViewProject = (e, id) => {
-    e.stopPropagation(); // Chặn việc click vào nút mà nó lại chạy handleScroll của thẻ bài
-    if (id === 1) {
-      navigate('/project'); // Nếu là Coffee (id: 1) thì qua trang detail
-    } else {
-      alert("Dự án này đang cập nhật nội dung!");
-    }
+    e.stopPropagation(); 
+    // Chuyển sang trang detail kèm theo ID dự án
+    navigate(`/project/${id}`); 
   };
 
   return (
     <section className="projects-section" id="projects">
-      <h2 className="section-title">My projects</h2>
+      <motion.h2 
+        className="section-title"
+        initial={{ opacity: 0, x: -50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+      >
+        My projects
+      </motion.h2>
       
       <div 
         className="projects-carousel" 
@@ -112,10 +116,15 @@ const Projects = () => {
       >
         <div className="projects-track">
           {projectsData.map((project, index) => (
-            <div 
+            <motion.div 
               className={`project-card ${activeCardIndex === index ? 'active-card' : ''}`} 
               key={project.id}
               onClick={() => handleScroll(index)}
+              whileHover={{ y: -10 }} // Nhấc nhẹ card khi hover
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="project-image-container">
                 <img src={project.image} alt={project.title} className="project-image" />
@@ -123,7 +132,6 @@ const Projects = () => {
               </div>
               <div className="project-info">
                 <h3 className="project-title">{project.title}</h3>
-                {/* 4. Gắn sự kiện vào nút View */}
                 <button 
                   className="view-btn"
                   onClick={(e) => handleViewProject(e, project.id)}
@@ -131,7 +139,7 @@ const Projects = () => {
                   View
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

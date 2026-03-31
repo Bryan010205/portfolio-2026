@@ -5,11 +5,11 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Mỗi khi đường dẫn (pathname) thay đổi, cuộn về đầu trang (0,0)
+    // Cuộn lên đầu trang (vị trí 0,0) mỗi khi đường dẫn thay đổi
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  return null; // Component này không hiển thị gì cả, chỉ chạy logic
+  return null; // Component này chỉ chạy logic, không cần hiển thị giao diện
 };
 
 export default ScrollToTop;

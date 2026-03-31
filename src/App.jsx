@@ -1,46 +1,48 @@
-import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './App.css';
 
-// Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Hero from './components/Hero';
-import About from './components/About'; // 1. THÊM DÒNG NÀY
-import CoreValues from './components/CoreValues';
-import Projects from './components/Projects';
-import ProjectDetail from './pages/ProjectDetail';
+// 1. Import các thành phần hỗ trợ (Utilities)
+import ScrollToTop from './components/ScrollToTop';
 
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-};
+// 2. Import các thành phần Layout (Dùng chung)
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+
+// 3. Import các Sections của trang Home (Lấy từ pages/Home)
+import Hero from './pages/Home/Hero';
+import About from './pages/Home/About';
+import Projects from './pages/Home/Projects';
+
+// 4. Import các Page và Component lẻ khác
+import CoreValues from './components/CoreValues/CoreValues';
+import ProjectDetail from './pages/ProjectDetail';
 
 function App() {
   return (
     <div className="portfolio-container">
+      {/* Tự động cuộn lên đầu khi chuyển trang */}
       <ScrollToTop />
+      
+      {/* Thanh điều hướng luôn xuất hiện ở đầu */}
       <Navbar />
 
       <Routes>
         <Route path="/" element={
           <main>
+            {/* Các section trên trang chủ sẽ xếp chồng lên nhau */}
             <Hero />
-            
-            {/* 2. ĐƯA ABOUT VÀO ĐÂY NÈ HOÀNG! */}
             <About /> 
-            
             <CoreValues />
             <Projects /> 
           </main>
         } />
 
-        <Route path="/project" element={<ProjectDetail />} />
+        {/* Trang chi tiết dự án */}
+        <Route path="/project/:id" element={<ProjectDetail />} />
       </Routes>
 
+      {/* Chân trang luôn xuất hiện ở cuối */}
       <Footer />
     </div>
   );

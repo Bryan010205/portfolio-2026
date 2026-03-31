@@ -36,10 +36,8 @@ const Footer = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    // Lệnh copy mail vào bộ nhớ
     navigator.clipboard.writeText(emailAddress);
     setCopied(true);
-    // Hiện chữ "Copied" trong 2 giây rồi đổi lại như cũ
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -53,9 +51,15 @@ const Footer = () => {
         </div>
 
         <div className="footer-content">
-          <h2 className="footer-title">LET'S COLLABORATE</h2>
+          <motion.h2 
+            className="footer-title"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            LET'S COLLABORATE
+          </motion.h2>
           
-          {/* Bấm vào dòng email này cũng sẽ copy luôn */}
           <h3 className="footer-email" onClick={handleCopy} style={{ cursor: 'pointer' }}>
             {emailAddress}
           </h3>
@@ -63,7 +67,27 @@ const Footer = () => {
           <div className="footer-actions">
             <Magnetic>
               <button className="footer-btn" onClick={handleCopy}>
-                {copied ? "EMAIL COPIED! " : "GET IN TOUCH ↗"}
+                <AnimatePresence mode="wait">
+                  {copied ? (
+                    <motion.span
+                      key="copied"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                    >
+                      EMAIL COPIED! ✅
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="get-in-touch"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                    >
+                      GET IN TOUCH ↗
+                    </motion.span>
+                  )}
+                </AnimatePresence>
               </button>
             </Magnetic>
             
@@ -92,6 +116,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom-text">
+        {/* Marquee đã ổn định */}
         <div className="marquee-content">
           <h1>PHUOC VO</h1><span className="separator">•</span>
           <h1>PHUOC VO</h1><span className="separator">•</span>

@@ -1,5 +1,8 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import './ProjectDetail.css';
+
+// 💡 CẬP NHẬT ĐƯỜNG DẪN: Lùi 1 cấp (../)
 import projectHero from '../assets/ProjectHero.jpg';
 import paperSketch from '../assets/Paper_Sketch.jpg';
 import digitalSketch from '../assets/Digital_Sketch.jpg';
@@ -8,20 +11,49 @@ import topside from '../assets/Topside.jpg';
 import leftside from '../assets/Leftside.jpg';
 
 const ProjectDetail = () => {
+  // Biến cấu hình hiệu ứng hiện hình
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
   return (
-    <div className="project-detail-page">
+    <motion.div 
+      className="project-detail-page"
+      initial="hidden"
+      animate="visible"
+    >
       {/* 1. HERO SECTION */}
       <section className="project-hero">
-        <div className="hero-img-wrapper">
+        <motion.div 
+          className="hero-img-wrapper"
+          initial={{ clipPath: 'inset(0% 100% 0% 0%)' }}
+          animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+        >
           <img src={projectHero} alt="Trung Nguyen Legend Instant Coffee Packaging" />
           <div className="decor-zigzag top-left">〰</div>
           <div className="decor-circle top-right">○</div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 2. OVERVIEW & SKILLS */}
-      <section className="project-info-grid">
-        <div className="overview-content">
+      <motion.section 
+        className="project-info-grid"
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <motion.div className="overview-content" variants={fadeUp}>
           <div className="section-header">
             <span className="decor-triangle">▷</span>
             <h2>Overview</h2>
@@ -32,8 +64,9 @@ const ProjectDetail = () => {
             standards. By applying advanced 3D visualization techniques, I aimed to bridge the gap between 2D graphic layouts 
             and realistic commercial presentations.
           </p>
-        </div>
-        <div className="skills-content">
+        </motion.div>
+
+        <motion.div className="skills-content" variants={fadeUp}>
           <div className="section-header">
             <h2>Skills</h2>
             <span className="plus-icon">+</span>
@@ -43,13 +76,18 @@ const ProjectDetail = () => {
             <li>Adobe After Effects (3D Compositing)</li>
             <li>Visual Storytelling</li>
           </ul>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* 3. CHALLENGE & STRATEGIC SOLUTION */}
       <section className="problem-solution">
-        {/* Phần Challenge căn giữa */}
-        <div className="problem-box">
+        <motion.div 
+          className="problem-box"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <h3>The Challenge</h3>
           <p>
             The primary challenge was maintaining visual consistency across multiple sides 
@@ -57,14 +95,16 @@ const ProjectDetail = () => {
             realistic 3D model in After Effects without previous experience demanded a steep 
             learning curve in motion graphics and 3D lighting.
           </p>
-        </div>
-        <br></br>
-        <br></br>
-        <br></br>
-        {/* Phần Solution - Đã đưa tiêu đề ra ngoài để căn giữa tuyệt đối */}
-        <div className="solution-box">
-          <h3>Strategic Solution</h3> 
+        </motion.div>
 
+        <motion.div 
+          className="solution-box"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <h3>Strategic Solution</h3> 
           <div className="solution-inner">
             <div className="section-header">
               <span className="decor-triangle">▷</span>
@@ -76,7 +116,7 @@ const ProjectDetail = () => {
               communicates the product's high-end market positioning.
             </p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 4. DESIGN PROCESS */}
@@ -86,32 +126,32 @@ const ProjectDetail = () => {
           <div className="decor-circle">○</div>
         </div>
 
-        <div className="process-grid">
-          <div className="process-item large">
-            <img src={paperSketch} alt="Conceptual Paper Sketch" />
-            <span className="label-btn">Conceptual Sketch</span>
-          </div>
-          <div className="process-item">
-            <img src={digitalSketch} alt="Digital Layout Drafting" />
-            <span className="label-btn">Digital Drafting</span>
-          </div>
-
-          <div className="process-item">
-            <img src={topside} alt="Top Side Technical Mapping" />
-            <span className="label-btn">Technical Mapping</span>
-          </div>
-          <div className="process-item large">
-            <img src={frontside} alt="Final Packaging Front View" />
-            <span className="label-btn">Final Render</span>
-          </div>
-          
-          <div className="process-item full-width">
-            <img src={leftside} alt="Full Panel Layout Detail" />
-            <span className="label-btn">Detail Execution</span>
-          </div>
-        </div>
+        <motion.div 
+          className="process-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {[
+            { img: paperSketch, label: "Conceptual Sketch", size: "large" },
+            { img: digitalSketch, label: "Digital Drafting", size: "" },
+            { img: topside, label: "Technical Mapping", size: "" },
+            { img: frontside, label: "Final Render", size: "large" },
+            { img: leftside, label: "Detail Execution", size: "full-width" }
+          ].map((item, index) => (
+            <motion.div 
+              key={index}
+              className={`process-item ${item.size}`}
+              variants={fadeUp}
+            >
+              <img src={item.img} alt={item.label} />
+              <span className="label-btn">{item.label}</span>
+            </motion.div>
+          ))}
+        </motion.div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 
