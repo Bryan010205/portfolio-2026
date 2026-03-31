@@ -1,41 +1,55 @@
 .about-section {
-  padding: 80px 0;
-  text-align: center;
+  padding: 100px 0;
+  overflow: hidden;
 }
 
 .section-title {
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   color: #ffffff;
+  text-align: center;
 }
 
+/* CONTAINER CHÍNH CHIA 2 CỘT */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* BÊN TRÁI: VIDEO */
 .video-container {
+  flex: 1.2; /* Cho phần video to hơn một chút */
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 800px;
-  border-radius: 12px;
+  border-radius: 20px; /* Bo góc tròn hơn cho hiện đại */
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .video-thumbnail {
   width: 100%;
+  aspect-ratio: 16 / 10; /* Tỉ lệ ảnh chuẩn chuyên nghiệp */
   display: block;
   object-fit: cover;
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
+  opacity: 0.8;
+  transition: all 0.5s ease;
 }
 
 .video-wrapper:hover .video-thumbnail {
   opacity: 1;
+  transform: scale(1.03); /* Phóng nhẹ khi hover */
 }
 
 .play-btn {
@@ -43,38 +57,94 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 65px;
-  height: 65px;
+  width: 70px;
+  height: 70px;
   background-color: #5d5fef;
   border: none;
   border-radius: 50%;
   color: white;
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-left: 5px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
-  box-shadow: 0 4px 15px rgba(93, 95, 239, 0.4);
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(93, 95, 239, 0.6);
 }
 
-.play-btn:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  background-color: #4a4cd6;
+/* BÊN PHẢI: QUOTE BIẾN HÌNH */
+.quote-container {
+  flex: 0.8;
+  position: relative;
+  min-height: 250px; /* Cố định chiều cao để không bị nhảy layout khi chữ dài/ngắn */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Căn lề trái cho nghệ */
 }
 
-@media (max-width: 768px) {
-  .about-section {
+.video-caption {
+  font-family: 'Space Mono', monospace; /* Nếu chưa có font này web sẽ dùng monospace mặc định */
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  text-align: left;
+  margin: 0;
+  width: 100%;
+  /* Giúp chữ biến hình mượt mà tại chỗ */
+  position: absolute; 
+}
+
+/* THANH TIẾN TRÌNH NHỎ DƯỚI CHỮ */
+.quote-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.quote-progress-fill {
+  height: 100%;
+  background-color: #5d5fef;
+}
+
+/* RESPONSIVE CHO MOBILE */
+@media (max-width: 992px) {
+  .about-container {
+    flex-direction: column; /* Xếp chồng lên nhau */
+    gap: 40px;
     text-align: center;
-    padding: 60px 20px;
   }
 
-  .about-video-container {
+  .quote-container {
+    align-items: center;
+    min-height: 180px;
     width: 100%;
-    max-width: 350px; /* Giới hạn độ rộng video trên mobile */
-    margin: 30px auto;
-    border-radius: 12px;
-    overflow: hidden;
+  }
+
+  .video-caption {
+    text-align: center;
+    position: relative; /* Trở về bình thường trên mobile */
+    font-size: 1.1rem;
+  }
+
+  .quote-progress-bar {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .video-caption {
+    font-size: 1rem;
   }
 }
