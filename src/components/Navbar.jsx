@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavHashLink } from 'react-router-hash-link'; // 1. Import cái này
+import { NavHashLink } from 'react-router-hash-link'; 
 import './Navbar.css';
 import logo1 from '../assets/logo1.png'; 
 import logo3 from '../assets/logo3.png'; 
@@ -13,7 +13,6 @@ const Navbar = () => {
       </Link>
 
       <ul className="navbar-links">
-        {/* 2. Dùng NavHashLink và thêm smooth để cuộn mượt */}
         <li>
           <NavHashLink smooth to="/#home">Home</NavHashLink>
         </li>
@@ -26,7 +25,11 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-actions">
-        <button className="contact-btn">Contact</button>
+        {/* 💡 SỬA NÚT CONTACT Ở ĐÂY: Trỏ về #contact-section ở Footer */}
+        <NavHashLink smooth to="/#contact-section" className="contact-btn">
+          Contact
+        </NavHashLink>
+        
         <img src={logo3} alt="Profile" className="profile-img-nav" />
       </div>
     </nav>
