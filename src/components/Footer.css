@@ -1,7 +1,9 @@
+/* === FOOTER MAIN SECTION === */
 .footer-section {
   padding-top: 100px;
   position: relative;
-  overflow: hidden; /* Prevents the massive text from causing horizontal scrolling */
+  background-color: #19191B; /* Đảm bảo nền tối đồng bộ */
+  overflow: hidden; /* Ngăn chữ to gây cuộn ngang */
 }
 
 .footer-container {
@@ -12,6 +14,11 @@
 
 .footer-zigzag {
   margin-bottom: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-title {
@@ -29,6 +36,7 @@
   margin-bottom: 40px;
 }
 
+/* === ACTIONS: BUTTON & SOCIALS === */
 .footer-actions {
   display: flex;
   align-items: center;
@@ -48,12 +56,13 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .footer-btn:hover {
   background-color: #4a4cd6;
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(93, 95, 239, 0.3);
 }
 
 .social-links {
@@ -64,7 +73,8 @@
 
 .social-icon {
   color: #ffffff;
-  transition: color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,23 +82,23 @@
 
 .social-icon:hover {
   color: #5d5fef;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1);
 }
 
-/* Infinite Marquee Styling */
+/* === INFINITE MARQUEE (CHỮ CHẠY) === */
 .footer-bottom-text {
   width: 100%;
   overflow: hidden;
   display: flex;
   margin-top: 60px;
   white-space: nowrap;
-  user-select: none; /* Prevents text highlighting while scrolling */
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Thêm đường kẻ mờ cho sang */
 }
 
 .marquee-content {
   display: flex;
   align-items: center;
-  /* Adjust the '20s' to make it scroll faster or slower */
   animation: marquee 20s linear infinite; 
 }
 
@@ -99,23 +109,18 @@
   letter-spacing: -2px;
   margin: 0;
   line-height: 0.9;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .separator {
   font-size: clamp(3rem, 8vw, 8rem);
-  color: #5d5fef; /* Purple accent dot */
+  color: #5d5fef;
   padding: 0 20px;
 }
 
-/* Keyframes for the infinite scroll */
 @keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 /* --- MOBILE RESPONSIVE --- */
@@ -124,26 +129,51 @@
     padding-top: 60px;
   }
 
+  .footer-zigzag {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
   .footer-title {
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
   }
 
   .footer-email {
-    font-size: 24px;
+    font-size: 22px;
     text-align: center;
     margin-bottom: 30px;
   }
 
   .footer-actions {
-    flex-direction: column;
+    flex-direction: column; /* Xếp chồng nút bấm và social */
     justify-content: center;
     gap: 30px;
     margin-bottom: 60px;
   }
 
   .footer-btn {
-    width: 100%;
+    width: 100%; /* Nút bấm chiếm hết chiều ngang trên mobile */
     justify-content: center;
+    max-width: 300px; /* Không để nút quá dài */
+  }
+
+  /* 💡 ÉP SOCIAL LINKS LUÔN NẰM NGANG TRÊN MOBILE */
+  .social-links {
+    display: flex !important;
+    flex-direction: row !important; 
+    gap: 30px !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  .social-icon svg {
+    width: 28px; /* Thu nhỏ icon chút cho tinh tế trên mobile */
+    height: 28px;
+  }
+
+  .marquee-content h1 {
+    font-size: 5rem; /* Giảm size chữ chạy trên mobile cho đỡ choán chỗ */
   }
 }
