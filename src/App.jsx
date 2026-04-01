@@ -1,12 +1,12 @@
-import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // Thêm useLocation
-import { AnimatePresence } from 'framer-motion'; // Thêm AnimatePresence
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import './App.css';
 
-// 1. Import các thành phần hỗ trợ (Utilities)
+// 1. Import các thành phần hỗ trợ
 import ScrollToTop from './components/ScrollToTop';
 
-// 2. Import các thành phần Layout (Dùng chung)
+// 2. Import các thành phần Layout
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
@@ -20,32 +20,44 @@ import CoreValues from './components/CoreValues/CoreValues';
 import ProjectDetail from './pages/ProjectDetail';
 
 function App() {
-  // 🪄 Lấy vị trí URL hiện tại để làm "chìa khóa" cho chuyển cảnh
   const location = useLocation();
+
+  // 🪄 PHÉP THUẬT CƯỠNG ÉP: Đảm bảo luôn về đầu trang khi load lần đầu
+  useEffect(() => {
+    // Timeout nhẹ 100ms để chờ DOM load xong rồi mới cuộn
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="portfolio-container">
-      {/* Tự động cuộn lên đầu khi chuyển trang */}
+      {/* Component này sẽ xử lý cuộn khi chuyển giữa các Route */}
       <ScrollToTop />
       
-      {/* Thanh điều hướng luôn cố định */}
       <Navbar />
 
-      {/* 🪄 PHÉP THUẬT: AnimatePresence bọc ngoài Routes 🪄 */}
-      {/* mode="wait" giúp trang cũ biến mất xong mới hiện trang mới, tránh bị chồng chéo */}
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={
-            <main>
-              <Hero />
-              <About /> 
-              <CoreValues />
-              <Projects /> 
-            </main>
-          } />
+          <Route 
+            path="/" 
+            element={
+              /* Dùng React.Fragment hoặc thẻ div để bọc các section trang chủ */
+              <div className="home-wrapper">
+                <section id="hero"><Hero /></section>
+                <section id="about"><About /></section>
+                <section id="values"><CoreValues /></section>
+                <section id="projects"><Projects /></section>
+              </div>
+            } 
+          />
 
           {/* Trang chi tiết dự án */}
           <Route path="/project/:id" element={<ProjectDetail />} />
+          
+          {/* 🪄 DÒNG CỨU CÁNH: Nếu gõ bậy bạ URL thì tự về trang chủ */}
+          <Route path="*" element={<Hero />} />
         </Routes>
       </AnimatePresence>
 
