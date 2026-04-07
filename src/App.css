@@ -58,60 +58,67 @@ p {
   margin-bottom: 1.5rem;
 }
 
-/* 5. PHẦN THÂN TRANG CHỦ (Home-page) */
+/* 5. PHẦN THÂN TRANG CHỦ */
 .home-page section {
   padding: 80px 0;
   width: 100%;
 }
 
-/* 6. RESPONSIVE - PHÉP THUẬT CHO MOBILE */
+/* 6. RESPONSIVE - GIẢI CỨU MOBILE LAYOUT */
 @media (max-width: 768px) {
-  /* Cho phép chữ tràn đều màn hình như Wireframe */
-  .portfolio-container {
-    padding: 0 20px;
+  /* Ép container dàn hết hàng ngang */
+  .portfolio-container, 
+  .hero-content, 
+  .hero-section,
+  .home-page section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* Sửa lỗi chữ bị hẹp ở giữa */
+  .hero-description, p, .hero-title, .hero-subtitle {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important; /* Dàn lề trái theo wireframe */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   h1 {
-    font-size: 2.8rem !important; /* "Hi I'm Bryan Vo" to rõ */
+    font-size: 2.5rem !important; 
     line-height: 1.1;
   }
 
   h2 {
-    font-size: 2rem !important; /* "Something about me", "Core values" */
+    font-size: 1.8rem !important;
   }
 
-  p {
-    font-size: 1rem;
-    text-align: left; /* Dàn đều theo lề trái như hình bạn gửi */
-    width: 100% !important;
-  }
-
-  /* Ép tất cả ảnh và video vừa khít màn hình */
-  img, video, .video-container {
+  /* Ép ảnh & video co giãn theo màn hình */
+  img, video, .image-wrapper, .hero-visuals {
     width: 100% !important;
     height: auto !important;
-    border-radius: 12px;
+    max-width: 100% !important;
+    margin: 0 auto !important;
   }
 
-  /* Giảm khoảng cách section trên mobile cho gọn */
-  .home-page section {
-    padding: 40px 0;
-  }
-
-  /* Ẩn bớt các vật thể decor bay lơ lửng gây rối mắt mobile */
-.parallax-decor {
-  /* ... các thuộc tính cũ ... */
-  display: none !important; /* Dòng này để giấu sạch bách */
-}
-
-  /* Tối ưu Navbar trên điện thoại (để hiện Home, About, Projects) */
+  /* GIẢI CỨU NAVBAR: Hiện menu Home, About, Projects */
   .nav-links {
-    gap: 12px !important;
+    display: flex !important; /* Buộc hiện menu */
+    position: static !important;
+    gap: 8px !important;
+    background: transparent !important;
   }
   
   .nav-link {
-    font-size: 12px !important;
-    padding: 5px 8px;
+    font-size: 11px !important; /* Cho chữ nhỏ lại để vừa một hàng */
+    padding: 4px 6px !important;
+    white-space: nowrap; /* Không cho chữ xuống dòng */
+  }
+
+  .parallax-decor {
+    display: none !important;
   }
 }
 
@@ -125,9 +132,6 @@ p {
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #5d5fef;
 }
 
 /* 8. NÚT BẤM */
