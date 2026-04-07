@@ -1,11 +1,9 @@
 /* 1. SETUP HỆ THỐNG CUỘN & FONT */
 html {
   scroll-behavior: smooth;
-  /* Giúp tiêu đề section không bị Navbar đè lên */
-  scroll-padding-top: 90px; 
-  /* Đảm bảo luôn cho phép cuộn dọc */
+  scroll-padding-top: 80px; 
+  min-height: 100%;
   overflow-y: auto;
-  height: 100%;
 }
 
 * {
@@ -16,7 +14,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 2. NOISE OVERLAY (Hiệu ứng nhiễu phim nghệ thuật) */
+/* 2. NOISE OVERLAY */
 body::before {
   content: "";
   position: fixed;
@@ -34,96 +32,105 @@ body {
   background-color: #19191B;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Quan trọng: Cho phép cuộn dọc tự do, chỉ chặn ngang */
   overflow-x: hidden; 
-  overflow-y: visible;
   line-height: 1.6;
   min-height: 100vh;
 }
 
-/* 3. CUSTOM SELECTION (Màu tím khi bôi đen chữ) */
-::selection {
-  background-color: #5d5fef;
-  color: #ffffff;
+/* 3. LAYOUT UTILITIES */
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
 }
 
-/* 4. TYPOGRAPHY (Tối ưu hóa phông chữ) */
+/* 4. TYPOGRAPHY */
 h1, h2, h3, h4 {
   font-weight: 700;
-  letter-spacing: -0.03em; 
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
 
 p {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 5. LAYOUT UTILITIES */
-.portfolio-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  /* Đảm bảo container không chặn nội dung bên trong */
-  position: relative;
-  z-index: 1;
+/* 5. PHẦN THÂN TRANG CHỦ (Home-page) */
+.home-page section {
+  padding: 80px 0;
+  width: 100%;
 }
 
-/* Ép con trỏ thành bàn tay */
-a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn {
-  cursor: pointer !important;
+/* 6. RESPONSIVE - PHÉP THUẬT CHO MOBILE */
+@media (max-width: 768px) {
+  /* Cho phép chữ tràn đều màn hình như Wireframe */
+  .portfolio-container {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2.8rem !important; /* "Hi I'm Bryan Vo" to rõ */
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 2rem !important; /* "Something about me", "Core values" */
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: left; /* Dàn đều theo lề trái như hình bạn gửi */
+    width: 100% !important;
+  }
+
+  /* Ép tất cả ảnh và video vừa khít màn hình */
+  img, video, .video-container {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+  }
+
+  /* Giảm khoảng cách section trên mobile cho gọn */
+  .home-page section {
+    padding: 40px 0;
+  }
+
+  /* Ẩn bớt các vật thể decor bay lơ lửng gây rối mắt mobile */
+  .parallax-decor {
+    display: none;
+  }
+
+  /* Tối ưu Navbar trên điện thoại (để hiện Home, About, Projects) */
+  .nav-links {
+    gap: 12px !important;
+  }
+  
+  .nav-link {
+    font-size: 12px !important;
+    padding: 5px 8px;
+  }
 }
 
-/* 6. PARALLAX DECOR STYLING */
-.parallax-decor {
-  position: absolute;
-  color: rgba(93, 95, 239, 0.12);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 300;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-
-.p-1 { top: 15%; left: 8%; font-size: 40px; }
-.p-2 { top: 45%; right: 12%; font-size: 24px; }
-.p-3 { bottom: 15%; left: 25%; font-size: 60px; }
-
-/* 7. CUSTOM SCROLLBAR (Thanh cuộn đen-tím mỏng) */
+/* 7. CUSTOM SCROLLBAR */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
-
 ::-webkit-scrollbar-track {
   background: #19191B;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #5d5fef;
 }
 
-/* 8. NÚT BẤM & TƯƠNG TÁC */
+/* 8. NÚT BẤM */
 button, .more-info-btn, .view-project-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-button:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(93, 95, 239, 0.2);
-}
-
-/* 9. RESPONSIVE */
-@media (max-width: 768px) {
-  section {
-    padding: 60px 0;
-  }
-  
-  .parallax-decor {
-    display: none;
-  }
+  cursor: pointer !important;
+  transition: all 0.3s ease;
 }
