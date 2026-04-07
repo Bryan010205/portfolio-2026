@@ -1,22 +1,22 @@
 /* 1. SETUP HỆ THỐNG CUỘN & FONT */
 html {
   scroll-behavior: smooth;
-  /* Giúp tiêu đề section không bị Navbar đè lên khi chuyển hướng từ menu */
+  /* Giúp tiêu đề section không bị Navbar đè lên */
   scroll-padding-top: 90px; 
+  /* Đảm bảo luôn cho phép cuộn dọc */
+  overflow-y: auto;
+  height: 100%;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* Font Space Grotesk đã nhúng ở index.html */
   font-family: 'Space Grotesk', sans-serif;
-  /* Chặn highlight xanh mặc định của mobile để web trông như app cao cấp */
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 2. PHÉP THUẬT: NOISE OVERLAY (Hiệu ứng nhiễu phim nghệ thuật) */
-/* Tạo một lớp hạt li ti giúp nền #19191B nhìn sâu và chuyên nghiệp hơn */
+/* 2. NOISE OVERLAY (Hiệu ứng nhiễu phim nghệ thuật) */
 body::before {
   content: "";
   position: fixed;
@@ -25,22 +25,24 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url('https://grainy-gradients.vercel.app/noise.svg');
-  opacity: 0.04; /* Độ mờ cực thấp để không làm bẩn thiết kế */
+  opacity: 0.04;
   pointer-events: none;
   z-index: 9999;
 }
 
 body {
-  background-color: #19191B; /* Màu nền xám tối chuẩn của Bryan */
+  background-color: #19191B;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Quan trọng: Chặn scroll ngang để các vật thể Parallax/3D không làm hỏng layout */
+  /* Quan trọng: Cho phép cuộn dọc tự do, chỉ chặn ngang */
   overflow-x: hidden; 
+  overflow-y: visible;
   line-height: 1.6;
+  min-height: 100vh;
 }
 
-/* 3. PHÉP THUẬT: CUSTOM SELECTION (Màu tím khi bôi đen chữ) */
+/* 3. CUSTOM SELECTION (Màu tím khi bôi đen chữ) */
 ::selection {
   background-color: #5d5fef;
   color: #ffffff;
@@ -49,12 +51,11 @@ body {
 /* 4. TYPOGRAPHY (Tối ưu hóa phông chữ) */
 h1, h2, h3, h4 {
   font-weight: 700;
-  /* Thu hẹp khoảng cách chữ giúp Space Grotesk nhìn "vibe" công nghệ hơn */
   letter-spacing: -0.03em; 
 }
 
 p {
-  color: rgba(255, 255, 255, 0.8); /* Giảm nhẹ độ sáng text body để phân cấp thị giác */
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* 5. LAYOUT UTILITIES */
@@ -62,17 +63,20 @@ p {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  /* Đảm bảo container không chặn nội dung bên trong */
+  position: relative;
+  z-index: 1;
 }
 
-/* Ép con trỏ thành bàn tay cho mọi thứ có thể tương tác */
+/* Ép con trỏ thành bàn tay */
 a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn {
   cursor: pointer !important;
 }
 
-/* 6. PHÉP THUẬT: PARALLAX DECOR STYLING */
+/* 6. PARALLAX DECOR STYLING */
 .parallax-decor {
   position: absolute;
-  color: rgba(93, 95, 239, 0.12); /* Màu tím thương hiệu siêu mờ */
+  color: rgba(93, 95, 239, 0.12);
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 300;
   pointer-events: none;
@@ -86,7 +90,7 @@ a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn
 
 /* 7. CUSTOM SCROLLBAR (Thanh cuộn đen-tím mỏng) */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -94,7 +98,7 @@ a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
 
@@ -119,7 +123,6 @@ button:hover {
     padding: 60px 0;
   }
   
-  /* Ẩn bớt decor trên mobile để tránh rối mắt */
   .parallax-decor {
     display: none;
   }

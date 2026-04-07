@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './App.css';
@@ -38,26 +38,34 @@ function App() {
       
       <Navbar />
 
+      {/* AnimatePresence giúp chuyển cảnh mượt mà */}
       <AnimatePresence mode="wait">
+        {/* Quan trọng: location.pathname giúp React Router biết chính xác bạn đang ở đâu */}
         <Routes location={location} key={location.pathname}>
-          <Route 
-            path="/" 
-            element={
-              /* Dùng React.Fragment hoặc thẻ div để bọc các section trang chủ */
-              <div className="home-wrapper">
-                <section id="hero"><Hero /></section>
-                <section id="about"><About /></section>
-                <section id="values"><CoreValues /></section>
-                <section id="projects"><Projects /></section>
-              </div>
-            } 
-          />
-
-          {/* Trang chi tiết dự án */}
-          <Route path="/project/:id" element={<ProjectDetail />} />
           
-          {/* 🪄 DÒNG CỨU CÁNH: Nếu gõ bậy bạ URL thì tự về trang chủ */}
-          <Route path="*" element={<Hero />} />
+          {/* TRANG CHỦ: Chứa toàn bộ Hero, About, CoreValues, Projects */}
+          <Route path="/" element={
+            <main className="home-page">
+              <Hero />
+              <About /> 
+              <CoreValues />
+              <Projects /> 
+            </main>
+          } />
+
+          {/* TRANG CHI TIẾT DỰ ÁN */}
+          <Route path="/project/:id" element={<ProjectDetail />} />
+
+          {/* Dòng này để "chống cháy": Nếu URL sai, nó tự quay về trang chủ */}
+          <Route path="*" element={
+            <main>
+              <Hero />
+              <About /> 
+              <CoreValues />
+              <Projects /> 
+            </main>
+          } />
+          
         </Routes>
       </AnimatePresence>
 
