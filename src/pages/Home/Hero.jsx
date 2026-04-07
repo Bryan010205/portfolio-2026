@@ -7,12 +7,11 @@ import logo2 from '../../assets/logo2.png';
 import backgroundHero from '../../assets/background_hero.png';
 
 const Hero = () => {
-  // 1. SETUP PARALLAX (Phép thuật thứ 2)
+  // 1. SETUP PARALLAX
   const { scrollY } = useScroll();
   
   // Các vật thể trôi với tốc độ khác nhau khi cuộn chuột
   const ySlow = useTransform(scrollY, [0, 500], [0, 150]);   // Trôi chậm xuống
-  const yFast = useTransform(scrollY, [0, 500], [0, -200]);  // Trôi ngược lên nhanh
   const rotateDeg = useTransform(scrollY, [0, 500], [0, 90]); // Vừa trôi vừa xoay
 
   const containerVariants = {
@@ -42,10 +41,7 @@ const Hero = () => {
 
   return (
     <section className="hero-section" id="home">
-      {/* CÁC VẬT THỂ PARALLAX BAY LƠ LỬNG TRONG NỀN */}
-      <motion.div style={{ y: ySlow, rotate: rotateDeg }} className="parallax-decor p-1">✦</motion.div>
-      <motion.div style={{ y: yFast }} className="parallax-decor p-2">✕</motion.div>
-      <motion.div style={{ y: ySlow }} className="parallax-decor p-3">○</motion.div>
+      {/* ĐÃ XÓA CÁC VẬT THỂ PARALLAX ✦ ✕ ○ Ở ĐÂY */}
 
       <motion.div 
         className="hero-content"
