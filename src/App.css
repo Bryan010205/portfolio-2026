@@ -99,9 +99,10 @@ p {
   }
 
   /* Ẩn bớt các vật thể decor bay lơ lửng gây rối mắt mobile */
-  .parallax-decor {
-    display: none;
-  }
+.parallax-decor {
+  /* ... các thuộc tính cũ ... */
+  display: none !important; /* Dòng này để giấu sạch bách */
+}
 
   /* Tối ưu Navbar trên điện thoại (để hiện Home, About, Projects) */
   .nav-links {
