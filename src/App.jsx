@@ -1,6 +1,6 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom'; // Thêm useLocation
-import { AnimatePresence } from 'framer-motion'; // Thêm AnimatePresence
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import './App.css';
 
 // 1. Import các thành phần hỗ trợ (Utilities)
@@ -20,7 +20,6 @@ import CoreValues from './components/CoreValues/CoreValues';
 import ProjectDetail from './pages/ProjectDetail';
 
 function App() {
-  // 🪄 Lấy vị trí URL hiện tại để làm "chìa khóa" cho chuyển cảnh
   const location = useLocation();
 
   return (
@@ -31,12 +30,14 @@ function App() {
       {/* Thanh điều hướng luôn cố định */}
       <Navbar />
 
-      {/* 🪄 PHÉP THUẬT: AnimatePresence bọc ngoài Routes 🪄 */}
-      {/* mode="wait" giúp trang cũ biến mất xong mới hiện trang mới, tránh bị chồng chéo */}
+      {/* AnimatePresence giúp chuyển cảnh mượt mà */}
       <AnimatePresence mode="wait">
+        {/* Quan trọng: location.pathname giúp React Router biết chính xác bạn đang ở đâu */}
         <Routes location={location} key={location.pathname}>
+          
+          {/* TRANG CHỦ: Chứa toàn bộ Hero, About, CoreValues, Projects */}
           <Route path="/" element={
-            <main>
+            <main className="home-page">
               <Hero />
               <About /> 
               <CoreValues />
@@ -44,8 +45,19 @@ function App() {
             </main>
           } />
 
-          {/* Trang chi tiết dự án */}
+          {/* TRANG CHI TIẾT DỰ ÁN */}
           <Route path="/project/:id" element={<ProjectDetail />} />
+
+          {/* Dòng này để "chống cháy": Nếu URL sai, nó tự quay về trang chủ */}
+          <Route path="*" element={
+            <main>
+              <Hero />
+              <About /> 
+              <CoreValues />
+              <Projects /> 
+            </main>
+          } />
+          
         </Routes>
       </AnimatePresence>
 

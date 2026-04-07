@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { BrowserRouter } from 'react-router-dom' // Thêm dòng này
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter> {/* Bao bọc App lại */}
+    {/* PHẢI CÓ basename để GitHub Pages hiểu đường dẫn */}
+    <BrowserRouter basename="/portfolio-2026"> 
       <App />
     </BrowserRouter>
   </React.StrictMode>,
