@@ -66,72 +66,74 @@ p {
 
 /* 6. RESPONSIVE - GIẢI CỨU MOBILE LAYOUT */
 @media (max-width: 768px) {
-  /* Ép container dàn hết hàng ngang */
+  /* Ép tất cả các thẻ bọc phải rộng 100% */
   .portfolio-container, 
-  .hero-section {
+  .hero-section, 
+  .hero-content, 
+  .home-page section {
     padding-left: 20px !important;
     padding-right: 20px !important;
     width: 100% !important;
     max-width: 100vw !important;
-  }
-
-  /* Đưa ảnh lên trên tiêu đề (giống wireframe) */
-  .hero-section {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: column !important; /* Xếp dọc */
   }
 
+  /* HIỆN LẠI ẢNH VÀ ĐƯA LÊN ĐẦU */
   .hero-visuals {
-    order: -1 !important; /* Nhảy lên đầu */
-    margin-bottom: 30px !important;
+    order: -1 !important; /* Ép ảnh nhảy lên trước chữ */
     display: block !important;
     width: 100% !important;
+    margin-bottom: 30px !important;
   }
 
   .image-wrapper {
-    position: relative !important;
     width: 100% !important;
-    height: 320px !important; /* Tạo khung để ảnh không bị mất */
+    height: auto !important;
+    min-height: 300px !important;
     display: flex !important;
     justify-content: center !important;
-    align-items: center !important;
+    position: relative !important;
   }
 
   .profile-image {
-    position: relative !important;
-    width: 260px !important; /* Kích thước ảnh vừa phải */
+    width: 250px !important; /* Chỉnh kích thước ảnh chân dung */
     height: auto !important;
-    z-index: 5 !important;
+    position: relative !important;
+    z-index: 10 !important;
     left: auto !important;
     top: auto !important;
   }
 
-  /* Sửa lỗi chữ bị hẹp */
-  .hero-content {
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
-  .hero-description, p, .hero-title, .hero-subtitle {
-    width: 100% !important;
-    text-align: left !important;
-  }
-
-  /* GIẢI CỨU NAVBAR: Hiện menu rõ ràng */
+  /* HIỆN LẠI NAVBAR VÀ CÁC NÚT */
   .nav-links {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
-    gap: 12px !important;
+    gap: 15px !important;
     justify-content: center !important;
     padding: 10px 0 !important;
+    width: 100% !important;
   }
   
   .nav-link {
-    font-size: 12px !important;
+    font-size: 13px !important;
     color: #ffffff !important;
     display: block !important;
+    white-space: nowrap !important;
   }
+
+  /* ÉP CHỮ DÀN HÀNG NGANG */
+  .hero-description, p, .hero-title, .hero-subtitle {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 1.8rem !important; }
 
   .parallax-decor {
     display: none !important;
@@ -139,16 +141,9 @@ p {
 }
 
 /* 7. CUSTOM SCROLLBAR */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #19191B;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #19191B; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
 
 /* 8. NÚT BẤM */
 button, .more-info-btn, .view-project-btn {
