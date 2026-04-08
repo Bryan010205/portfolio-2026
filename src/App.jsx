@@ -18,6 +18,8 @@ import Projects from './pages/Home/Projects';
 // 4. Import các Page và Component lẻ khác
 import CoreValues from './components/CoreValues/CoreValues';
 import ProjectDetail from './pages/ProjectDetail';
+// 🔥 QUAN TRỌNG: Import trang Creative Portrait mới của bạn
+import CreativePortrait from './pages/CreativePortrait'; 
 
 function App() {
   const location = useLocation();
@@ -32,10 +34,9 @@ function App() {
 
       {/* AnimatePresence giúp chuyển cảnh mượt mà */}
       <AnimatePresence mode="wait">
-        {/* Quan trọng: location.pathname giúp React Router biết chính xác bạn đang ở đâu */}
         <Routes location={location} key={location.pathname}>
           
-          {/* TRANG CHỦ: Chứa toàn bộ Hero, About, CoreValues, Projects */}
+          {/* TRANG CHỦ */}
           <Route path="/" element={
             <main className="home-page">
               <Hero />
@@ -45,7 +46,10 @@ function App() {
             </main>
           } />
 
-          {/* TRANG CHI TIẾT DỰ ÁN */}
+          {/* 🔥 TRANG DỰ ÁN CREATIVE PORTRAIT (Dòng này giúp link hoạt động) */}
+          <Route path="/project/creative-portrait" element={<CreativePortrait />} />
+
+          {/* TRANG CHI TIẾT DỰ ÁN CHUNG (Cho các project dùng chung template) */}
           <Route path="/project/:id" element={<ProjectDetail />} />
 
           {/* Dòng này để "chống cháy": Nếu URL sai, nó tự quay về trang chủ */}
