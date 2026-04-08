@@ -52,7 +52,7 @@ const Hero = () => {
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
-          Design built with heart and clarity
+          I'm a Graphic & UX/UI Designer
         </motion.h2>
         
         <motion.div variants={itemVariants} className="hero-description-container">
