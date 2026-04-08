@@ -1,6 +1,8 @@
+/* --- 1. SETUP CHUNG --- */
 .about-section {
   padding: 100px 0;
   overflow: hidden;
+  background-color: #19191B;
 }
 
 .section-title {
@@ -9,22 +11,23 @@
   margin-bottom: 60px;
   color: #ffffff;
   text-align: center;
+  letter-spacing: -0.02em;
 }
 
-/* CONTAINER CHÍNH CHIA 2 CỘT */
+/* --- 2. LAYOUT 2 CỘT --- */
 .about-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 80px; /* Tăng khoảng cách cho thoáng */
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-/* BÊN TRÁI: VIDEO */
+/* --- 3. BÊN TRÁI: ẢNH CHÂN DUNG (PORTRAIT) --- */
 .video-container {
-  flex: 1.2; /* Cho phần video to hơn một chút */
+  flex: 1; 
   display: flex;
   justify-content: center;
 }
@@ -32,79 +35,82 @@
 .video-wrapper {
   position: relative;
   width: 100%;
-  border-radius: 20px; /* Bo góc tròn hơn cho hiện đại */
+  max-width: 400px; /* Giới hạn độ rộng ảnh cho đẹp */
+  border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(93, 95, 239, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  background: #252529;
 }
 
 .video-thumbnail {
   width: 100%;
-  aspect-ratio: 16 / 10; /* Tỉ lệ ảnh chuẩn chuyên nghiệp */
+  aspect-ratio: 4 / 5; /* Tỉ lệ chân dung chuẩn Designer */
   display: block;
   object-fit: cover;
-  opacity: 0.8;
-  transition: all 0.5s ease;
+  opacity: 1; /* Luôn hiện rõ ảnh */
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .video-wrapper:hover .video-thumbnail {
-  opacity: 1;
-  transform: scale(1.03); /* Phóng nhẹ khi hover */
+  transform: scale(1.05);
 }
 
+/* Nút Decor giữa ảnh (✦) */
 .play-btn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   background-color: #5d5fef;
   border: none;
   border-radius: 50%;
   color: white;
-  font-size: 24px;
-  cursor: pointer;
+  font-size: 20px;
+  pointer-events: none; /* Chỉ để trang trí, không bấm */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
-  box-shadow: 0 0 20px rgba(93, 95, 239, 0.6);
+  box-shadow: 0 0 20px rgba(93, 95, 239, 0.4);
 }
 
-/* BÊN PHẢI: QUOTE BIẾN HÌNH */
+/* --- 4. BÊN PHẢI: NỘI DUNG GIỚI THIỆU --- */
 .quote-container {
-  flex: 0.8;
+  flex: 1.2;
   position: relative;
-  min-height: 250px; /* Cố định chiều cao để không bị nhảy layout khi chữ dài/ngắn */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; /* Căn lề trái cho nghệ */
+  align-items: flex-start;
 }
 
 .video-caption {
-  font-family: 'Space Mono', monospace; /* Nếu chưa có font này web sẽ dùng monospace mặc định */
-  font-size: 1.3rem;
-  line-height: 1.7;
-  color: #e0e0e0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
   text-align: left;
   margin: 0;
   width: 100%;
-  /* Giúp chữ biến hình mượt mà tại chỗ */
-  position: absolute; 
 }
 
-/* THANH TIẾN TRÌNH NHỎ DƯỚI CHỮ */
+.video-caption strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* THANH TIẾN TRÌNH TRANG TRÍ */
 .quote-progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
+  margin-top: 30px;
+  width: 80px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
+  position: relative; /* Đổi từ absolute sang relative để nằm dưới text */
 }
 
 .quote-progress-fill {
@@ -112,39 +118,49 @@
   background-color: #5d5fef;
 }
 
-/* RESPONSIVE CHO MOBILE */
+/* --- 5. RESPONSIVE --- */
 @media (max-width: 992px) {
   .about-container {
-    flex-direction: column; /* Xếp chồng lên nhau */
-    gap: 40px;
+    flex-direction: column;
+    gap: 50px;
     text-align: center;
+  }
+
+  .video-container {
+    width: 100%;
+  }
+
+  .video-wrapper {
+    max-width: 320px;
   }
 
   .quote-container {
     align-items: center;
-    min-height: 180px;
     width: 100%;
   }
 
   .video-caption {
-    text-align: center;
-    position: relative; /* Trở về bình thường trên mobile */
-    font-size: 1.1rem;
+    text-align: left; /* Mobile vẫn nên để left cho dễ đọc nếu text dài */
+    font-size: 1.05rem;
   }
 
   .quote-progress-bar {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -20px;
+    margin: 30px auto 0;
   }
 }
 
 @media (max-width: 480px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
   .section-title {
     font-size: 28px;
+    margin-bottom: 40px;
   }
   
   .video-caption {
     font-size: 1rem;
+    line-height: 1.6;
   }
 }

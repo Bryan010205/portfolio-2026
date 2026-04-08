@@ -1,74 +1,76 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Reveal from '../../components/Reveal'; // Nhớ check đúng đường dẫn nha
+import React from 'react';
+import { motion } from 'framer-motion';
+import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-const quotes = [
-  "Design is not just what it looks like, it's how it works.",
-  "Good design is obvious. Great design is transparent.",
-  "Digital experiences that balance bold visual energy with structured systems.",
-  "Controlled intensity in every project—expressive visuals with disciplined execution."
-];
+// 💡 ĐƯỜNG DẪN: Đảm bảo bạn có ảnh about_portrait.jpg trong thư mục assets
+import aboutPortrait from '../../assets/about_portrait.jpg';
 
 const About = () => {
-  const [currentQuote, setCurrentQuote] = useState(0);
-
-  // Logic tự động chuyển câu quote sau mỗi 5 giây
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length);
-    }, 5000); // 5000ms = 5 giây
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="about-section" id="about">
       <Reveal>
-        <h2 className="section-title">Something about me</h2>
-        
-        <div className="about-container">
-          <div className="video-container">
-            <div className="video-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="About Me Video Thumbnail" 
-                className="video-thumbnail"
-              />
-              <motion.button 
-                className="play-btn"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <span className="play-icon">▶</span>
-              </motion.button>
-            </div>
-          </div>
+        <div className="portfolio-container">
+          <h2 className="section-title">Something about me</h2>
           
-          {/* KHU VỰC BIẾN HÌNH CHỮ CỰC ĐẶC BIỆT NÈ */}
-          <div className="quote-container">
-            <AnimatePresence mode="wait">
-              <motion.p 
-                key={currentQuote} // Key thay đổi để framer-motion biết cần làm animation
-                className="video-caption"
-                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }} // Bắt đầu: mờ, thấp, blur
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}  // Hiện: rõ, về vị trí, hết blur
-                exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}  // Thoát: mờ, bay lên, blur lại
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              >
-                "{quotes[currentQuote]}"
-              </motion.p>
-            </AnimatePresence>
+          <div className="about-grid">
+            {/* 1. KHU VỰC HÌNH ẢNH (Thay thế Video) */}
+            <motion.div 
+              className="about-visuals"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <div className="about-image-wrapper">
+                <img 
+                  src={aboutPortrait} 
+                  alt="Bryan Vo - Graphic & UX/UI Designer" 
+                  className="about-main-img"
+                />
+                {/* Họa tiết decor bay bổng cho giống Hero */}
+                <div className="about-decor-plus">+</div>
+                <div className="about-decor-circle"></div>
+              </div>
+            </motion.div>
             
-            {/* Thanh tiến trình nhỏ xíu bên dưới cho nghệ */}
-            <div className="quote-progress-bar">
-              <motion.div 
-                className="quote-progress-fill"
-                key={currentQuote}
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 5, ease: "linear" }}
-              />
-            </div>
+            {/* 2. KHU VỰC NỘI DUNG (Content tự suy nghĩ cực bén) */}
+            <motion.div 
+              className="about-content"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="about-subtitle">
+                ✦ Design with <span className="highlight-text">Purpose</span>
+              </h3>
+              
+              <div className="about-description">
+                <p>
+                  Tôi là <strong>Bryan Vo</strong>, một nhà thiết kế Graphic & UX/UI luôn khao khát tìm kiếm sự giao thoa hoàn hảo giữa 
+                  <strong> "năng lượng thị giác mạnh mẽ"</strong> và <strong>"hệ thống cấu trúc chặt chẽ"</strong>.
+                </p>
+                <p>
+                  Lấy cảm hứng từ thẩm mỹ của thế giới Gaming và sự tinh gọn của công nghệ, tôi không chỉ tạo ra những sản phẩm bắt mắt, 
+                  mà còn chú trọng vào việc xây dựng những trải nghiệm có chiến lược, mang tính kỹ thuật cao và chạm đến cảm xúc người dùng.
+                </p>
+                <p>
+                  Đối với tôi, thiết kế không chỉ là về cái đẹp, mà là về cách chúng ta kể câu chuyện và giải quyết vấn đề một cách thông minh nhất.
+                </p>
+              </div>
+
+              {/* Thanh ngăn cách hoặc chữ ký nhỏ cho nghệ */}
+              <div className="about-footer-line">
+                <motion.div 
+                  className="line-fill"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "100px" }}
+                  transition={{ duration: 1, delay: 0.5 }}
+                />
+                <span className="quote-small">"Good design is obvious. Great design is transparent."</span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </Reveal>
