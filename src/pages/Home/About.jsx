@@ -3,10 +3,8 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 🛠️ IMPORT ẢNH CHÂN DUNG
+// 🛠️ IMPORT ASSETS
 import aboutPortrait from '../../assets/about1.jpeg';
-
-// 🛠️ IMPORT LOGO SKILLS TỪ ASSETS
 import figmaLogo from '../../assets/figma.svg';
 import photoshopLogo from '../../assets/photoshop.svg';
 import illustratorLogo from '../../assets/illustrator.jpeg';
@@ -34,25 +32,24 @@ const About = () => {
                   alt="Bryan Vo - Designer in Canada" 
                   className="video-thumbnail"
                 />
-                {/* Decor nhẹ nhàng thay cho nút play cũ */}
-                <div className="play-btn" style={{ cursor: 'default' }}>
-                  <span className="play-icon">✦</span>
-                </div>
               </div>
 
-              {/* DÃY LOGO SKILLS NGAY DƯỚI ẢNH */}
-              <div className="skill-icons-row">
-                <div className="skill-icon-item" title="Figma">
-                  <img src={figmaLogo} alt="Figma" className="skill-img" />
-                </div>
-                <div className="skill-icon-item" title="Photoshop">
-                  <img src={photoshopLogo} alt="Photoshop" className="skill-img" />
-                </div>
-                <div className="skill-icon-item" title="Illustrator">
-                  <img src={illustratorLogo} alt="Illustrator" className="skill-img" />
-                </div>
-                <div className="skill-icon-item" title="After Effects">
-                  <img src={afterEffectsLogo} alt="After Effects" className="skill-img" />
+              {/* DÃY LOGO SKILLS VỚI TIÊU ĐỀ MỚI */}
+              <div className="skills-wrapper">
+                <p className="skills-label">My essential skills:</p>
+                <div className="skill-icons-row">
+                  <div className="skill-icon-item" title="Figma">
+                    <img src={figmaLogo} alt="Figma" className="skill-img" />
+                  </div>
+                  <div className="skill-icon-item" title="Photoshop">
+                    <img src={photoshopLogo} alt="Photoshop" className="skill-img" />
+                  </div>
+                  <div className="skill-icon-item" title="Illustrator">
+                    <img src={illustratorLogo} alt="Illustrator" className="skill-img" />
+                  </div>
+                  <div className="skill-icon-item" title="After Effects">
+                    <img src={afterEffectsLogo} alt="After Effects" className="skill-img" />
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -81,7 +78,6 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Thanh tiến trình trang trí */}
               <div className="quote-progress-bar">
                 <motion.div 
                   className="quote-progress-fill"
