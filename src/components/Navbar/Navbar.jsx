@@ -3,60 +3,37 @@ import { Link } from 'react-router-dom';
 import { NavHashLink } from 'react-router-hash-link'; 
 import './Navbar.css';
 
-// 💡 ĐƯỜNG DẪN ASSETS
+// 💡 CẬP NHẬT ĐƯỜNG DẪN: Lùi ra 2 cấp (../../) để tìm thư mục assets
 import logo1 from '../../assets/logo1.png'; 
 import logo3 from '../../assets/logo3.png'; 
 
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-container">
-        {/* BÊN TRÁI: LOGO */}
-        <Link to="/" className="navbar-logo">
-          <img src={logo1} alt="Bryan Logo" />
-        </Link>
+      <Link to="/" className="navbar-logo">
+        <img src={logo1} alt="Bryan Logo" />
+      </Link>
 
-        {/* Ở GIỮA: CÁC NÚT ĐIỀU HƯỚNG */}
-        <ul className="navbar-links">
-          <li>
-            <NavHashLink 
-              smooth 
-              to="/#home" 
-              activeClassName="active-link"
-            >
-              Home
-            </NavHashLink>
-          </li>
-          <li>
-            <NavHashLink 
-              smooth 
-              to="/#about" 
-              activeClassName="active-link"
-            >
-              About
-            </NavHashLink>
-          </li>
-          <li>
-            <NavHashLink 
-              smooth 
-              to="/#projects" 
-              activeClassName="active-link"
-            >
-              Projects
-            </NavHashLink>
-          </li>
-        </ul>
+      <ul className="navbar-links">
+        {/* Đảm bảo ở các Section như Hero, About, Projects Hoàng đã đặt id tương ứng */}
+        <li>
+          <NavHashLink smooth to="/#home">Home</NavHashLink>
+        </li>
+        <li>
+          <NavHashLink smooth to="/#about">About</NavHashLink>
+        </li>
+        <li>
+          <NavHashLink smooth to="/#projects">Projects</NavHashLink>
+        </li>
+      </ul>
 
-        {/* BÊN PHẢI: ACTIONS */}
-        <div className="navbar-actions">
-          <NavHashLink smooth to="/#contact-section" className="contact-btn">
-            Contact
-          </NavHashLink>
-          
-          <div className="profile-wrapper">
-            <img src={logo3} alt="Profile" className="profile-img-nav" />
-          </div>
-        </div>
+      <div className="navbar-actions">
+        {/* Trỏ về id="contact-section" nằm ở Footer */}
+        <NavHashLink smooth to="/#contact-section" className="contact-btn">
+          Contact
+        </NavHashLink>
+        
+        <img src={logo3} alt="Profile" className="profile-img-nav" />
       </div>
     </nav>
   );

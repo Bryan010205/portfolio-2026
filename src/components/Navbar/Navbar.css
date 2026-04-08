@@ -5,60 +5,57 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
-  background-color: rgba(25, 25, 27, 0.85);
-  backdrop-filter: blur(12px);
+  background-color: rgba(25, 25, 27, 0.85); /* Chỉnh mờ nhẹ để thấy hiệu ứng kính */
+  backdrop-filter: blur(12px); /* Hiệu ứng kính mờ cao cấp */
   -webkit-backdrop-filter: blur(12px);
-  position: fixed; 
+  position: fixed; /* Đổi từ sticky sang fixed để đảm bảo độ ổn định */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* Đảm bảo luôn nằm trên các thành phần khác */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Viền mảnh sang trọng */
   transition: all 0.3s ease;
 }
 
-/* === 🔴 LOGO (BÊN TRÁI) === */
+/* === 🔴 FIX LOGO (CHỮ BRYAN) === */
 .navbar-logo {
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 100%; /* Lấy hết chiều cao navbar để căn giữa dọc */
   text-decoration: none;
   flex-shrink: 0;
-  z-index: 10;
 }
 
 .navbar-logo img {
-  width: 110px; /* Size vừa vặn để không bị thô */
+  width: 120px; /* Tăng nhẹ size logo cho cân đối với font mới */
   height: auto;
   object-fit: contain;
+  /* Đảm bảo ảnh không bị lệch trục */
   display: block; 
 }
 
-/* === MENU LINKS (CĂN GIỮA TUYỆT ĐỐI) === */
+/* === MENU LINKS (Font Space Grotesk) === */
 .navbar-links {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   list-style: none;
-  gap: 45px;
+  gap: 45px; /* Tăng khoảng cách cho thoáng */
   margin: 0;
   padding: 0;
 }
 
 .navbar-links li a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.6); 
+  color: rgba(255, 255, 255, 0.6); /* Trắng mờ tinh tế */
   font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+  text-transform: uppercase; /* Viết hoa nhìn sẽ "Designer" hơn */
+  letter-spacing: 1px;
   transition: all 0.3s ease;
   position: relative;
 }
 
-/* Hiệu ứng gạch chân mượt mà */
+/* Hiệu ứng gạch chân mượt mà khi hover */
 .navbar-links li a::after {
   content: '';
   position: absolute;
@@ -70,8 +67,7 @@
   transition: width 0.3s ease;
 }
 
-.navbar-links li a:hover,
-.navbar-links li a.active { /* Sáng lên khi được chọn */
+.navbar-links li a:hover {
   color: #ffffff;
 }
 
@@ -79,24 +75,23 @@
   width: 100%;
 }
 
-/* === ACTIONS (BÊN PHẢI) === */
+/* === ACTIONS (CONTACT & AVATAR) === */
 .navbar-actions {
   display: flex;
   align-items: center;
-  gap: 25px; 
+  gap: 30px; 
   flex-shrink: 0; 
-  z-index: 10;
 }
 
 .contact-btn {
   background-color: transparent;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 10px 24px;
-  border-radius: 50px;
+  padding: 10px 26px;
+  border-radius: 50px; /* Bo tròn hoàn toàn */
   cursor: pointer;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
@@ -115,9 +110,10 @@
 
 /* === AVATAR TRÒN === */
 .profile-img-nav {
-  width: 42px !important;
-  height: 42px !important;
-  min-width: 42px !important;
+  width: 50px !important; /* Giảm size xuống một chút để không lấn át logo */
+  height: 50px !important;
+  min-width: 50px !important;
+  flex-shrink: 0 !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -126,25 +122,19 @@
 }
 
 .profile-img-nav:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1) rotate(8deg);
   border-color: #5d5fef;
   box-shadow: 0 0 15px rgba(93, 95, 239, 0.4);
 }
 
 /* --- MOBILE RESPONSIVE --- */
-@media (max-width: 992px) {
-  .navbar-links {
-    gap: 25px;
-  }
-}
-
 @media (max-width: 768px) {
   .navbar {
     padding: 0 20px !important;
   }
 
   .navbar-links {
-    display: none; /* Ẩn menu trên mobile để không đè logo */
+    display: none; /* Tạm ẩn menu trên mobile để tránh chật chội */
   }
 
   .navbar-logo img {
@@ -152,10 +142,6 @@
   }
 
   .contact-btn {
-    display: none; /* Ẩn contact button trên mobile cho gọn */
-  }
-
-  .navbar-actions {
-    gap: 15px;
+    display: none; /* Ẩn nút contact trên mobile để giữ chỗ cho logo và avatar */
   }
 }
