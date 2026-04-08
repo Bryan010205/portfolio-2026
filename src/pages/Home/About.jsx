@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 🛠️ IMPORT ASSETS
+// 🛠️ IMPORT ASSETS - Cập nhật đúng tên và định dạng file mới
 import aboutPortrait from '../../assets/about1.jpeg';
 import figmaLogo from '../../assets/figma.svg';
 import photoshopLogo from '../../assets/photoshop.svg';
-import illustratorLogo from '../../assets/illustrator.jpeg';
-import afterEffectsLogo from '../../assets/after_effect.jpg';
+import illustratorLogo from '../../assets/illustrator.png';  // Đã đổi sang .png
+import afterEffectsLogo from '../../assets/after_effect.png'; // Đã đổi sang .png
 
 const About = () => {
   return (
