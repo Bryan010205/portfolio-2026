@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion'; 
 import './Hero.css';
 
-// 💡 ĐƯỜNG DẪN: Lùi 2 cấp (../../)
+// 💡 ĐƯỜNG DẪN ASSETS
 import logo2 from '../../assets/logo2.png';
 import backgroundHero from '../../assets/background_hero.png';
 
@@ -11,8 +11,8 @@ const Hero = () => {
   const { scrollY } = useScroll();
   
   // Các vật thể trôi với tốc độ khác nhau khi cuộn chuột
-  const ySlow = useTransform(scrollY, [0, 500], [0, 150]);   // Trôi chậm xuống
-  const rotateDeg = useTransform(scrollY, [0, 500], [0, 90]); // Vừa trôi vừa xoay
+  const ySlow = useTransform(scrollY, [0, 500], [0, 150]); 
+  const rotateDeg = useTransform(scrollY, [0, 500], [0, 90]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -41,8 +41,6 @@ const Hero = () => {
 
   return (
     <section className="hero-section" id="home">
-      {/* ĐÃ XÓA CÁC VẬT THỂ PARALLAX ✦ ✕ ○ Ở ĐÂY */}
-
       <motion.div 
         className="hero-content"
         variants={containerVariants}
@@ -50,21 +48,22 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          Hi I'm Bryan Vo
+          Hi, I’m Bryan Vo
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
-          I'm a Graphic & UX/UI Designer
+          Design built with heart and clarity
         </motion.h2>
         
-        <motion.div variants={itemVariants}>
+        <motion.div variants={itemVariants} className="hero-description-container">
           <p className="hero-description">
-            Hi, I'm Bryan. I design digital experiences that balance bold visual energy 
-            with structured, intentional systems. Inspired by gaming aesthetics.
+            I’m a designer who simply loves making things work better and look clearer. 
+            For me, design is about finding the right balance between a <strong>creative spark</strong> and a <strong>solid structure</strong>.
           </p>
           <p className="hero-description">
-            My goal is not just to create visuals, but to build 
-            experiences that are memorable, strategic, and technically strong.
+            I don't aim for anything flashy; I just want to build experiences that feel 
+            <strong> natural and meaningful</strong> to the person using them. Currently, I’m in Canada, 
+            turning honest ideas into digital products that people can actually connect with.
           </p>
         </motion.div>
 
@@ -73,6 +72,12 @@ const Hero = () => {
           className="more-info-btn"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+              aboutSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
         >
           More info <span className="arrow-icon">↗</span>
         </motion.button>
@@ -102,7 +107,7 @@ const Hero = () => {
             className="profile-image" 
           />
           
-          {/* Họa tiết trang trí cố định trong wrapper */}
+          {/* Họa tiết trang trí */}
           <motion.div style={{ rotate: rotateDeg }} className="decorative-plus">+</motion.div>
           <div className="decorative-circle"></div>
         </div>
