@@ -8,74 +8,54 @@
 }
 
 /* =========================================
-   🕵️🔴 LAYOUT HERO: TEXT TRÁI - ẢNH SIÊU DỌC PHẢI
+   🕵️🔴 LAYOUT MỚI: HERO 2 CỘT (TEXT TRÁI - ẢNH PHẢI)
    ========================================= */
 .project-hero {
   display: flex;
-  align-items: flex-start; /* Căn lề trên để ảnh trôi xuống */
+  align-items: flex-start; /* Căn lề trên */
   justify-content: space-between;
-  gap: 80px;
+  gap: 60px;
   margin-bottom: 120px;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
 /* Khối nội dung bên trái */
 .hero-text-side {
-  flex: 1.2;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  padding-top: 60px; /* Đẩy chữ xuống chút cho cân với giữa gói cafe */
+  justify-content: center;
+  padding-top: 40px;
 }
 
-/* Khối ảnh thu nhỏ bên phải - TỐI ƯU SIÊU DỌC */
+/* Khối ảnh thu nhỏ bên phải */
 .hero-img-wrapper {
-  flex: 0.8; 
+  flex: 0.7; /* Chiếm ít không gian hơn cột text */
   position: relative;
-  
-  /* 🔴 THU NHỎ chiều ngang để tôn chiều dài */
-  max-width: 300px; 
-  width: 100%;
-  
+  max-width: 350px; /* 🔴 THU NHỎ đáng kể chiều rộng */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 8px;
+  padding: 10px;
   background-color: rgba(255, 255, 255, 0.02);
   border-radius: 4px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 .hero-img-wrapper img {
   width: 100%;
-  
-  /* 🔴 ĐIỀU CHỈNH TỶ LỆ: 
-     9/21 là tỉ lệ rất thon, giúp ảnh kéo dài thẳng xuống bên phải cực đẹp.
-     Nếu muốn ngắn hơn chút bạn có thể dùng 1/2. */
-  aspect-ratio: 9 / 21; 
-  
+  /* 🔴 CỐ ĐỊNH TỶ LỆ DỌC (PORTRAIT) 
+     Bạn có thể chỉnh aspect-ratio theo tỷ lệ ảnh của bạn (vd 2/3 hoặc 3/4) */
+  aspect-ratio: 2 / 3; 
   height: auto;
   display: block;
-  object-fit: contain; /* Đảm bảo thấy trọn vẹn thiết kế bao bì, không bị mất góc */
-  background-color: #000; /* Nền tối nhẹ để tôn khối ảnh */
+  object-fit: cover; /* Đảm bảo ảnh lấp đầy khung dọc đẹp mắt */
 }
 
-/* Decor Icons bám theo khung dọc */
-.decor-zigzag { 
-  position: absolute; 
-  left: -40px; 
-  top: 40px; 
-  font-size: 32px; 
-  opacity: 0.5; 
-  color: #5d5fef; 
-}
-.decor-circle { 
-  position: absolute; 
-  right: -30px; 
-  bottom: 100px; 
-  font-size: 24px; 
-  opacity: 0.2; 
-}
+/* Decor Icons bám theo khung ảnh bên phải */
+.decor-zigzag { position: absolute; left: -30px; top: -10px; font-size: 24px; opacity: 0.4; color: #5d5fef; }
+.decor-circle { position: absolute; right: -20px; bottom: -20px; font-size: 20px; opacity: 0.3; }
 
 /* =========================================
-   🕵️ Typography & Grid (Giữ nguyên cấu trúc)
+   🕵️ Typography & Grid (Giữ nguyên cấu trúc nhưng tinh chỉnh)
    ========================================= */
 
 .section-header {
@@ -86,17 +66,14 @@
 }
 
 .section-header h2 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   font-weight: 800;
   margin: 0;
-  background: linear-gradient(to right, #fff, #aaa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .overview-content p {
-  color: #b0b0b0;
+  color: #d1d1d1;
   line-height: 1.8;
   font-size: 1.1rem;
   text-align: justify;
@@ -107,66 +84,57 @@
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 30px;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .skills-list li {
   background: rgba(93, 95, 239, 0.1);
   border: 1px solid #5d5fef;
   color: #fff;
-  padding: 6px 18px;
-  border-radius: 30px;
+  padding: 5px 15px;
+  border-radius: 20px;
   font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 
 /* --- DESIGN PROCESS & RENDERS --- */
 .process-grid, .render-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  padding: 0 60px;
-  margin-top: 100px;
+  gap: 40px;
+  padding: 0 40px;
+  margin-top: 80px;
 }
 
 .process-item img, .render-item img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   border: 1px solid #333;
-  transition: transform 0.3s ease;
-}
-
-.process-item img:hover {
-  transform: translateY(-10px);
 }
 
 .label-btn {
   display: inline-block;
   margin-top: 15px;
-  border: 1px solid rgba(255,255,255,0.3);
-  padding: 8px 20px;
-  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 11px;
-  color: #888;
+  color: #999;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
 }
 
-/* Detail Side bự ở cuối */
+/* Tấm Detail Side bự ở cuối (Nếu bạn vẫn muốn giữ nó bự) */
 .full-width {
   width: 100%;
-  padding: 0 60px;
-  margin-top: 80px;
+  padding: 0 40px;
+  margin-top: 60px;
   text-align: center;
 }
 
 .full-width img {
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   height: auto;
-  border-radius: 15px;
 }
 
 /* =========================================
@@ -174,18 +142,17 @@
    ========================================= */
 @media (max-width: 992px) {
   .project-hero {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Ảnh lên trên, text xuống dưới trên mobile */
     align-items: center;
     text-align: center;
-    padding: 0 25px;
-    gap: 40px;
   }
 
   .hero-img-wrapper {
-    max-width: 280px; /* Thu nhỏ hơn nữa trên mobile để không quá dài */
+    width: 60%;
+    margin-bottom: 40px;
   }
 
-  .section-header h2 {
-    font-size: 2rem;
+  .process-grid {
+    grid-template-columns: 1fr;
   }
 }
