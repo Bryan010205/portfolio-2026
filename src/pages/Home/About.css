@@ -16,23 +16,24 @@
   display: flex;
   align-items: center; 
   justify-content: center;
-  gap: 60px;
+  gap: 80px; /* Tăng gap cho thoáng đãng */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* BÊN TRÁI: ẢNH (Bự như video cũ) */
+/* BÊN TRÁI: KHỐI ẢNH & LOGOS */
 .video-container {
-  flex: 1.2; /* To hơn phần chữ */
+  flex: 1.2; 
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Đưa logo xuống dưới ảnh */
+  align-items: center;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 650px; /* Độ rộng tối đa để không bị quá choán ngợp */
+  max-width: 650px; 
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -41,7 +42,7 @@
 
 .video-thumbnail {
   width: 100%;
-  aspect-ratio: 16 / 10; /* TRẢ VỀ TỶ LỆ VIDEO CŨ */
+  aspect-ratio: 16 / 10; 
   display: block;
   object-fit: cover;
   transition: all 0.5s ease;
@@ -70,9 +71,47 @@
   box-shadow: 0 0 20px rgba(93, 95, 239, 0.6);
 }
 
+/* ✦ DÃY LOGO SKILLS (DÙNG ẢNH ASSETS) ✦ */
+.skill-icons-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px; 
+  padding: 12px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.skill-icon-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-img {
+  width: 32px; /* Kích thước icon vừa mắt */
+  height: 32px;
+  object-fit: contain;
+  /* Hiệu ứng: Mặc định là trắng đen và mờ */
+  filter: grayscale(100%) brightness(0.8) opacity(0.6);
+  transition: all 0.4s ease;
+}
+
+.skill-icon-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-icon-item:hover .skill-img {
+  /* Di chuột vào: Hiện màu gốc và rõ nét */
+  filter: grayscale(0%) brightness(1) opacity(1);
+}
+
 /* BÊN PHẢI: TEXT */
 .quote-container {
-  flex: 0.8; /* Hẹp hơn phần ảnh */
+  flex: 0.8; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,7 +119,7 @@
 }
 
 .about-subtitle {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   margin-bottom: 20px;
   color: #fff;
@@ -92,7 +131,7 @@
 
 .about-description p {
   font-size: 1.1rem;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #e0e0e0;
   margin-bottom: 15px;
   text-align: left;
@@ -100,9 +139,9 @@
 
 /* THANH TIẾN TRÌNH */
 .quote-progress-bar {
-  margin-top: 10px;
-  width: 60px;
-  height: 3px;
+  margin-top: 15px;
+  width: 80px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
@@ -113,23 +152,37 @@
   background-color: #5d5fef;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE */
 @media (max-width: 992px) {
   .about-container {
     flex-direction: column;
     gap: 40px;
   }
   
+  .video-container {
+    width: 100%;
+  }
+
   .video-wrapper {
     max-width: 100%;
+  }
+
+  .skill-icons-row {
+    gap: 20px;
+    padding: 10px 20px;
   }
 
   .quote-container {
     align-items: center;
     text-align: center;
+    width: 100%;
   }
 
   .about-description p {
     text-align: left;
+  }
+  
+  .quote-progress-bar {
+    margin: 15px auto 0;
   }
 }

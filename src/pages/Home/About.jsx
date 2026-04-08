@@ -3,8 +3,14 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 🛠️ Đảm bảo đường dẫn ảnh chính xác
+// 🛠️ IMPORT ẢNH CHÂN DUNG
 import aboutPortrait from '../../assets/about1.jpeg';
+
+// 🛠️ IMPORT LOGO SKILLS TỪ ASSETS
+import figmaLogo from '../../assets/figma.svg';
+import photoshopLogo from '../../assets/photoshop.svg';
+import illustratorLogo from '../../assets/illustrator.jpeg';
+import afterEffectsLogo from '../../assets/after_effect.jpg';
 
 const About = () => {
   return (
@@ -14,7 +20,7 @@ const About = () => {
           <h2 className="section-title">Something about me</h2>
           
           <div className="about-container">
-            {/* 1. LEFT SIDE: IMAGE (Clean Look) */}
+            {/* 1. LEFT SIDE: IMAGE & SKILL LOGOS */}
             <motion.div 
               className="video-container"
               initial={{ opacity: 0, x: -50 }}
@@ -28,7 +34,26 @@ const About = () => {
                   alt="Bryan Vo - Designer in Canada" 
                   className="video-thumbnail"
                 />
-                {/* Đã gỡ bỏ thẻ play-btn tại đây */}
+                {/* Decor nhẹ nhàng thay cho nút play cũ */}
+                <div className="play-btn" style={{ cursor: 'default' }}>
+                  <span className="play-icon">✦</span>
+                </div>
+              </div>
+
+              {/* DÃY LOGO SKILLS NGAY DƯỚI ẢNH */}
+              <div className="skill-icons-row">
+                <div className="skill-icon-item" title="Figma">
+                  <img src={figmaLogo} alt="Figma" className="skill-img" />
+                </div>
+                <div className="skill-icon-item" title="Photoshop">
+                  <img src={photoshopLogo} alt="Photoshop" className="skill-img" />
+                </div>
+                <div className="skill-icon-item" title="Illustrator">
+                  <img src={illustratorLogo} alt="Illustrator" className="skill-img" />
+                </div>
+                <div className="skill-icon-item" title="After Effects">
+                  <img src={afterEffectsLogo} alt="After Effects" className="skill-img" />
+                </div>
               </div>
             </motion.div>
             
