@@ -53,7 +53,7 @@ const About = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
-    }, 6000); // 6 giây
+    }, 8000); // 6 giây
 
     return () => clearInterval(timer);
   }, [stories.length]);
