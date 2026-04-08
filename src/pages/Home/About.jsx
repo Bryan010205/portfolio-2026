@@ -13,36 +13,36 @@ const About = () => {
         <div className="portfolio-container">
           <h2 className="section-title">Something about me</h2>
           
-          <div className="about-grid">
-            {/* 1. VISUAL SECTION */}
+          <div className="about-wrapper">
+            {/* 1. LEFT SIDE: IMAGE (Bóp nhỏ và cân đối) */}
             <motion.div 
-              className="about-visuals"
+              className="about-image-column"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="about-image-wrapper">
+              <div className="about-image-container">
                 <img 
                   src={aboutPortrait} 
-                  alt="Bryan Vo - International Student & Designer" 
-                  className="about-main-img"
+                  alt="Bryan Vo - Designer in Canada" 
+                  className="about-image-element"
                 />
                 <div className="about-decor-plus">+</div>
                 <div className="about-decor-circle"></div>
               </div>
             </motion.div>
             
-            {/* 2. CONTENT SECTION (Hành trình Canada & Ước mơ) */}
+            {/* 2. RIGHT SIDE: CONTENT (Trải lòng & Mục tiêu) */}
             <motion.div 
-              className="about-content"
+              className="about-text-column"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: true }}
             >
               <h3 className="about-subtitle">
-                ✦ From Vietnam to <span className="highlight-text">Canada</span>: A Journey of Growth
+                ✦ From Vietnam to <span className="highlight-text">Canada</span>
               </h3>
               
               <div className="about-description">
@@ -50,14 +50,13 @@ const About = () => {
                   As an <strong>international student in Canada</strong>, I’ve embraced the challenge of adapting to a new culture, which has profoundly shaped my perspective as a designer. I believe that design is a universal bridge that connects diverse backgrounds and ideas.
                 </p>
                 <p>
-                  Over the <strong>next two years</strong>, my mission is to master the intersection of aesthetic storytelling and technical precision. I aim to secure a professional position in the Canadian tech industry, where I can contribute to meaningful UX/UI projects that solve real-world accessibility and usability challenges.
+                  Over the <strong>next two years</strong>, my mission is to master the intersection of aesthetic storytelling and technical precision. I aim to secure a professional position in the Canadian tech industry, contributing to meaningful UX/UI projects.
                 </p>
                 <p>
-                  When I’m not diving into Figma or coding, you’ll find me exploring Canada’s breathtaking landscapes, capturing urban moments through my camera, or getting inspired by the high-energy visuals of <strong>gaming culture</strong>. These hobbies keep my creativity fueled and my mind fresh for every new design challenge.
+                  When I’m not diving into Figma, I find my peace in exploring Canada’s breathtaking landscapes or getting inspired by the high-energy visuals of <strong>gaming culture</strong>.
                 </p>
               </div>
 
-              {/* Decorative Footer */}
               <div className="about-footer-line">
                 <motion.div 
                   className="line-fill"
@@ -65,7 +64,7 @@ const About = () => {
                   whileInView={{ width: "120px" }}
                   transition={{ duration: 1, delay: 0.5 }}
                 />
-                <span className="quote-small">"Focused on continuous learning and creating impactful digital experiences."</span>
+                <span className="quote-small">"Continuous learning, impactful experiences."</span>
               </div>
             </motion.div>
           </div>
