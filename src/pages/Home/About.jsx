@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 💡 ĐƯỜNG DẪN: Nhớ kiểm tra lại file ảnh của bạn trong thư mục assets
-import aboutPortrait from '../../assets/about_portrait.jpg';
+// 🛠️ ĐÃ CẬP NHẬT ĐÚNG ĐUÔI .jpeg
+import aboutPortrait from '../../assets/about1.jpeg';
 
 const About = () => {
   return (
@@ -14,7 +14,7 @@ const About = () => {
           <h2 className="section-title">Something about me</h2>
           
           <div className="about-grid">
-            {/* 1. KHU VỰC HÌNH ẢNH */}
+            {/* 1. VISUAL SECTION */}
             <motion.div 
               className="about-visuals"
               initial={{ opacity: 0, x: -50 }}
@@ -33,7 +33,7 @@ const About = () => {
               </div>
             </motion.div>
             
-            {/* 2. KHU VỰC NỘI DUNG (Trải lòng về hành trình Canada & Mục tiêu) */}
+            {/* 2. CONTENT SECTION (Hành trình Canada & Ước mơ) */}
             <motion.div 
               className="about-content"
               initial={{ opacity: 0, x: 50 }}
@@ -57,7 +57,7 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Thanh ngăn cách và câu chốt */}
+              {/* Decorative Footer */}
               <div className="about-footer-line">
                 <motion.div 
                   className="line-fill"
