@@ -1,3 +1,4 @@
+/* === ABOUT SECTION MAIN === */
 .about-section {
   padding: 100px 0;
   background-color: #19191B;
@@ -12,7 +13,7 @@
   text-align: center;
 }
 
-/* CONTAINER CHÍNH: Mở rộng tối đa để chữ tràn ra sát rìa phải */
+/* CONTAINER CHÍNH */
 .about-container {
   display: flex;
   align-items: center; 
@@ -23,7 +24,7 @@
   padding: 0 40px;
 }
 
-/* BÊN TRÁI: KHỐI ẢNH (Giữ độ rộng vừa phải) */
+/* BÊN TRÁI: VIDEO/IMAGE BLOCK */
 .video-container {
   flex: 1.2; 
   display: flex;
@@ -52,7 +53,7 @@
   transform: scale(1.03);
 }
 
-/* PHẦN SKILLS - LUÔN CÓ MÀU */
+/* SKILLS ROW */
 .skills-wrapper {
   margin-top: 35px;
   width: 100%;
@@ -84,7 +85,6 @@
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: none; /* Đảm bảo logo luôn có màu gốc */
 }
 
 .skill-icon-item {
@@ -95,9 +95,9 @@
   transform: translateY(-8px) scale(1.1);
 }
 
-/* BÊN PHẢI: CHIẾM NHIỀU KHÔNG GIAN HƠN VÀ DÀN HÀNG NGANG TIÊU ĐỀ */
+/* BÊN PHẢI: TEXT CONTENT */
 .quote-container {
-  flex: 0.8; /* Tăng thêm tỉ lệ để chữ lấp đầy khoảng trống bên phải */
+  flex: 0.8; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -110,9 +110,7 @@
   margin-bottom: 25px;
   color: #fff;
   line-height: 1.2;
-  
-  /* Khóa không cho chữ Canada nhảy xuống dòng */
-  white-space: nowrap; 
+  white-space: nowrap; /* Giữ chữ thẳng hàng trên Desktop */
   display: inline-block;
 }
 
@@ -122,7 +120,7 @@
 
 .about-description {
   width: 100%;
-  max-width: 950px; /* Tăng max-width để đoạn văn dài ra hết cỡ */
+  max-width: 950px;
 }
 
 .about-description p {
@@ -130,10 +128,10 @@
   line-height: 1.8;
   color: #e0e0e0;
   margin-bottom: 20px;
-  text-align: justify;
+  text-align: justify; /* Căn đều 2 bên trên Desktop */
 }
 
-/* THANH TIẾN TRÌNH */
+/* PROGRESS BAR */
 .quote-progress-bar {
   margin-top: 10px;
   width: 100px;
@@ -148,14 +146,18 @@
   background-color: #5d5fef;
 }
 
-/* MOBILE RESPONSIVE */
+/* =========================================
+   📱 MOBILE RESPONSIVE (DÀN ĐỀU VĂN BẢN)
+   ========================================= */
+
 @media (max-width: 1200px) {
   .about-subtitle {
     font-size: 2.2rem;
-    white-space: normal; /* Quay lại bình thường trên màn hình nhỏ để không bị tràn */
+    white-space: normal; 
   }
   .about-container {
     gap: 40px;
+    padding: 0 30px;
   }
 }
 
@@ -163,24 +165,46 @@
   .about-container {
     flex-direction: column;
     text-align: center;
-    gap: 50px;
+    gap: 40px;
   }
   
   .quote-container {
-    align-items: center;
+    align-items: center; /* Đưa khối chữ về giữa màn hình mobile */
     flex: 1;
   }
 
   .about-subtitle {
     white-space: normal;
     font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
+  /* 🔴 TRỌNG TÂM: CĂN GIỮA & DÀN ĐỀU VĂN BẢN */
   .about-description p {
-    text-align: left;
+    text-align: justify; /* Dàn đều lề 2 bên cho đẹp */
+    text-justify: inter-word; /* Tối ưu khoảng cách từ ngữ */
+    font-size: 1.05rem; 
+    line-height: 1.7;
+    margin-bottom: 25px;
+    word-break: break-word; /* Tránh tràn chữ dài */
   }
 
   .quote-progress-bar {
-    margin: 10px auto;
+    margin: 10px auto 40px;
+  }
+}
+
+/* Fix cho màn hình cực nhỏ */
+@media (max-width: 480px) {
+  .about-container {
+    padding: 0 20px;
+  }
+  .about-section {
+    padding: 60px 0;
+  }
+  .skill-icons-row {
+    gap: 15px;
+    padding: 10px 20px;
   }
 }
