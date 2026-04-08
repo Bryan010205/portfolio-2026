@@ -33,7 +33,7 @@
   display: block; 
 }
 
-/* === MENU LINKS (CĂN GIỮA) === */
+/* === MENU LINKS (CĂN GIỮA TRÊN DESKTOP) === */
 .navbar-links {
   position: absolute;
   left: 50%;
@@ -76,7 +76,7 @@
   width: 100%;
 }
 
-/* === ACTIONS (AVATAR) === */
+/* === ACTIONS (AVATAR & CONTACT) === */
 .navbar-actions {
   display: flex;
   align-items: center;
@@ -119,56 +119,59 @@
   cursor: pointer;
 }
 
-/* --- 📱 MOBILE RESPONSIVE (UPDATE) --- */
+/* --- 📱 MOBILE RESPONSIVE (HIỆN FULL OPTION) --- */
 @media (max-width: 768px) {
   .navbar {
-    padding: 0 15px !important; /* Giảm padding để có chỗ cho menu */
-    height: 70px; /* Hạ thấp chiều cao navbar một chút trên mobile */
+    padding: 0 10px !important; /* Padding cực nhỏ để có thêm chỗ */
+    height: 70px;
   }
 
   .navbar-logo img {
-    width: 80px !important; /* Thu nhỏ logo hơn nữa */
+    width: 60px !important; /* Thu nhỏ logo lại đáng kể */
   }
 
   /* HIỆN MENU TRÊN MOBILE */
   .navbar-links {
     display: flex !important; 
-    gap: 15px; /* Giảm khoảng cách giữa Home - About - Project */
-    position: static; /* Bỏ căn giữa tuyệt đối để nó xếp hàng ngang tự nhiên */
+    gap: 12px; /* Khoảng cách sát nhau */
+    position: static; 
     transform: none;
     left: auto;
   }
 
   .navbar-links li a {
-    font-size: 11px; /* Thu nhỏ font chữ để không bị tràn */
-    letter-spacing: 0.5px;
+    font-size: 10px; /* Chữ nhỏ để không tràn hàng */
+    letter-spacing: 0.2px;
   }
 
   .navbar-links li a::after {
-    bottom: -4px; /* Gạch chân sát lại cho gọn */
+    bottom: -4px;
+    height: 1px;
   }
 
   .navbar-actions {
-    gap: 10px; /* Thu hẹp khoảng cách avatar */
+    gap: 8px; /* Thu hẹp khoảng cách giữa nút contact và avatar */
+  }
+
+  /* HIỆN LẠI NÚT CONTACT TRÊN MOBILE */
+  .contact-btn {
+    display: inline-flex !important;
+    padding: 6px 12px !important; /* Nút nhỏ gọn hơn */
+    font-size: 9px !important; 
+    border-radius: 20px;
   }
 
   .profile-img-nav {
-    width: 34px !important; /* Avatar nhỏ lại cho cân đối */
-    height: 34px !important;
-    min-width: 34px !important;
-  }
-
-  .contact-btn {
-    display: none; /* Vẫn ẩn nút contact vì nó quá chiếm diện tích */
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
   }
 }
 
-/* Fix cực nhỏ cho các điện thoại bé như iPhone SE */
-@media (max-width: 380px) {
-  .navbar-links {
-    gap: 10px;
-  }
-  .navbar-links li a {
-    font-size: 10px;
-  }
+/* Chống tràn cho màn hình cực nhỏ (iPhone SE đời cũ) */
+@media (max-width: 360px) {
+  .navbar-logo img { width: 50px !important; }
+  .navbar-links { gap: 8px; }
+  .navbar-links li a { font-size: 9px; }
+  .contact-btn { padding: 4px 8px !important; }
 }
