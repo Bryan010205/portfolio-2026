@@ -12,20 +12,20 @@
   text-align: center;
 }
 
-/* CONTAINER CHÍNH: Tăng max-width để mở rộng không gian tổng thể */
+/* CONTAINER CHÍNH: Mở rộng tối đa để chữ có chỗ tràn ra */
 .about-container {
   display: flex;
   align-items: center; 
   justify-content: center;
   gap: 80px; 
-  max-width: 1400px; /* Tăng lên để tận dụng màn hình rộng */
+  max-width: 1400px; 
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* BÊN TRÁI: Cố định độ rộng vừa phải để nhường chỗ cho chữ */
+/* BÊN TRÁI: KHỐI ẢNH */
 .video-container {
-  flex: 1; /* Chia đều 1:1 với bên phải */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,7 @@
 
 .video-wrapper {
   width: 100%;
-  max-width: 600px; /* Giới hạn ảnh lại một chút cho cân đối */
+  max-width: 580px; /* Thu gọn ảnh lại một chút để nhường thêm sân cho chữ */
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -52,7 +52,7 @@
   transform: scale(1.03);
 }
 
-/* PHẦN SKILLS DƯỚI ẢNH */
+/* PHẦN SKILLS */
 .skills-wrapper {
   margin-top: 35px;
   width: 100%;
@@ -70,7 +70,7 @@
 }
 
 .skill-icons-row {
-  display: inline-flex; /* Chuyển sang inline-flex để khung ôm vừa icons */
+  display: inline-flex;
   justify-content: center;
   gap: 25px;
   padding: 12px 30px;
@@ -94,22 +94,25 @@
   transform: translateY(-5px);
 }
 
-/* BÊN PHẢI: CHIẾM NHIỀU KHÔNG GIAN HƠN */
+/* BÊN PHẢI: CHIẾM NHIỀU KHÔNG GIAN VÀ KHÔNG NGẮT DÒNG TIÊU ĐỀ */
 .quote-container {
-  flex: 1; /* Chia đều 1:1 với bên trái */
+  flex: 1.3; /* Tăng tỉ lệ lên 1.3 để cột chữ rộng hơn cột ảnh */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-right: 20px; /* Tạo khoảng trống nhẹ ở rìa phải */
 }
 
 .about-subtitle {
-  font-size: 2.5rem; /* Tăng nhẹ font chữ cho hoành tráng */
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 25px;
   color: #fff;
   line-height: 1.2;
+  
+  /* Cố định 1 hàng, không cho chữ Canada nhảy xuống */
+  white-space: nowrap; 
+  display: inline-block;
 }
 
 .highlight-text {
@@ -118,7 +121,7 @@
 
 .about-description {
   width: 100%;
-  max-width: 800px; /* Cho phép chữ trải dài ra tới 800px */
+  max-width: 900px; /* Cho phép chữ kéo dài hơn nữa */
 }
 
 .about-description p {
@@ -126,7 +129,7 @@
   line-height: 1.8;
   color: #e0e0e0;
   margin-bottom: 20px;
-  text-align: left; /* Để left cho tự nhiên hoặc justify nếu muốn vuông vức */
+  text-align: left;
 }
 
 /* THANH TIẾN TRÌNH */
@@ -145,10 +148,10 @@
 }
 
 /* MOBILE RESPONSIVE */
-@media (max-width: 1024px) {
-  .about-container {
-    gap: 40px;
-    padding: 0 24px;
+@media (max-width: 1200px) {
+  .about-subtitle {
+    font-size: 2.2rem;
+    white-space: normal; /* Trên màn hình nhỏ vừa phải thì cho phép xuống dòng để tránh tràn màn hình */
   }
 }
 
@@ -156,15 +159,21 @@
   .about-container {
     flex-direction: column;
     text-align: center;
+    gap: 50px;
   }
   
   .quote-container {
     align-items: center;
-    padding-right: 0;
+    flex: 1;
+  }
+
+  .about-subtitle {
+    white-space: normal;
+    font-size: 2rem;
   }
 
   .about-description p {
-    text-align: left; /* Mobile vẫn giữ text-align left cho dễ đọc */
+    text-align: left;
   }
 
   .quote-progress-bar {
