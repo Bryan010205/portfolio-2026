@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './CreativePortrait.css'; 
 
-// 💡 ĐƯỜNG DẪN ẢNH (Dùng ../ để lùi ra folder src rồi vào assets)
+// 💡 ĐƯỜNG DẪN ẢNH
 import finalComposite from '../assets/Vo_FinalComposite.jpg';
 import beachOriginal from '../assets/Vo_original2.png';
 import streetOriginal from '../assets/Vo_original3.png';
@@ -139,17 +139,8 @@ const CreativePortrait = () => {
           </motion.div>
         </motion.div>
       </section>
-
-      {/* 5. FOOTER */}
-      <footer className="project-footer">
-        <span className="decor-zigzag">〰</span>
-        <h3>LET'S COLLABORATE</h3>
-        <h2 className="footer-email">@huynhphuocvo.com</h2>
-        <div className="footer-bottom">
-          <button className="get-touch-btn">GET IN TOUCH ↗</button>
-          <h1 className="footer-name-giant">PHUOC VO</h1>
-        </div>
-      </footer>
+      
+      {/* Footer đã được xóa để tránh trùng lặp với Footer tổng của App */}
     </motion.div>
   );
 };
