@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 🛠️ ĐÃ CẬP NHẬT ĐÚNG ĐUÔI .jpeg
+// 🛠️ SỬ DỤNG ẢNH MỚI CỦA HOÀNG
 import aboutPortrait from '../../assets/about1.jpeg';
 
 const About = () => {
@@ -13,29 +13,32 @@ const About = () => {
         <div className="portfolio-container">
           <h2 className="section-title">Something about me</h2>
           
-          <div className="about-wrapper">
-            {/* 1. LEFT SIDE: IMAGE (Bóp nhỏ và cân đối) */}
+          <div className="about-container">
+            {/* 1. LEFT SIDE: IMAGE (Kích thước bự y hệt video cũ) */}
             <motion.div 
-              className="about-image-column"
+              className="video-container"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="about-image-container">
+              <div className="video-wrapper">
                 <img 
                   src={aboutPortrait} 
                   alt="Bryan Vo - Designer in Canada" 
-                  className="about-image-element"
+                  className="video-thumbnail"
+                  style={{ opacity: 1 }} /* Luôn hiện rõ ảnh */
                 />
-                <div className="about-decor-plus">+</div>
-                <div className="about-decor-circle"></div>
+                {/* Giữ lại icon decor ✦ giữa ảnh cho giống nút Play cũ */}
+                <div className="play-btn" style={{ cursor: 'default' }}>
+                  <span className="play-icon">✦</span>
+                </div>
               </div>
             </motion.div>
             
-            {/* 2. RIGHT SIDE: CONTENT (Trải lòng & Mục tiêu) */}
+            {/* 2. RIGHT SIDE: CONTENT (Nằm gọn bên phải) */}
             <motion.div 
-              className="about-text-column"
+              className="quote-container"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -57,14 +60,15 @@ const About = () => {
                 </p>
               </div>
 
-              <div className="about-footer-line">
+              {/* Thanh tiến trình trang trí y hệt bản cũ */}
+              <div className="quote-progress-bar">
                 <motion.div 
-                  className="line-fill"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: "120px" }}
-                  transition={{ duration: 1, delay: 0.5 }}
+                  className="quote-progress-fill"
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "100%" }}
+                  transition={{ duration: 2, ease: "easeOut" }}
+                  viewport={{ once: true }}
                 />
-                <span className="quote-small">"Continuous learning, impactful experiences."</span>
               </div>
             </motion.div>
           </div>
