@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 🛠️ SỬ DỤNG ẢNH MỚI CỦA HOÀNG
+// 🛠️ Đảm bảo đường dẫn ảnh chính xác
 import aboutPortrait from '../../assets/about1.jpeg';
 
 const About = () => {
@@ -14,7 +14,7 @@ const About = () => {
           <h2 className="section-title">Something about me</h2>
           
           <div className="about-container">
-            {/* 1. LEFT SIDE: IMAGE (Kích thước bự y hệt video cũ) */}
+            {/* 1. LEFT SIDE: IMAGE (Clean Look) */}
             <motion.div 
               className="video-container"
               initial={{ opacity: 0, x: -50 }}
@@ -27,16 +27,12 @@ const About = () => {
                   src={aboutPortrait} 
                   alt="Bryan Vo - Designer in Canada" 
                   className="video-thumbnail"
-                  style={{ opacity: 1 }} /* Luôn hiện rõ ảnh */
                 />
-                {/* Giữ lại icon decor ✦ giữa ảnh cho giống nút Play cũ */}
-                <div className="play-btn" style={{ cursor: 'default' }}>
-                  <span className="play-icon">✦</span>
-                </div>
+                {/* Đã gỡ bỏ thẻ play-btn tại đây */}
               </div>
             </motion.div>
             
-            {/* 2. RIGHT SIDE: CONTENT (Nằm gọn bên phải) */}
+            {/* 2. RIGHT SIDE: CONTENT */}
             <motion.div 
               className="quote-container"
               initial={{ opacity: 0, x: 50 }}
@@ -60,7 +56,7 @@ const About = () => {
                 </p>
               </div>
 
-              {/* Thanh tiến trình trang trí y hệt bản cũ */}
+              {/* Thanh tiến trình trang trí */}
               <div className="quote-progress-bar">
                 <motion.div 
                   className="quote-progress-fill"
