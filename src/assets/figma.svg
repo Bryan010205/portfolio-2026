@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="254mm" height="254mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 25400 25400"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:none}
+    .fil1 {fill:black}
+    .fil2 {fill:#0ACF83}
+    .fil3 {fill:#1ABCFE}
+    .fil4 {fill:#A259FF}
+    .fil6 {fill:#F24E1E}
+    .fil5 {fill:#FF7262}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" y="-0.01" width="25400" height="25400"/>
+  <path class="fil1" d="M7751.53 4030.13l9896.92 0c2046.81,0 3721.42,1674.63 3721.42,3721.42l0 9896.92c0,2046.79 -1674.61,3721.39 -3721.42,3721.39l-9896.92 0c-2046.81,0 -3721.39,-1674.6 -3721.39,-3721.39l0 -9896.92c0,-2046.79 1674.58,-3721.42 3721.39,-3721.42z"/>
+  <path class="fil2" d="M10634.64 19055c1045.56,0.6 2065.57,-920.18 2065.37,-1968.21l-0.19 -2273.65c-415.28,-0.17 -2132.68,0 -2193.05,0 -1066.31,0 -2052.17,925.04 -2050.99,2150.61 -1.29,1205.63 997.93,2090.55 2178.86,2091.25z"/>
+  <path class="fil3" d="M14822.4 10581.31c1172.07,0 2122.22,950.07 2122.22,2122.22 0,1172.15 -950.15,2122.21 -2122.22,2122.21 -1172.06,0 -2122.21,-950.06 -2122.21,-2122.21 0,-1172.15 950.15,-2122.22 2122.21,-2122.22z"/>
+  <path class="fil4" d="M10406.6 14831.89l2293.59 1.29 -0.36 -4244.33c-415.29,-0.19 -2132.69,0 -2193.04,0 -1066.34,0 -2052.21,925.03 -2051,2150.59 -1.21,1107.08 1004.79,2092.43 1950.81,2092.45z"/>
+  <path class="fil5" d="M14973.66 10588.07l-2293.59 1.28 0.35 -4244.32c415.29,-0.19 2132.69,0 2193.05,0 1066.33,0 2052.2,925.02 2050.99,2150.59 1.21,1107.08 -1004.79,2092.43 -1950.8,2092.45z"/>
+  <path class="fil6" d="M10406.6 10588.07l2293.59 1.28 -0.36 -4244.32c-415.29,-0.19 -2132.69,0 -2193.04,0 -1066.34,0 -2052.21,925.02 -2051,2150.59 -1.21,1107.08 1004.79,2092.43 1950.81,2092.45z"/>
+ </g>
+</svg>
