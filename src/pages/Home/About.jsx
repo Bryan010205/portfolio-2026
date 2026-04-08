@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-// 💡 PATH: Ensure you have your portrait image in the assets folder
+// 💡 ĐƯỜNG DẪN: Nhớ kiểm tra lại file ảnh của bạn trong thư mục assets
 import aboutPortrait from '../../assets/about_portrait.jpg';
 
 const About = () => {
@@ -14,7 +14,7 @@ const About = () => {
           <h2 className="section-title">Something about me</h2>
           
           <div className="about-grid">
-            {/* 1. VISUAL SECTION */}
+            {/* 1. KHU VỰC HÌNH ẢNH */}
             <motion.div 
               className="about-visuals"
               initial={{ opacity: 0, x: -50 }}
@@ -25,7 +25,7 @@ const About = () => {
               <div className="about-image-wrapper">
                 <img 
                   src={aboutPortrait} 
-                  alt="Bryan Vo - Graphic & UX/UI Designer" 
+                  alt="Bryan Vo - International Student & Designer" 
                   className="about-main-img"
                 />
                 <div className="about-decor-plus">+</div>
@@ -33,7 +33,7 @@ const About = () => {
               </div>
             </motion.div>
             
-            {/* 2. CONTENT SECTION (Professional & Heartfelt English) */}
+            {/* 2. KHU VỰC NỘI DUNG (Trải lòng về hành trình Canada & Mục tiêu) */}
             <motion.div 
               className="about-content"
               initial={{ opacity: 0, x: 50 }}
@@ -42,30 +42,30 @@ const About = () => {
               viewport={{ once: true }}
             >
               <h3 className="about-subtitle">
-                ✦ Dreaming in <span className="highlight-text">Pixels</span>, Living with <span className="highlight-text">Purpose</span>
+                ✦ From Vietnam to <span className="highlight-text">Canada</span>: A Journey of Growth
               </h3>
               
               <div className="about-description">
                 <p>
-                  I have always believed that <strong>design is a silent language</strong>—a medium where every pixel carries a mission to connect humanity with technology. To me, this is more than just a career; it is how I define the world around me.
+                  As an <strong>international student in Canada</strong>, I’ve embraced the challenge of adapting to a new culture, which has profoundly shaped my perspective as a designer. I believe that design is a universal bridge that connects diverse backgrounds and ideas.
                 </p>
                 <p>
-                  Rooted in a passion for the high-energy visuals of the gaming world, my dream is to become a <strong>Bridge Designer</strong>—one who creates more than just interfaces, but lasting emotional bridges between users and digital products.
+                  Over the <strong>next two years</strong>, my mission is to master the intersection of aesthetic storytelling and technical precision. I aim to secure a professional position in the Canadian tech industry, where I can contribute to meaningful UX/UI projects that solve real-world accessibility and usability challenges.
                 </p>
                 <p>
-                  My ultimate goal is to apply <strong>strategic UX/UI thinking</strong> to solve real-world problems and bring sustainable value to the community. I strive every day to ensure that every product bearing the name Bryan Vo is a blend of kindness, technical precision, and the soul of a digital artist.
+                  When I’m not diving into Figma or coding, you’ll find me exploring Canada’s breathtaking landscapes, capturing urban moments through my camera, or getting inspired by the high-energy visuals of <strong>gaming culture</strong>. These hobbies keep my creativity fueled and my mind fresh for every new design challenge.
                 </p>
               </div>
 
-              {/* Decorative Footer Line */}
+              {/* Thanh ngăn cách và câu chốt */}
               <div className="about-footer-line">
                 <motion.div 
                   className="line-fill"
                   initial={{ width: 0 }}
-                  whileInView={{ width: "100px" }}
+                  whileInView={{ width: "120px" }}
                   transition={{ duration: 1, delay: 0.5 }}
                 />
-                <span className="quote-small">"My goal is not just to create visuals, but to build memorable experiences."</span>
+                <span className="quote-small">"Focused on continuous learning and creating impactful digital experiences."</span>
               </div>
             </motion.div>
           </div>
