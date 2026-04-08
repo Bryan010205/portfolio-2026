@@ -16,7 +16,8 @@
 /* CONTAINER CHÍNH */
 .about-container {
   display: flex;
-  align-items: center; 
+  /* 🔴 FIX: Đổi từ center sang flex-start để đẩy nội dung lên trên */
+  align-items: flex-start; 
   justify-content: center;
   gap: 80px; 
   max-width: 1400px; 
@@ -100,8 +101,9 @@
   flex: 0.8; 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  /* 🔴 FIX: Đưa text lên cao hơn một chút so với lề trên của ảnh */
+  justify-content: flex-start;
+  padding-top: 30px; 
 }
 
 .about-subtitle {
@@ -110,7 +112,7 @@
   margin-bottom: 25px;
   color: #fff;
   line-height: 1.2;
-  white-space: nowrap; /* Giữ chữ thẳng hàng trên Desktop */
+  white-space: nowrap; 
   display: inline-block;
 }
 
@@ -121,6 +123,8 @@
 .about-description {
   width: 100%;
   max-width: 950px;
+  /* Giữ min-height để không bị nhảy trang khi đổi text storytelling */
+  min-height: 200px;
 }
 
 .about-description p {
@@ -128,7 +132,7 @@
   line-height: 1.8;
   color: #e0e0e0;
   margin-bottom: 20px;
-  text-align: justify; /* Căn đều 2 bên trên Desktop */
+  text-align: justify; 
 }
 
 /* PROGRESS BAR */
@@ -147,7 +151,7 @@
 }
 
 /* =========================================
-   📱 MOBILE RESPONSIVE (DÀN ĐỀU VĂN BẢN)
+   📱 MOBILE RESPONSIVE
    ========================================= */
 
 @media (max-width: 1200px) {
@@ -164,13 +168,16 @@
 @media (max-width: 992px) {
   .about-container {
     flex-direction: column;
+    /* 🔴 MOBILE: Vẫn dùng align-items: center để mọi thứ thẳng trục */
+    align-items: center;
     text-align: justify;
     gap: 40px;
   }
   
   .quote-container {
-    align-items: center; /* Đưa khối chữ về giữa màn hình mobile */
+    align-items: center; 
     flex: 1;
+    padding-top: 0; /* Reset padding-top trên mobile */
   }
 
   .about-subtitle {
@@ -180,14 +187,17 @@
     margin-bottom: 20px;
   }
 
-  /* 🔴 TRỌNG TÂM: CĂN GIỮA & DÀN ĐỀU VĂN BẢN */
+  .about-description {
+    min-height: auto; /* Reset min-height trên mobile */
+  }
+
   .about-description p {
-    text-align: justify; /* Dàn đều lề 2 bên cho đẹp */
-    text-justify: inter-word; /* Tối ưu khoảng cách từ ngữ */
+    text-align: justify; 
+    text-justify: inter-word; 
     font-size: 1.05rem; 
     line-height: 1.7;
     margin-bottom: 25px;
-    word-break: break-word; /* Tránh tràn chữ dài */
+    word-break: break-word; 
   }
 
   .quote-progress-bar {
@@ -195,7 +205,6 @@
   }
 }
 
-/* Fix cho màn hình cực nhỏ */
 @media (max-width: 480px) {
   .about-container {
     padding: 0 20px;
