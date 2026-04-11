@@ -30,10 +30,11 @@
 
 /* Khối ảnh thu nhỏ bên phải */
 .hero-img-wrapper {
-  flex: 0.65; /* Chiếm ít không gian hơn cột text */
   position: relative;
-  max-width: 380px; /* 🔴 THU NHỎ đáng kể chiều rộng */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 70%; 
+  max-width: 850px;
+  margin: 0 auto 80px auto; 
+  border: 1px solid #444;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.02);
   border-radius: 4px;
@@ -42,12 +43,7 @@
 
 .hero-img-wrapper img {
   width: 100%;
-  /* 🔴 CỐ ĐỊNH TỶ LỆ NGANG (LANDSCAPE) 
-     Thay đổi từ 2/3 (dọc) thành 3/2 (ngang) */
-  aspect-ratio: 3 / 2; 
-  height: auto;
   display: block;
-  object-fit: cover; /* Đảm bảo ảnh lấp đầy khung ngang đẹp mắt */
 }
 
 /* Decor Icons bám theo khung ảnh bên phải */
