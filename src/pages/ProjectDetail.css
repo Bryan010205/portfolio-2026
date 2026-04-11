@@ -1,136 +1,158 @@
+/* === PROJECT DETAIL PAGE MAIN === */
 .project-detail-page {
-  padding: 40px 0;
+  padding: 80px 0;
   color: white;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: #19191B;
 }
+
+/* =========================================
+   🕵️🔴 LAYOUT MỚI: HERO 2 CỘT (TEXT TRÁI - ẢNH PHẢI)
+   ========================================= */
+.project-hero {
+  display: flex;
+  align-items: flex-start; /* Căn lề trên */
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 120px;
+  padding: 0 40px;
+}
+
+/* Khối nội dung bên trái */
+.hero-text-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+/* Khối ảnh thu nhỏ bên phải */
+.hero-img-wrapper {
+  flex: 0.65; /* Chiếm ít không gian hơn cột text */
+  position: relative;
+  max-width: 380px; /* 🔴 THU NHỎ đáng kể chiều rộng */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.hero-img-wrapper img {
+  width: 100%;
+  /* 🔴 CỐ ĐỊNH TỶ LỆ NGANG (LANDSCAPE) 
+     Thay đổi từ 2/3 (dọc) thành 3/2 (ngang) */
+  aspect-ratio: 3 / 2; 
+  height: auto;
+  display: block;
+  object-fit: cover; /* Đảm bảo ảnh lấp đầy khung ngang đẹp mắt */
+}
+
+/* Decor Icons bám theo khung ảnh bên phải */
+.decor-zigzag { position: absolute; left: -30px; top: -10px; font-size: 24px; opacity: 0.4; color: #5d5fef; }
+.decor-circle { position: absolute; right: -20px; bottom: -20px; font-size: 20px; opacity: 0.3; }
+
+/* =========================================
+   🕵️ Typography & Grid (Giữ nguyên cấu trúc nhưng tinh chỉnh)
+   ========================================= */
 
 .section-header {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-/* Hero Section */
-.hero-img-wrapper {
-  position: relative;
-  width: 70%; 
-  max-width: 850px;
-  margin: 0 auto 80px auto; 
-  border: 1px solid #444;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.02);
+.section-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
 }
 
-.hero-img-wrapper img {
-  width: 100%;
-  display: block;
-}
-
-/* Typography */
-.project-info-grid {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr;
-  gap: 80px;
-  margin-bottom: 80px;
-}
-
-.overview-content p, .problem-box p, .solution-inner p {
+.overview-content p {
   color: #d1d1d1;
   line-height: 1.8;
-  font-size: 16px;
+  font-size: 1.1rem;
   text-align: justify;
 }
 
 .skills-list {
   padding: 0;
   list-style: none;
-}
-
-.skills-list li {
-  color: #5d5fef;
-  font-weight: 600;
-  margin-bottom: 12px;
-  font-size: 14px;
-}
-
-/* Challenge & Solution */
-.problem-solution {
-  margin-bottom: 100px;
-}
-
-.problem-box h3, .solution-box h3 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.solution-box .solution-inner {
-  border: 1px solid #444;
-  border-radius: 12px;
-  padding: 40px;
-  background: rgba(255,255,255,0.02);
-}
-
-/* --- FIX: DESIGN PROCESS GRID --- */
-.process-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  margin-top: 50px;
-}
-
-.process-item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.process-item img {
-  /* Giữ nguyên tỉ lệ ảnh, không cắt xén */
-  width: 100%; 
-  max-height: 350px; /* Khống chế độ cao để trang web không quá dài */
-  object-fit: contain; 
-  
-  border: 1px solid #333;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-/* Riêng tấm Detail Execution (Leftside) */
-.full-width {
-  grid-column: span 2;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 20px;
 }
 
-.full-width img {
-  width: 60%; /* Cho tấm này nhỏ lại cho thanh thoát */
-  max-height: 500px; 
+.skills-list li {
+  background: rgba(93, 95, 239, 0.1);
+  border: 1px solid #5d5fef;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
 }
 
-.process-item img:hover {
-  transform: translateY(-5px);
-  border-color: #5d5fef;
+/* --- DESIGN PROCESS & RENDERS --- */
+.process-grid, .render-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 0 40px;
+  margin-top: 80px;
+}
+
+.process-item img, .render-item img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #333;
 }
 
 .label-btn {
+  display: inline-block;
+  margin-top: 15px;
   border: 1px solid rgba(255,255,255,0.4);
   padding: 6px 16px;
   border-radius: 20px;
   font-size: 11px;
   color: #999;
-  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* Decor Icons */
-.decor-zigzag { position: absolute; left: -40px; top: -10px; font-size: 30px; opacity: 0.4; }
-.plus-icon { color: #5d5fef; font-size: 20px; margin-left: auto; }
+/* Tấm Detail Side bự ở cuối (Nếu bạn vẫn muốn giữ nó bự) */
+.full-width {
+  width: 100%;
+  padding: 0 40px;
+  margin-top: 60px;
+  text-align: center;
+}
 
-@media (max-width: 768px) {
-  .project-info-grid, .process-grid { grid-template-columns: 1fr; }
-  .full-width { grid-column: span 1; }
-  .full-width img, .hero-img-wrapper { width: 100%; }
+.full-width img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+
+/* =========================================
+   📱 MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 992px) {
+  .project-hero {
+    flex-direction: column-reverse; /* Ảnh lên trên, text xuống dưới trên mobile */
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-img-wrapper {
+    width: 60%;
+    margin-bottom: 40px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
 }
