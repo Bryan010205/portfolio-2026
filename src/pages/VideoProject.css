@@ -1,0 +1,210 @@
+/* === VIDEO PROJECT PAGE === */
+.video-project-page {
+  padding: 60px 20px;
+  color: white;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #19191B;
+}
+
+/* --- 1. HERO: VIDEO EMBED --- */
+.vp-hero {
+  margin-bottom: 100px;
+}
+
+.vp-video-wrapper {
+  position: relative;
+  width: 85%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  /* 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
+}
+
+.vp-video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+/* --- 2. OVERVIEW & SKILLS --- */
+.project-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 100px;
+  margin-bottom: 100px;
+  padding: 0 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.overview-content p {
+  color: #d1d1d1;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.skills-list {
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  color: #5d5fef;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.skills-list li::before {
+  content: "✦";
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+/* --- 3. CHALLENGE CARDS --- */
+.challenge-section {
+  margin-bottom: 120px;
+  padding: 0 20px;
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.challenge-header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.challenge-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 32px;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(93, 95, 239, 0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.challenge-card:hover {
+  border-color: rgba(93, 95, 239, 0.4);
+  background: rgba(93, 95, 239, 0.04);
+}
+
+.challenge-card:hover::before {
+  opacity: 1;
+}
+
+.challenge-number {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(93, 95, 239, 0.2);
+  line-height: 1;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.challenge-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+}
+
+.challenge-text {
+  color: #a0a0a0;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0;
+  font-style: italic;
+}
+
+/* --- SOLUTION BOX --- */
+.solution-box .solution-inner {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.solution-inner p {
+  color: #e0e0e0;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+.solution-box h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Decor */
+.decor-triangle { color: #5d5fef; font-size: 18px; }
+.close-icon { color: rgba(255, 255, 255, 0.3); font-size: 18px; }
+.plus-icon { color: #5d5fef; font-size: 24px; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+  .vp-video-wrapper {
+    width: 100%;
+  }
+
+  .project-info-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .challenge-cards {
+    grid-template-columns: 1fr;
+  }
+}

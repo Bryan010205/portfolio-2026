@@ -18,7 +18,8 @@ import Projects from './pages/Home/Projects';
 import AboutPage from './pages/AboutPage';
 import ProjectDetail from './pages/ProjectDetail';
 // 🔥 QUAN TRỌNG: Import trang Creative Portrait mới của bạn
-import CreativePortrait from './pages/CreativePortrait'; 
+import CreativePortrait from './pages/CreativePortrait';
+import VideoProject from './pages/VideoProject';
 
 function App() {
   const location = useLocation();
@@ -48,6 +49,9 @@ function App() {
 
           {/* 🔥 TRANG DỰ ÁN CREATIVE PORTRAIT (Dòng này giúp link hoạt động) */}
           <Route path="/project/creative-portrait" element={<CreativePortrait />} />
+
+          {/* TRANG AMV TYPOGRAPHY ANIME VIDEO PROJECT */}
+          <Route path="/project/amv-typography" element={<VideoProject />} />
 
           {/* TRANG CHI TIẾT DỰ ÁN CHUNG (Cho các project dùng chung template) */}
           <Route path="/project/:id" element={<ProjectDetail />} />
