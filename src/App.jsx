@@ -12,11 +12,10 @@ import Footer from './components/Footer/Footer';
 
 // 3. Import các Sections của trang Home
 import Hero from './pages/Home/Hero';
-import About from './pages/Home/About';
 import Projects from './pages/Home/Projects';
 
 // 4. Import các Page và Component lẻ khác
-import CoreValues from './components/CoreValues/CoreValues';
+import AboutPage from './pages/AboutPage';
 import ProjectDetail from './pages/ProjectDetail';
 // 🔥 QUAN TRỌNG: Import trang Creative Portrait mới của bạn
 import CreativePortrait from './pages/CreativePortrait'; 
@@ -40,11 +39,12 @@ function App() {
           <Route path="/" element={
             <main className="home-page">
               <Hero />
-              <About /> 
-              <CoreValues />
               <Projects /> 
             </main>
           } />
+
+          {/* TRANG ABOUT */}
+          <Route path="/about" element={<AboutPage />} />
 
           {/* 🔥 TRANG DỰ ÁN CREATIVE PORTRAIT (Dòng này giúp link hoạt động) */}
           <Route path="/project/creative-portrait" element={<CreativePortrait />} />
@@ -56,8 +56,6 @@ function App() {
           <Route path="*" element={
             <main>
               <Hero />
-              <About /> 
-              <CoreValues />
               <Projects /> 
             </main>
           } />
