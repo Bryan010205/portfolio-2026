@@ -54,7 +54,7 @@ const VideoProject = () => {
             <h2>Overview</h2>
           </div>
           <p>
-            This project is an emotional kinetic typography music video featuring the song <strong>"Hero"</strong> by Cash Cash. 
+            This project is an emotional advanced typography music video featuring the song <strong>"Hero"</strong> by Cash Cash. 
             The visuals are curated from the anime film <strong>A Silent Voice</strong>, focusing on the complex relationship 
             and redemption arc between the main characters, Ishida and Shoko. The goal was to create a strong synergy 
             between the lyrical message and the film's narrative beats.
@@ -110,6 +110,57 @@ const VideoProject = () => {
             }
           ].map((item) => (
             <motion.div key={item.number} className="challenge-card" variants={fadeUp}>
+              <span className="challenge-number">{item.number}</span>
+              <h4 className="challenge-title">{item.title}</h4>
+              <p className="challenge-text">"{item.text}"</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* 4. SOLUTION */}
+      <section className="challenge-section solution-section">
+        <motion.div
+          className="challenge-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <span className="decor-triangle">▷</span>
+          <h2>The Solution</h2>
+        </motion.div>
+
+        <motion.div
+          className="challenge-cards solution-cards"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {[
+            {
+              number: '01',
+              title: `The "Aha!" Moment: Inspiration from TikTok`,
+              text: `The creative direction for this project actually started with a bit of luck. I happened to see a TikTok clip of A Silent Voice, and the lyrics of 'Hero' by Cash Cash immediately started playing in my head. The connection between the song's energy and the film's emotional redemption arc was so perfect that I knew I had to bring them together.`
+            },
+            {
+              number: '02',
+              title: 'Mastering the Skill: Beyond the Classroom',
+              text: `Even though Advanced Typography was a brand-new skill for me, I didn't let that stop me. I spent hours researching tutorials on YouTube and professional design websites to understand what this engine could really do. Most importantly, I constantly reached out to my instructor, Jett, during class to refine my techniques and ensure my work met professional standards.`
+            },
+            {
+              number: '03',
+              title: 'Sourcing the Visuals: Curating the Best Footage',
+              text: `Since I wanted a high-quality 'Pro Result,' I didn't just grab the first video I saw. I scoured YouTube and specialized anime clip websites to find the cleanest, most impactful footage available. This allowed me to work with a solid visual foundation, which is crucial when you're overlaying complex motion graphics.`
+            },
+            {
+              number: '04',
+              title: 'From Reference to Storyboard: Learning to Move',
+              text: `My storyboarding process was deeply tied to my technical research. While studying Advanced Typography examples, I paid close attention to how professional designers moved their cameras through 3D space. I took those camera-movement concepts and integrated them into my own storyboard, allowing me to develop a more dynamic and immersive experience for the final video.`
+            }
+          ].map((item) => (
+            <motion.div key={item.number} className="challenge-card solution-card" variants={fadeUp}>
               <span className="challenge-number">{item.number}</span>
               <h4 className="challenge-title">{item.title}</h4>
               <p className="challenge-text">"{item.text}"</p>

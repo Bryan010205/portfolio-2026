@@ -141,7 +141,7 @@
   display: block;
   font-size: 48px;
   font-weight: 900;
-  color: rgba(93, 95, 239, 0.2);
+  color: rgba(93, 95, 239, 0.6);
   line-height: 1;
   margin-bottom: 20px;
   letter-spacing: -2px;
@@ -192,6 +192,29 @@
 .decor-triangle { color: #5d5fef; font-size: 18px; }
 .close-icon { color: rgba(255, 255, 255, 0.3); font-size: 18px; }
 .plus-icon { color: #5d5fef; font-size: 24px; }
+
+/* --- 4. SOLUTION SECTION --- */
+.solution-section {
+  margin-top: 0;
+}
+
+.solution-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.solution-card {
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.solution-card::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+}
+
+.solution-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
 
 /* --- RESPONSIVE --- */
 @media (max-width: 992px) {
