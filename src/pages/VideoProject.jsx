@@ -171,7 +171,7 @@ const VideoProject = () => {
         </motion.div>
       </section>
 
-      {/* 5. REFERENCES */}
+      {/* 5. WORKING PROCESS */}
       <section className="challenge-section">
         <motion.div
           className="challenge-header"
@@ -181,7 +181,7 @@ const VideoProject = () => {
           viewport={{ once: true }}
         >
           <span className="decor-triangle">▷</span>
-          <h2>References</h2>
+          <h2>Working Process</h2>
         </motion.div>
 
         <motion.div
