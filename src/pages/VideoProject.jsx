@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './VideoProject.css';
+import storyboard from '../assets/storyboard.jpeg';
+import videoProcess from '../assets/video_process.jpeg';
 
 const VIDEO_ID = 'Sg0D8jOaruQ';
 
@@ -164,6 +166,54 @@ const VideoProject = () => {
               <span className="challenge-number">{item.number}</span>
               <h4 className="challenge-title">{item.title}</h4>
               <p className="challenge-text">"{item.text}"</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* 5. REFERENCES */}
+      <section className="challenge-section">
+        <motion.div
+          className="challenge-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <span className="decor-triangle">▷</span>
+          <h2>References</h2>
+        </motion.div>
+
+        <motion.div
+          className="process-grid"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div className="process-item" variants={fadeUp}>
+            <img src={storyboard} alt="Storyboard" />
+            <span className="label-btn">Storyboard</span>
+          </motion.div>
+          <motion.div className="process-item" variants={fadeUp}>
+            <img src={videoProcess} alt="Video Process" />
+            <span className="label-btn">Video Process</span>
+          </motion.div>
+          {[
+            { id: 'iHSZZqXtPXA', label: 'Reference 01' },
+            { id: '44x_TrwABoY', label: 'Reference 02' },
+          ].map((ref) => (
+            <motion.div className="process-item" variants={fadeUp} key={ref.id}>
+              <a href={`https://youtu.be/${ref.id}`} target="_blank" rel="noopener noreferrer" className="ref-thumb-link">
+                <div className="ref-thumb-wrapper">
+                  <img
+                    src={`https://img.youtube.com/vi/${ref.id}/maxresdefault.jpg`}
+                    alt={ref.label}
+                  />
+                  <div className="ref-play-icon">▶</div>
+                </div>
+              </a>
+              <span className="label-btn">{ref.label}</span>
             </motion.div>
           ))}
         </motion.div>

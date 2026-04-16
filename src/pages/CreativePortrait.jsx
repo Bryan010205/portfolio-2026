@@ -117,7 +117,7 @@ const CreativePortrait = () => {
       {/* 4. DESIGN PROCESS */}
       <section className="process-section">
         <div className="process-header">
-          <h2>Design Process</h2>
+          <h2>Working Process</h2>
           <div className="decor-circle">○</div>
         </div>
 
