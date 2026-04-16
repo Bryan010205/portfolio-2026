@@ -20,6 +20,7 @@ import ProjectDetail from './pages/ProjectDetail';
 // 🔥 QUAN TRỌNG: Import trang Creative Portrait mới của bạn
 import CreativePortrait from './pages/CreativePortrait';
 import VideoProject from './pages/VideoProject';
+import SecondHandBook from './pages/SecondHandBook';
 
 function App() {
   const location = useLocation();
@@ -52,6 +53,9 @@ function App() {
 
           {/* TRANG AMV TYPOGRAPHY ANIME VIDEO PROJECT */}
           <Route path="/project/amv-typography" element={<VideoProject />} />
+
+          {/* TRANG SECOND HAND TEXTBOOK APP */}
+          <Route path="/project/student-book" element={<SecondHandBook />} />
 
           {/* TRANG CHI TIẾT DỰ ÁN CHUNG (Cho các project dùng chung template) */}
           <Route path="/project/:id" element={<ProjectDetail />} />

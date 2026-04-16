@@ -23,7 +23,7 @@ const Projects = () => {
       category: 'Motion',
       image: 'https://img.youtube.com/vi/Sg0D8jOaruQ/maxresdefault.jpg'
     },
-    { id: 3, title: 'Student Book App', category: 'UX/UI', image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?w=500&q=80' },
+    { id: 'student-book', title: 'Student Book App', category: 'UX/UI', image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?w=500&q=80' },
     { id: 4, title: 'EcoStep E-com', category: 'Web Dev', image: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=500&q=80' },
     { id: 5, title: '3D Astronaut', category: 'Web Dev', image: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=500&q=80' }
   ];
@@ -41,6 +41,8 @@ const Projects = () => {
       navigate('/project/creative-portrait');
     } else if (projectId === 'amv-typography') {
       navigate('/project/amv-typography');
+    } else if (projectId === 'student-book') {
+      navigate('/project/student-book');
     } else {
       navigate(`/project/${projectId}`);
     }

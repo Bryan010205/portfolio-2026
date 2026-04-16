@@ -1,0 +1,468 @@
+/* === SECOND HAND BOOK PAGE === */
+.shb-page {
+  padding: 60px 20px;
+  color: white;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #19191B;
+}
+
+/* ─── 1. HERO ─────────────────────────────────────────── */
+.shb-hero {
+  margin-bottom: 100px;
+}
+
+.shb-slide-wrapper {
+  position: relative;
+  width: 75%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.shb-decor-zigzag {
+  position: absolute;
+  left: -36px;
+  top: -12px;
+  font-size: 24px;
+  opacity: 0.4;
+  color: #5d5fef;
+}
+
+.shb-decor-circle {
+  position: absolute;
+  right: -28px;
+  bottom: -22px;
+  font-size: 20px;
+  opacity: 0.3;
+  color: #fff;
+}
+
+.shb-slide {
+  position: relative;
+  background: #f0f4ff;
+  border-radius: 8px;
+  padding: 48px 56px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Decorative concentric rings (bottom-left) */
+.shb-slide-decor-lines {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  pointer-events: none;
+}
+
+.shb-circle-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(100, 140, 230, 0.25);
+}
+
+.shb-ring-1 {
+  width: 220px;
+  height: 220px;
+  bottom: 0;
+  left: 0;
+}
+
+.shb-ring-2 {
+  width: 340px;
+  height: 340px;
+  bottom: -60px;
+  left: -60px;
+}
+
+.shb-slide-code {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1a56db;
+  letter-spacing: 1.5px;
+  text-decoration: underline;
+  font-family: monospace;
+}
+
+.shb-slide-body {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.shb-book-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+}
+
+.shb-book-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shb-slide-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #111;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.shb-slide-title-accent {
+  color: #1a56db;
+}
+
+.shb-slide-presented {
+  margin-top: 24px;
+  align-self: flex-end;
+  background: #1a56db;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 4px;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.shb-slide-dots {
+  position: absolute;
+  bottom: 18px;
+  right: 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  opacity: 0.35;
+}
+
+.shb-dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #1a56db;
+}
+
+/* ─── 2. OVERVIEW & SKILLS ───────────────────────────── */
+.shb-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 100px;
+  margin-bottom: 100px;
+  padding: 0 20px;
+}
+
+.shb-section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.shb-section-header--right {
+  justify-content: flex-start;
+}
+
+.shb-section-header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.shb-overview p {
+  color: #d1d1d1;
+  line-height: 1.8;
+  font-size: 17px;
+}
+
+.shb-skills-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.shb-skills-list li {
+  color: #5d5fef;
+  font-weight: 600;
+  margin-bottom: 14px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.shb-skills-list li::before {
+  content: "✦";
+  margin-right: 10px;
+  font-size: 11px;
+}
+
+.shb-decor-tri {
+  color: #5d5fef;
+  font-size: 18px;
+}
+
+.shb-plus {
+  color: #5d5fef;
+  font-size: 24px;
+}
+
+/* ─── 3. PROBLEM ─────────────────────────────────────── */
+.shb-problem {
+  margin-bottom: 100px;
+  padding: 0 20px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.shb-centered-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.shb-centered-header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.shb-centered-header--left {
+  justify-content: flex-start;
+}
+
+.shb-problem p {
+  color: #d1d1d1;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* ─── 4. SOLUTION ────────────────────────────────────── */
+.shb-solution {
+  margin-bottom: 100px;
+  padding: 0 20px;
+}
+
+.shb-solution-box {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  padding: 48px 56px;
+  background: rgba(255, 255, 255, 0.025);
+  max-width: 900px;
+  margin-top: 40px;
+}
+
+.shb-solution-box p {
+  color: #d1d1d1;
+  line-height: 1.9;
+  font-size: 17px;
+  margin: 0;
+}
+
+.shb-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.shb-close-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── 5. PROCESS ─────────────────────────────────────── */
+.shb-process {
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+
+.shb-wireframes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+}
+
+.shb-wireframe-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.shb-wireframe-item img {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #333;
+  object-fit: cover;
+  transition: transform 0.4s ease, border-color 0.3s;
+}
+
+.shb-wireframe-item img:hover {
+  transform: scale(1.02);
+  border-color: #5d5fef;
+}
+
+.shb-wireframe-placeholder {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s;
+}
+
+.shb-wireframe-item:hover .shb-wireframe-placeholder {
+  border-color: #5d5fef;
+}
+
+.shb-label-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 18px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.shb-wireframe-item:hover .shb-label-btn {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Figma row */
+.shb-figma-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.shb-figma-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.shb-figma-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.shb-figma-btn {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.shb-figma-btn:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* ─── 6. PROTOTYPE ───────────────────────────────────── */
+.shb-prototype {
+  padding: 0 20px;
+  margin-bottom: 80px;
+}
+
+.shb-proto-wrapper {
+  margin-top: 40px;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.shb-proto-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .shb-slide-wrapper {
+    width: 95%;
+  }
+
+  .shb-info-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .shb-wireframes {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shb-slide-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .shb-slide-presented {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .shb-slide {
+    padding: 32px 28px;
+  }
+
+  .shb-solution-box {
+    padding: 32px 24px;
+  }
+
+  .shb-figma-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
