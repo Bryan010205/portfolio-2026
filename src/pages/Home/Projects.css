@@ -59,16 +59,7 @@
 }
 
 .projects-section .section-title::after {
-  content: "THE NEBULA ARCHIVE";
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  font-weight: 300;
-  letter-spacing: 12px;
-  color: rgba(165, 166, 246, 0.6); /* Màu tím nhạt */
-  text-shadow: 0 0 8px rgba(93, 95, 239, 0.4);
+  content: "";
 }
 
 /* === HỆ THỐNG THẺ PROJECT (GIỮ NGUYÊN FORM CỦA HOÀNG) === */
