@@ -20,7 +20,7 @@ const Navbar = () => {
           <NavHashLink smooth to="/#home">Home</NavHashLink>
         </li>
         <li>
-          <NavHashLink smooth to="/#about">About</NavHashLink>
+          <Link to="/about">About</Link>
         </li>
         <li>
           <NavHashLink smooth to="/#projects">Projects</NavHashLink>

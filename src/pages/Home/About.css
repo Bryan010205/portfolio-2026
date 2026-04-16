@@ -1,5 +1,7 @@
+/* === ABOUT SECTION MAIN === */
 .about-section {
   padding: 100px 0;
+  background-color: #19191B;
   overflow: hidden;
 }
 
@@ -11,28 +13,30 @@
   text-align: center;
 }
 
-/* CONTAINER CHÍNH CHIA 2 CỘT */
+/* CONTAINER CHÍNH */
 .about-container {
   display: flex;
-  align-items: center;
+  /* 🔴 FIX: Đổi từ center sang flex-start để đẩy nội dung lên trên */
+  align-items: flex-start; 
   justify-content: center;
-  gap: 60px;
-  max-width: 1200px;
+  gap: 80px; 
+  max-width: 1400px; 
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
-/* BÊN TRÁI: VIDEO */
+/* BÊN TRÁI: VIDEO/IMAGE BLOCK */
 .video-container {
-  flex: 1.2; /* Cho phần video to hơn một chút */
+  flex: 1.2; 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .video-wrapper {
-  position: relative;
   width: 100%;
-  border-radius: 20px; /* Bo góc tròn hơn cho hiện đại */
+  max-width: 650px; 
+  border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -40,68 +44,102 @@
 
 .video-thumbnail {
   width: 100%;
-  aspect-ratio: 16 / 10; /* Tỉ lệ ảnh chuẩn chuyên nghiệp */
+  aspect-ratio: 16 / 10; 
   display: block;
   object-fit: cover;
-  opacity: 0.8;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .video-wrapper:hover .video-thumbnail {
-  opacity: 1;
-  transform: scale(1.03); /* Phóng nhẹ khi hover */
+  transform: scale(1.03);
 }
 
-.play-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  background-color: #5d5fef;
-  border: none;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
+/* SKILLS ROW */
+.skills-wrapper {
+  margin-top: 35px;
+  width: 100%;
+  text-align: center;
+}
+
+.skills-label {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.skill-icons-row {
+  display: inline-flex;
   justify-content: center;
-  align-items: center;
-  z-index: 2;
-  box-shadow: 0 0 20px rgba(93, 95, 239, 0.6);
+  gap: 25px;
+  padding: 12px 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
-/* BÊN PHẢI: QUOTE BIẾN HÌNH */
+.skill-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.skill-icon-item {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-icon-item:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+/* BÊN PHẢI: TEXT CONTENT */
 .quote-container {
-  flex: 0.8;
-  position: relative;
-  min-height: 250px; /* Cố định chiều cao để không bị nhảy layout khi chữ dài/ngắn */
+  flex: 0.8; 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* Căn lề trái cho nghệ */
+  /* 🔴 FIX: Đưa text lên cao hơn một chút so với lề trên của ảnh */
+  justify-content: flex-start;
+  padding-top: 30px; 
 }
 
-.video-caption {
-  font-family: 'Space Mono', monospace; /* Nếu chưa có font này web sẽ dùng monospace mặc định */
-  font-size: 1.3rem;
-  line-height: 1.7;
-  color: #e0e0e0;
-  text-align: left;
-  margin: 0;
+.about-subtitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #fff;
+  line-height: 1.2;
+  white-space: nowrap; 
+  display: inline-block;
+}
+
+.highlight-text {
+  color: #5d5fef;
+}
+
+.about-description {
   width: 100%;
-  /* Giúp chữ biến hình mượt mà tại chỗ */
-  position: absolute; 
+  max-width: 950px;
+  /* Giữ min-height để không bị nhảy trang khi đổi text storytelling */
+  min-height: 200px;
 }
 
-/* THANH TIẾN TRÌNH NHỎ DƯỚI CHỮ */
+.about-description p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e0e0e0;
+  margin-bottom: 20px;
+  text-align: justify; 
+}
+
+/* PROGRESS BAR */
 .quote-progress-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
+  margin-top: 10px;
+  width: 100px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 2px;
   overflow: hidden;
@@ -112,39 +150,70 @@
   background-color: #5d5fef;
 }
 
-/* RESPONSIVE CHO MOBILE */
+/* =========================================
+   📱 MOBILE RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1200px) {
+  .about-subtitle {
+    font-size: 2.2rem;
+    white-space: normal; 
+  }
+  .about-container {
+    gap: 40px;
+    padding: 0 30px;
+  }
+}
+
 @media (max-width: 992px) {
   .about-container {
-    flex-direction: column; /* Xếp chồng lên nhau */
-    gap: 40px;
-    text-align: center;
-  }
-
-  .quote-container {
+    flex-direction: column;
+    /* 🔴 MOBILE: Vẫn dùng align-items: center để mọi thứ thẳng trục */
     align-items: center;
-    min-height: 180px;
-    width: 100%;
+    text-align: justify;
+    gap: 40px;
+  }
+  
+  .quote-container {
+    align-items: center; 
+    flex: 1;
+    padding-top: 0; /* Reset padding-top trên mobile */
   }
 
-  .video-caption {
+  .about-subtitle {
+    white-space: normal;
+    font-size: 2rem;
     text-align: center;
-    position: relative; /* Trở về bình thường trên mobile */
-    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .about-description {
+    min-height: auto; /* Reset min-height trên mobile */
+  }
+
+  .about-description p {
+    text-align: justify; 
+    text-justify: inter-word; 
+    font-size: 1.05rem; 
+    line-height: 1.7;
+    margin-bottom: 25px;
+    word-break: break-word; 
   }
 
   .quote-progress-bar {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -20px;
+    margin: 10px auto 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .section-title {
-    font-size: 28px;
+  .about-container {
+    padding: 0 20px;
   }
-  
-  .video-caption {
-    font-size: 1rem;
+  .about-section {
+    padding: 60px 0;
+  }
+  .skill-icons-row {
+    gap: 15px;
+    padding: 10px 20px;
   }
 }

@@ -1,0 +1,215 @@
+.creative-portrait-page {
+  padding: 60px 20px;
+  color: white;
+  max-width: 1300px; /* Tăng nhẹ để không gian rộng rãi hơn */
+  margin: 0 auto;
+  background-color: #19191B; /* Đảm bảo tiệp màu nền hệ thống */
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+/* --- 1. HERO SECTION --- */
+.hero-img-wrapper {
+  position: relative;
+  width: 85%; /* Tăng độ bự cho tấm Final Composite */
+  max-width: 1000px;
+  margin: 0 auto 100px auto; 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-img-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+/* --- 2. OVERVIEW & SKILLS --- */
+.project-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Tỉ lệ vàng cho Portfolio */
+  gap: 100px;
+  margin-bottom: 100px;
+  padding: 0 20px;
+}
+
+.overview-content p {
+  color: #d1d1d1;
+  line-height: 1.8;
+  font-size: 17px;
+  text-align: left; /* Đổi về left cho dễ đọc hơn justify */
+}
+
+.skills-list {
+  padding: 0;
+  list-style: none;
+}
+
+.skills-list li {
+  color: #5d5fef; /* Màu tím highlight của Hoàng */
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.skills-list li::before {
+  content: "✦";
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+/* --- 3. CHALLENGE & SOLUTION --- */
+.problem-solution {
+  margin-bottom: 120px;
+  padding: 0 20px;
+}
+
+.problem-box h3, .solution-box h3 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.problem-box p {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+  color: #b0b0b0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.solution-box .solution-inner {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  position: relative;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.solution-inner p {
+  color: #e0e0e0;
+  line-height: 1.9;
+  font-size: 17px;
+}
+
+/* --- 4. DESIGN PROCESS GRID --- */
+.process-section {
+  padding: 0 20px;
+  margin-bottom: 100px;
+}
+
+.process-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.process-item img {
+  width: 100%; 
+  aspect-ratio: 16 / 10; /* Giữ tỉ lệ chuẩn cho 2 tấm beach & street */
+  object-fit: cover; 
+  border: 1px solid #333;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.process-item img:hover {
+  transform: scale(1.02);
+  border-color: #5d5fef;
+  box-shadow: 0 15px 30px rgba(93, 95, 239, 0.2);
+}
+
+.label-btn {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.process-item:hover .label-btn {
+  background-color: #fff;
+  color: #000;
+}
+
+/* --- 5. FOOTER & DECOR --- */
+.project-footer {
+  text-align: center;
+  padding: 100px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-email {
+  font-size: 4vw;
+  font-weight: 300;
+  margin: 30px 0;
+  opacity: 0.8;
+}
+
+.footer-name-giant {
+  font-size: 12vw;
+  font-weight: 900;
+  letter-spacing: -8px;
+  line-height: 0.8;
+  margin-top: 40px;
+  background: linear-gradient(to bottom, #fff, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Decor Icons */
+.decor-zigzag { position: absolute; left: -50px; top: -20px; font-size: 40px; opacity: 0.3; color: #5d5fef; }
+.decor-circle { color: rgba(255, 255, 255, 0.2); font-size: 24px; }
+.plus-icon { color: #5d5fef; font-size: 24px; }
+.decor-triangle { color: #5d5fef; font-size: 20px; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-info-grid { gap: 40px; }
+  .footer-name-giant { letter-spacing: -3px; }
+}
+
+@media (max-width: 768px) {
+  .project-info-grid, .process-grid { grid-template-columns: 1fr; }
+  .hero-img-wrapper { width: 100%; }
+  .section-header h2 { font-size: 22px; }
+  .solution-inner { padding: 30px; }
+  .footer-email { font-size: 24px; }
+}

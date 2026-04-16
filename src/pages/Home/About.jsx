@@ -1,74 +1,135 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Reveal from '../../components/Reveal'; // Nhớ check đúng đường dẫn nha
+import Reveal from '../../components/Reveal'; 
 import './About.css';
 
-const quotes = [
-  "Design is not just what it looks like, it's how it works.",
-  "Good design is obvious. Great design is transparent.",
-  "Digital experiences that balance bold visual energy with structured systems.",
-  "Controlled intensity in every project—expressive visuals with disciplined execution."
-];
+// 🛠️ ASSETS
+import aboutPortrait from '../../assets/about1.jpeg';
+import figmaLogo from '../../assets/figma.svg';
+import photoshopLogo from '../../assets/photoshop.svg';
+import illustratorLogo from '../../assets/illustrator.png';
+import afterEffectsLogo from '../../assets/after_effect.png';
 
 const About = () => {
-  const [currentQuote, setCurrentQuote] = useState(0);
+  // 1. Dữ liệu 4 đoạn văn mộc mạc tui viết cho bạn
+  const stories = [
+    {
+      id: 1,
+      content: (
+        <p>
+          I started my journey from the busy, lively streets of <strong>Vietnam</strong> and found my way to the peaceful landscapes of <strong>Canada</strong>. Moving across the world and stepping into a whole new culture was a big challenge, but it’s also what changed the way I look at design.
+        </p>
+      )
+    },
+    {
+      id: 2,
+      content: (
+        <p>
+          For me, design isn’t just about making things look good on a screen. It’s like a <strong>bridge</strong>—a way to help people from different places understand each other through simple, intuitive experiences.
+        </p>
+      )
+    },
+    {
+      id: 3,
+      content: (
+        <p>
+          In the <strong>next two years</strong>, I’m focused on learning how to balance the 'art' of telling a story with the 'math' of technical precision. My goal is to help build UX/UI projects that actually mean something to the people who use them.
+        </p>
+      )
+    },
+    {
+      id: 4,
+      content: (
+        <p>
+          When I’m away from Figma, you’ll probably find me wandering through Canada’s beautiful trails or getting lost in the high-energy world of <strong>gaming culture</strong>. That’s where I go to recharge and find fresh ideas.
+        </p>
+      )
+    }
+  ];
 
-  // Logic tự động chuyển câu quote sau mỗi 5 giây
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // 2. Thiết lập tự động chuyển đoạn sau 6 giây
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentQuote((prev) => (prev + 1) % quotes.length);
-    }, 5000); // 5000ms = 5 giây
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
+    }, 10000); // 6 giây
+
     return () => clearInterval(timer);
-  }, []);
+  }, [stories.length]);
 
   return (
     <section className="about-section" id="about">
       <Reveal>
-        <h2 className="section-title">Something about me</h2>
-        
-        <div className="about-container">
-          <div className="video-container">
-            <div className="video-wrapper">
-              <img 
-                src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="About Me Video Thumbnail" 
-                className="video-thumbnail"
-              />
-              <motion.button 
-                className="play-btn"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <span className="play-icon">▶</span>
-              </motion.button>
-            </div>
-          </div>
+        <div className="portfolio-container">
+          <h2 className="section-title">Something about me</h2>
           
-          {/* KHU VỰC BIẾN HÌNH CHỮ CỰC ĐẶC BIỆT NÈ */}
-          <div className="quote-container">
-            <AnimatePresence mode="wait">
-              <motion.p 
-                key={currentQuote} // Key thay đổi để framer-motion biết cần làm animation
-                className="video-caption"
-                initial={{ opacity: 0, y: 20, filter: "blur(10px)" }} // Bắt đầu: mờ, thấp, blur
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}  // Hiện: rõ, về vị trí, hết blur
-                exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}  // Thoát: mờ, bay lên, blur lại
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              >
-                "{quotes[currentQuote]}"
-              </motion.p>
-            </AnimatePresence>
+          <div className="about-container">
+            {/* LEFT SIDE: IMAGE & SKILLS */}
+            <motion.div 
+              className="video-container"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <div className="video-wrapper">
+                <img 
+                  src={aboutPortrait} 
+                  alt="Bryan Vo" 
+                  className="video-thumbnail"
+                />
+              </div>
+
+              <div className="skills-wrapper">
+                <p className="skills-label">My essential skills:</p>
+                <div className="skill-icons-row">
+                  <div className="skill-icon-item" title="Figma"><img src={figmaLogo} alt="Figma" className="skill-img" /></div>
+                  <div className="skill-icon-item" title="Photoshop"><img src={photoshopLogo} alt="Photoshop" className="skill-img" /></div>
+                  <div className="skill-icon-item" title="Illustrator"><img src={illustratorLogo} alt="Illustrator" className="skill-img" /></div>
+                  <div className="skill-icon-item" title="After Effects"><img src={afterEffectsLogo} alt="After Effects" className="skill-img" /></div>
+                </div>
+              </div>
+            </motion.div>
             
-            {/* Thanh tiến trình nhỏ xíu bên dưới cho nghệ */}
-            <div className="quote-progress-bar">
-              <motion.div 
-                className="quote-progress-fill"
-                key={currentQuote}
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 5, ease: "linear" }}
-              />
-            </div>
+            {/* RIGHT SIDE: ANIMATED CONTENT */}
+            <motion.div 
+              className="quote-container"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="about-subtitle">
+                ✦ From Vietnam to <span className="highlight-text">Canada</span>
+              </h3>
+              
+              {/* VÙNG CHỨA TEXT CÓ HIỆU ỨNG FADE */}
+              <div className="about-description" style={{ minHeight: '180px', position: 'relative' }}>
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                  >
+                    {stories[currentIndex].content}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* THANH PROGRESS CHẠY THEO THỜI GIAN 6S */}
+              <div className="quote-progress-bar">
+                <motion.div 
+                  key={currentIndex} // Restart animation mỗi khi đổi text
+                  className="quote-progress-fill"
+                  initial={{ width: "0%" }}
+                  animate={{ width: "100%" }}
+                  transition={{ duration: 6, ease: "linear" }}
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
       </Reveal>

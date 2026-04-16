@@ -1,11 +1,9 @@
 /* 1. SETUP HỆ THỐNG CUỘN & FONT */
 html {
   scroll-behavior: smooth;
-  /* Giúp tiêu đề section không bị Navbar đè lên */
-  scroll-padding-top: 90px; 
-  /* Đảm bảo luôn cho phép cuộn dọc */
+  scroll-padding-top: 80px; 
+  min-height: 100%;
   overflow-y: auto;
-  height: 100%;
 }
 
 * {
@@ -16,7 +14,7 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* 2. NOISE OVERLAY (Hiệu ứng nhiễu phim nghệ thuật) */
+/* 2. NOISE OVERLAY */
 body::before {
   content: "";
   position: fixed;
@@ -34,96 +32,121 @@ body {
   background-color: #19191B;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* Quan trọng: Cho phép cuộn dọc tự do, chỉ chặn ngang */
   overflow-x: hidden; 
-  overflow-y: visible;
   line-height: 1.6;
   min-height: 100vh;
 }
 
-/* 3. CUSTOM SELECTION (Màu tím khi bôi đen chữ) */
-::selection {
-  background-color: #5d5fef;
-  color: #ffffff;
+/* 3. LAYOUT UTILITIES */
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
 }
 
-/* 4. TYPOGRAPHY (Tối ưu hóa phông chữ) */
+/* 4. TYPOGRAPHY */
 h1, h2, h3, h4 {
   font-weight: 700;
-  letter-spacing: -0.03em; 
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
 
 p {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 5. LAYOUT UTILITIES */
-.portfolio-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  /* Đảm bảo container không chặn nội dung bên trong */
-  position: relative;
-  z-index: 1;
+/* 5. PHẦN THÂN TRANG CHỦ */
+.home-page section {
+  padding: 80px 0;
+  width: 100%;
 }
 
-/* Ép con trỏ thành bàn tay */
-a, button, .view-btn, .project-card-3d, .footer-email, .nav-link, .more-info-btn {
-  cursor: pointer !important;
-}
-
-/* 6. PARALLAX DECOR STYLING */
-.parallax-decor {
-  position: absolute;
-  color: rgba(93, 95, 239, 0.12);
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 300;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-}
-
-.p-1 { top: 15%; left: 8%; font-size: 40px; }
-.p-2 { top: 45%; right: 12%; font-size: 24px; }
-.p-3 { bottom: 15%; left: 25%; font-size: 60px; }
-
-/* 7. CUSTOM SCROLLBAR (Thanh cuộn đen-tím mỏng) */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #19191B;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #5d5fef;
-}
-
-/* 8. NÚT BẤM & TƯƠNG TÁC */
-button, .more-info-btn, .view-project-btn {
-  font-family: 'Space Grotesk', sans-serif;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-button:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(93, 95, 239, 0.2);
-}
-
-/* 9. RESPONSIVE */
+/* 6. RESPONSIVE - GIẢI CỨU MOBILE LAYOUT */
 @media (max-width: 768px) {
-  section {
-    padding: 60px 0;
+  /* Ép tất cả các thẻ bọc phải rộng 100% */
+  .portfolio-container, 
+  .hero-section, 
+  .hero-content, 
+  .home-page section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    display: flex !important;
+    flex-direction: column !important; /* Xếp dọc */
+  }
+
+  /* HIỆN LẠI ẢNH VÀ ĐƯA LÊN ĐẦU */
+  .hero-visuals {
+    order: -1 !important; /* Ép ảnh nhảy lên trước chữ */
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 30px !important;
+  }
+
+  .image-wrapper {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px !important;
+    display: flex !important;
+    justify-content: center !important;
+    position: relative !important;
+  }
+
+  .profile-image {
+    width: 250px !important; /* Chỉnh kích thước ảnh chân dung */
+    height: auto !important;
+    position: relative !important;
+    z-index: 10 !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  /* HIỆN LẠI NAVBAR VÀ CÁC NÚT */
+  .nav-links {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    gap: 15px !important;
+    justify-content: center !important;
+    padding: 10px 0 !important;
+    width: 100% !important;
   }
   
-  .parallax-decor {
-    display: none;
+  .nav-link {
+    font-size: 13px !important;
+    color: #ffffff !important;
+    display: block !important;
+    white-space: nowrap !important;
   }
+
+  /* ÉP CHỮ DÀN HÀNG NGANG */
+  .hero-description, p, .hero-title, .hero-subtitle {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  h1 { font-size: 2.5rem !important; }
+  h2 { font-size: 1.8rem !important; }
+
+  .parallax-decor {
+    display: none !important;
+  }
+}
+
+/* 7. CUSTOM SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #19191B; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+
+/* 8. NÚT BẤM */
+button, .more-info-btn, .view-project-btn {
+  cursor: pointer !important;
+  transition: all 0.3s ease;
 }
