@@ -1,11 +1,18 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './SecondHandBook.css';
-import homescreen from '../assets/homescreen.png';
-import loginscreen from '../assets/loginscreen.png';
-import detailscreen from '../assets/detailscreen.png';
+import Homescreen from '../assets/second-hand_book/Homescreen.png';
+import Bookinfo from '../assets/second-hand_book/Bookinfo.png';
+import Booklist from '../assets/second-hand_book/Booklist.png';
+import Message from '../assets/second-hand_book/Message.png';
+import Profilescreen from '../assets/second-hand_book/Profilescreen.png';
+import Searchbooks from '../assets/second-hand_book/searchbooks.png';
+import prototypeVideo from '../assets/video/bookapp_livedemo.mp4';
 
 const SecondHandBook = () => {
+  const rotationY = useMotionValue(0);
+  const rotationSpring = useSpring(rotationY, { stiffness: 100, damping: 20 });
+
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
@@ -91,6 +98,8 @@ const SecondHandBook = () => {
           </div>
           <ul className="shb-skills-list">
             <li>Figma</li>
+            <li>Product Thinking & UX Logic</li>
+            <li>UI/UX Design & Prototyping</li>
           </ul>
         </motion.div>
       </motion.section>
@@ -136,7 +145,7 @@ const SecondHandBook = () => {
         </div>
       </motion.section>
 
-      {/* 5. PROCESS */}
+      {/* 5. WIREFRAME */}
       <motion.section
         className="shb-process"
         variants={staggerContainer}
@@ -145,25 +154,41 @@ const SecondHandBook = () => {
         viewport={{ once: true }}
       >
         <div className="shb-centered-header">
-          <h2>Process</h2>
+          <h2>Wireframe</h2>
         </div>
 
-        <motion.div className="shb-wireframes" variants={staggerContainer}>
-          {[
-            { label: 'Home / Dashboard', src: homescreen },
-            { label: 'Book Details Page', src: detailscreen },
-            { label: 'Splash / Login Screen', src: loginscreen },
-          ].map((item) => (
-            <motion.div className="shb-wireframe-item" key={item.label} variants={fadeUp}>
-              {item.src ? (
-                <img src={item.src} alt={item.label} />
-              ) : (
-                <div className="shb-wireframe-placeholder" aria-label={item.label} />
-              )}
-              <span className="shb-label-btn">{item.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="shb-carousel-viewport">
+          <motion.div
+            className="shb-carousel-container"
+            style={{ rotateY: rotationSpring }}
+            onPan={(event, info) => rotationY.set(rotationY.get() + info.delta.x * 0.3)}
+          >
+            {[
+              { label: 'Login screen', src: Homescreen },
+              { label: 'Home screen', src: Searchbooks },
+              { label: 'Detail screen', src: Bookinfo },
+              { label: 'Message screen', src: Message },
+              { label: 'Profile screen', src: Profilescreen },
+              { label: 'Favorite screen', src: Booklist },
+            ].map((item, index, array) => {
+              const angleStep = 360 / array.length;
+              const theta = index * angleStep;
+
+              return (
+                <motion.div
+                  className="shb-carousel-card"
+                  key={item.label}
+                  style={{ transform: `rotateY(${theta}deg) translateZ(220px)` }}
+                >
+                  <div className="shb-carousel-inner">
+                    <img src={item.src} alt={item.label} draggable="false" />
+                  </div>
+                  <div className="shb-carousel-tag">{item.label}</div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
 
       </motion.section>
 
@@ -177,14 +202,13 @@ const SecondHandBook = () => {
       >
         <div className="shb-centered-header">
           <span className="shb-decor-tri">▷</span>
-          <h2>Prototype</h2>
+          <h2>Video Live Demo</h2>
         </div>
         <div className="shb-proto-wrapper">
-          <iframe
-            title="Second-hand Textbook App Prototype"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FKyMeoiuoh0yn3SfnkelJPY%2FUX--UI-1%3Fnode-id%3D3-6710%26viewport%3D176%252C178%252C0.28%26t%3DMqsv0XFw3fVnhG8q-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D3%253A6710%26page-id%3D0%253A1"
-            allowFullScreen
-          />
+          <video className="shb-proto-video" controls>
+            <source src={prototypeVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </motion.section>
     </motion.div>
