@@ -161,11 +161,11 @@ const SecondHandBook = () => {
             onPan={(event, info) => rotationY.set(rotationY.get() + info.delta.x * 0.3)}
           >
             {[
-              { label: 'Home / Dashboard', src: Homescreen },
-              { label: 'Search Books', src: Searchbooks },
-              { label: 'Book Details', src: Bookinfo },
-              { label: 'Chat / Message', src: Message },
-              { label: 'Profile Screen', src: Profilescreen },
+              { label: 'Home', src: Homescreen },
+              { label: 'Search', src: Searchbooks },
+              { label: 'Details', src: Bookinfo },
+              { label: 'Chat', src: Message },
+              { label: 'Profile', src: Profilescreen },
               { label: 'Book List', src: Booklist },
             ].map((item, index, array) => {
               const angleStep = 360 / array.length;
