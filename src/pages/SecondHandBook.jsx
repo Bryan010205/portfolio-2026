@@ -200,7 +200,7 @@ const SecondHandBook = () => {
       >
         <div className="shb-centered-header">
           <span className="shb-decor-tri">▷</span>
-          <h2>Prototype</h2>
+          <h2>Video Live Demo</h2>
         </div>
         <div className="shb-proto-wrapper">
           <video className="shb-proto-video" controls>
