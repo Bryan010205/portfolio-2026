@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './SecondHandBook.css';
-import homescreen from '../assets/homescreen.png';
-import loginscreen from '../assets/loginscreen.png';
-import detailscreen from '../assets/detailscreen.png';
+import Homescreen from '../assets/second-hand_book/Homescreen.png';
+import Bookinfo from '../assets/second-hand_book/Bookinfo.png';
+import Booklist from '../assets/second-hand_book/Booklist.png';
+import Message from '../assets/second-hand_book/Message.png';
+import Profilescreen from '../assets/second-hand_book/Profilescreen.png';
+import Searchbooks from '../assets/second-hand_book/searchbooks.png';
 
 const SecondHandBook = () => {
 
@@ -151,9 +154,12 @@ const SecondHandBook = () => {
 
         <motion.div className="shb-wireframes" variants={staggerContainer}>
           {[
-            { label: 'Home / Dashboard', src: homescreen },
-            { label: 'Book Details Page', src: detailscreen },
-            { label: 'Splash / Login Screen', src: loginscreen },
+            { label: 'Home / Dashboard', src: Homescreen },
+            { label: 'Search Books', src: Searchbooks },
+            { label: 'Book Details', src: Bookinfo },
+            { label: 'Chat / Message', src: Message },
+            { label: 'Profile Screen', src: Profilescreen },
+            { label: 'Book List', src: Booklist },
           ].map((item) => (
             <motion.div className="shb-wireframe-item" key={item.label} variants={fadeUp}>
               {item.src ? (
