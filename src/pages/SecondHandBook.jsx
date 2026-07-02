@@ -203,7 +203,7 @@ const SecondHandBook = () => {
           <h2>Prototype</h2>
         </div>
         <div className="shb-proto-wrapper">
-          <video className="shb-proto-video" controls style={{ width: '100%', maxHeight: 505 }}>
+          <video className="shb-proto-video" controls>
             <source src={prototypeVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
