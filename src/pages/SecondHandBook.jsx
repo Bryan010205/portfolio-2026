@@ -175,7 +175,7 @@ const SecondHandBook = () => {
                 <motion.div
                   className="shb-carousel-card"
                   key={item.label}
-                  style={{ transform: `rotateY(${theta}deg) translateZ(320px)` }}
+                  style={{ transform: `rotateY(${theta}deg) translateZ(260px)` }}
                 >
                   <div className="shb-carousel-inner">
                     <img src={item.src} alt={item.label} draggable="false" />

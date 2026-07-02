@@ -391,7 +391,7 @@
 
 .shb-carousel-viewport {
   width: 100%;
-  height: 540px;
+  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -405,8 +405,8 @@
 }
 
 .shb-carousel-container {
-  width: 340px;
-  height: 460px;
+  width: 280px;
+  height: 380px;
   position: relative;
   transform-style: preserve-3d;
   display: flex;
