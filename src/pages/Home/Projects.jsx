@@ -16,7 +16,7 @@ const Projects = () => {
       id: 'creative-portrait', 
       title: 'Dreams Concept', 
       category: 'Design', 
-      image: coverPage 
+      image: dreamsThumbnail 
     },
     {
       id: 'amv-typography',
@@ -24,7 +24,7 @@ const Projects = () => {
       category: 'Motion',
       image: 'https://img.youtube.com/vi/Sg0D8jOaruQ/maxresdefault.jpg'
     },
-    { id: 'student-book', title: 'Student Book App', category: 'UX/UI', image: 'https://images.unsplash.com/photo-1616423640778-28d1b53229bd?w=500&q=80' },
+    { id: 'student-book', title: 'Student Book App', category: 'UX/UI', image: coverPage },
     { id: 5, title: '3D Astronaut', category: 'Web Dev', image: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?w=500&q=80' }
   ];
 
