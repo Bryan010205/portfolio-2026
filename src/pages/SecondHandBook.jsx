@@ -7,6 +7,7 @@ import Booklist from '../assets/second-hand_book/Booklist.png';
 import Message from '../assets/second-hand_book/Message.png';
 import Profilescreen from '../assets/second-hand_book/Profilescreen.png';
 import Searchbooks from '../assets/second-hand_book/searchbooks.png';
+import prototypeVideo from '../assets/video/bookapp_livedemo.mp4';
 
 const SecondHandBook = () => {
   const rotationY = useMotionValue(0);
@@ -203,7 +204,7 @@ const SecondHandBook = () => {
         </div>
         <div className="shb-proto-wrapper">
           <video className="shb-proto-video" controls style={{ width: '100%', maxHeight: 505 }}>
-            <source src="" type="video/mp4" />
+            <source src={prototypeVideo} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
