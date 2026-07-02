@@ -98,6 +98,8 @@ const SecondHandBook = () => {
           </div>
           <ul className="shb-skills-list">
             <li>Figma</li>
+            <li>Product Thinking & UX Logic</li>
+            <li>UI/UX Design & Prototyping</li>
           </ul>
         </motion.div>
       </motion.section>
