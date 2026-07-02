@@ -5,6 +5,7 @@ import './Projects.css';
 
 // Import ảnh thực tế của bạn để làm thumbnail cho card Dreams Concept
 import dreamsThumbnail from '../../assets/Vo_FinalComposite.jpg';
+import coverPage from '../../assets/second-hand_book/cover_page.jpeg';
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Projects = () => {
       id: 'creative-portrait', 
       title: 'Dreams Concept', 
       category: 'Design', 
-      image: dreamsThumbnail 
+      image: coverPage 
     },
     {
       id: 'amv-typography',
