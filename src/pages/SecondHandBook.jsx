@@ -142,7 +142,7 @@ const SecondHandBook = () => {
         </div>
       </motion.section>
 
-      {/* 5. PROCESS */}
+      {/* 5. WIREFRAME */}
       <motion.section
         className="shb-process"
         variants={staggerContainer}
@@ -151,7 +151,7 @@ const SecondHandBook = () => {
         viewport={{ once: true }}
       >
         <div className="shb-centered-header">
-          <h2>Process</h2>
+          <h2>Wireframe</h2>
         </div>
 
         <div className="shb-carousel-viewport">
