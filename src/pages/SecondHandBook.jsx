@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import './SecondHandBook.css';
 import homescreen from '../assets/homescreen.png';
@@ -6,6 +6,38 @@ import loginscreen from '../assets/loginscreen.png';
 import detailscreen from '../assets/detailscreen.png';
 
 const SecondHandBook = () => {
+  const snackRef = useRef(null);
+
+  useEffect(() => {
+    if (!snackRef.current) return;
+
+    const el = document.createElement('div');
+    el.setAttribute('data-snack-id', '@phuoc01/arrogant-red-juice-box');
+    el.setAttribute('data-snack-platform', 'ios');
+    el.setAttribute('data-snack-preview', 'true');
+    el.setAttribute('data-snack-theme', 'light');
+    el.style.overflow = 'hidden';
+    el.style.background = '#fbfcfd';
+    el.style.border = '1px solid var(--color-border)';
+    el.style.borderRadius = '4px';
+    el.style.height = '505px';
+    el.style.width = '100%';
+
+    snackRef.current.appendChild(el);
+
+    if (!document.querySelector('script[src="https://snack.expo.dev/embed.js"]')) {
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://snack.expo.dev/embed.js';
+      document.body.appendChild(s);
+    }
+
+    return () => {
+      if (snackRef.current && el.parentNode === snackRef.current) {
+        snackRef.current.removeChild(el);
+      }
+    };
+  }, []);
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } }
@@ -180,11 +212,7 @@ const SecondHandBook = () => {
           <h2>Prototype</h2>
         </div>
         <div className="shb-proto-wrapper">
-          <iframe
-            title="Second-hand Textbook App Prototype"
-            src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FKyMeoiuoh0yn3SfnkelJPY%2FUX--UI-1%3Fnode-id%3D3-6710%26viewport%3D176%252C178%252C0.28%26t%3DMqsv0XFw3fVnhG8q-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26starting-point-node-id%3D3%253A6710%26page-id%3D0%253A1"
-            allowFullScreen
-          />
+          <div ref={snackRef} className="shb-snack-embed" />
         </div>
       </motion.section>
     </motion.div>
