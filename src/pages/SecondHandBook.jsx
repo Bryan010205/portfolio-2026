@@ -162,11 +162,13 @@ const SecondHandBook = () => {
             { label: 'Book List', src: Booklist },
           ].map((item) => (
             <motion.div className="shb-wireframe-item" key={item.label} variants={fadeUp}>
-              {item.src ? (
-                <img src={item.src} alt={item.label} />
-              ) : (
-                <div className="shb-wireframe-placeholder" aria-label={item.label} />
-              )}
+              <div className="shb-wireframe-card">
+                {item.src ? (
+                  <img src={item.src} alt={item.label} />
+                ) : (
+                  <div className="shb-wireframe-placeholder" aria-label={item.label} />
+                )}
+              </div>
               <span className="shb-label-btn">{item.label}</span>
             </motion.div>
           ))}

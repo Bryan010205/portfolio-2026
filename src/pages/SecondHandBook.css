@@ -301,31 +301,61 @@
 }
 
 .shb-wireframes {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  display: flex;
+  overflow-x: auto;
+  gap: 34px;
+  padding-bottom: 24px;
   margin-top: 48px;
   margin-bottom: 48px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.shb-wireframes::-webkit-scrollbar {
+  height: 10px;
+}
+
+.shb-wireframes::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
 }
 
 .shb-wireframe-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
+  min-width: 280px;
+  flex: 0 0 auto;
+  display: grid;
+  gap: 20px;
+  scroll-snap-align: center;
+  transform-style: preserve-3d;
 }
 
-.shb-wireframe-item img {
+.shb-wireframe-card {
+  position: relative;
   width: 100%;
-  border-radius: 12px;
-  border: 1px solid #333;
-  object-fit: cover;
-  transition: transform 0.4s ease, border-color 0.3s;
+  min-height: 460px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  transform: rotate(-4deg);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
 }
 
-.shb-wireframe-item img:hover {
-  transform: scale(1.02);
-  border-color: #5d5fef;
+.shb-wireframe-item:nth-child(even) .shb-wireframe-card {
+  transform: rotate(5deg);
+}
+
+.shb-wireframe-item:hover .shb-wireframe-card {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+
+.shb-wireframe-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .shb-wireframe-placeholder {
@@ -342,9 +372,10 @@
 }
 
 .shb-label-btn {
+  align-self: center;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 6px 18px;
-  border-radius: 30px;
+  padding: 8px 22px;
+  border-radius: 999px;
   font-size: 12px;
   color: #fff;
   letter-spacing: 1.5px;
