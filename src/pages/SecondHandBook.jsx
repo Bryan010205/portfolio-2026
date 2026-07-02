@@ -179,8 +179,8 @@ const SecondHandBook = () => {
                 >
                   <div className="shb-carousel-inner">
                     <img src={item.src} alt={item.label} draggable="false" />
-                    <div className="shb-carousel-tag">{item.label}</div>
                   </div>
+                  <div className="shb-carousel-tag">{item.label}</div>
                 </motion.div>
               );
             })}
