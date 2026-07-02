@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './SecondHandBook.css';
 import Homescreen from '../assets/second-hand_book/Homescreen.png';
 import Bookinfo from '../assets/second-hand_book/Bookinfo.png';
@@ -9,6 +9,8 @@ import Profilescreen from '../assets/second-hand_book/Profilescreen.png';
 import Searchbooks from '../assets/second-hand_book/searchbooks.png';
 
 const SecondHandBook = () => {
+  const rotationY = useMotionValue(0);
+  const rotationSpring = useSpring(rotationY, { stiffness: 100, damping: 20 });
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -152,27 +154,38 @@ const SecondHandBook = () => {
           <h2>Process</h2>
         </div>
 
-        <motion.div className="shb-wireframes" variants={staggerContainer}>
-          {[
-            { label: 'Home / Dashboard', src: Homescreen },
-            { label: 'Search Books', src: Searchbooks },
-            { label: 'Book Details', src: Bookinfo },
-            { label: 'Chat / Message', src: Message },
-            { label: 'Profile Screen', src: Profilescreen },
-            { label: 'Book List', src: Booklist },
-          ].map((item) => (
-            <motion.div className="shb-wireframe-item" key={item.label} variants={fadeUp}>
-              <div className="shb-wireframe-card">
-                {item.src ? (
-                  <img src={item.src} alt={item.label} />
-                ) : (
-                  <div className="shb-wireframe-placeholder" aria-label={item.label} />
-                )}
-              </div>
-              <span className="shb-label-btn">{item.label}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="shb-carousel-viewport">
+          <motion.div
+            className="shb-carousel-container"
+            style={{ rotateY: rotationSpring }}
+            onPan={(event, info) => rotationY.set(rotationY.get() + info.delta.x * 0.3)}
+          >
+            {[
+              { label: 'Home / Dashboard', src: Homescreen },
+              { label: 'Search Books', src: Searchbooks },
+              { label: 'Book Details', src: Bookinfo },
+              { label: 'Chat / Message', src: Message },
+              { label: 'Profile Screen', src: Profilescreen },
+              { label: 'Book List', src: Booklist },
+            ].map((item, index, array) => {
+              const angleStep = 360 / array.length;
+              const theta = index * angleStep;
+
+              return (
+                <motion.div
+                  className="shb-carousel-card"
+                  key={item.label}
+                  style={{ transform: `rotateY(${theta}deg) translateZ(320px)` }}
+                >
+                  <div className="shb-carousel-inner">
+                    <img src={item.src} alt={item.label} draggable="false" />
+                    <div className="shb-carousel-tag">{item.label}</div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
 
       </motion.section>
 
