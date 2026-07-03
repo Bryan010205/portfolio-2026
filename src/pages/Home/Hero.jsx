@@ -62,7 +62,7 @@ const Hero = () => {
             it must clearly deliver the right message to the audience.
           </p>
           <p className="hero-description">
-            To everyone looking through this portfolio—whether you’re a recruiter, a client, or just a visitor—welcome!
+            To everyone looking through this portfolio, whether you’re a recruiter, a client, or just a visitor—welcome!
             I’m currently based in Vancouver, Canada, and I’m always ready to team up on practical projects with everyone.
           </p>
         </motion.div>
