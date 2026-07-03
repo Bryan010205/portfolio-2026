@@ -128,9 +128,13 @@
 }
 
 .full-width img {
-  width: 100%;
-  max-width: 900px;
+  /* Show the image at its native pixel size (no max-width scaling) */
+  width: auto;
+  max-width: none;
   height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: none;
 }
 
 /* =========================================
@@ -141,11 +145,21 @@
     flex-direction: column-reverse; /* Ảnh lên trên, text xuống dưới trên mobile */
     align-items: center;
     text-align: center;
+    margin-bottom: 8px;
   }
 
   .hero-img-wrapper {
-    width: 60%;
-    margin-bottom: 40px;
+    width: 90%;
+    margin-bottom: 8px;
+  }
+
+  .project-info-grid {
+    padding: 0 20px;
+    margin-top: -20px;
+  }
+
+  .section-header {
+    margin-bottom: 12px;
   }
 
   .process-grid {
