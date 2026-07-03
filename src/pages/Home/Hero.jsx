@@ -52,7 +52,7 @@ const Hero = () => {
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
-          I'm a Graphic & UX/UI Designer
+          I'm a Graphic & UX/UI Designer, Video Editor
         </motion.h2>
         
         <motion.div variants={itemVariants} className="hero-description-container">
@@ -76,7 +76,7 @@ const Hero = () => {
             }
           }}
         >
-          More info <span className="arrow-icon">↗</span>
+          Explore My Work <span className="arrow-icon">↗</span>
         </motion.button>
       </motion.div>
 
