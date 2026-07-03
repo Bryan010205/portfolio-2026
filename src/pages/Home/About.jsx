@@ -16,12 +16,14 @@ const About = () => {
     {
       id: 1,
       content: (
-        <p>
-          My journey with design actually started back in <strong>Vietnam</strong>, where I spent countless hours studying the craft and realizing that creating things was exactly what I wanted to do for the rest of my life. When I packed my bags and moved to <strong>Canada</strong>, I wasn’t just changing locations, I was bringing that exact same dream with me to a whole new world.
-        </p>
-        <p>
-          For me, design has never been just a career path; it’s always been about how visual language can tell a story and create a perfect balance that delivers meaningful messages to people in the most natural way. That desire to create is what keeps my motivation alive every single day in this new environment, and my goal right now is simply to keep learning, grow as a designer, and collaborate with others to build purposeful things. Outside of my work, I’m just someone who enjoys the simpler things in life, so when I need to clear my mind and find new inspiration, you’ll probably find me practicing my acoustic guitar, heading out for a run, or just relaxing at a local coffee shop.
-        </p>
+        <>
+          <p>
+            My journey with design actually started back in <strong>Vietnam</strong>, where I spent countless hours studying the craft and realizing that creating things was exactly what I wanted to do for the rest of my life. When I packed my bags and moved to <strong>Canada</strong>, I wasn’t just changing locations, I was bringing that exact same dream with me to a whole new world.
+          </p>
+          <p>
+            For me, design has never been just a career path; it’s always been about how visual language can tell a story and create a perfect balance that delivers meaningful messages to people in the most natural way. That desire to create is what keeps my motivation alive every single day in this new environment, and my goal right now is simply to keep learning, grow as a designer, and collaborate with others to build purposeful things. Outside of my work, I’m just someone who enjoys the simpler things in life, so when I need to clear my mind and find new inspiration, you’ll probably find me practicing my acoustic guitar, heading out for a run, or just relaxing at a local coffee shop.
+          </p>
+        </>
       )
     },
     {
