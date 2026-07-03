@@ -48,7 +48,7 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          Hi, I’m Bryan Vo
+          Hi, I’m Bryan.
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
@@ -57,13 +57,10 @@ const Hero = () => {
         
         <motion.div variants={itemVariants} className="hero-description-container">
           <p className="hero-description">
-            I design user interfaces, make videos, and write a bit of code to turn my sketches into real, working websites.
-            I’m not a fan of flashy or overcomplicated things. To me, a good design should be clean, balanced, and easy on the eyes—but above all,
-            it must clearly deliver the right message to the audience.
+            I’m a designer who also makes videos and writes a bit of code to turn sketches into real websites, and I always try to keep my work clean, balanced, and straightforward so that the main message gets across perfectly without getting lost in flashy or overcomplicated details.
           </p>
           <p className="hero-description">
-            To everyone looking through this portfolio, whether you’re a recruiter, a client, or just a visitor—welcome!
-            I’m currently based in Vancouver, Canada, and I’m always ready to team up on practical projects with everyone.
+            I'm really glad you stopped by to check out my portfolio, and whether you're a recruiter, a potential client, or just someone looking around, I'm always happy to connect and talk about building real projects together since I'm currently based right here in Vancouver.
           </p>
         </motion.div>
 
