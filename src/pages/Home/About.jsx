@@ -49,14 +49,13 @@ const About = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 2. Thiết lập tự động chuyển đoạn sau 6 giây
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
-    }, 10000); // 6 giây
+  const handleNextStory = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
+  };
 
-    return () => clearInterval(timer);
-  }, [stories.length]);
+  const handlePrevStory = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + stories.length) % stories.length);
+  };
 
   return (
     <section className="about-section" id="about">
@@ -84,8 +83,8 @@ const About = () => {
               <div className="skills-wrapper">
                 <p className="skills-label">My essential skills:</p>
                 <div className="skill-icons-row">
-                  <div className="skill-icon-item" title="Figma"><img src={figmaLogo} alt="Figma" className="skill-img" /></div>
-                  <div className="skill-icon-item" title="Photoshop"><img src={photoshopLogo} alt="Photoshop" className="skill-img" /></div>
+                  <div className="skill-icon-item skill-icon-figma" title="Figma"><img src={figmaLogo} alt="Figma" className="skill-img" /></div>
+                  <div className="skill-icon-item skill-icon-photoshop" title="Photoshop"><img src={photoshopLogo} alt="Photoshop" className="skill-img" /></div>
                   <div className="skill-icon-item" title="Illustrator"><img src={illustratorLogo} alt="Illustrator" className="skill-img" /></div>
                   <div className="skill-icon-item" title="After Effects"><img src={afterEffectsLogo} alt="After Effects" className="skill-img" /></div>
                 </div>
@@ -119,15 +118,20 @@ const About = () => {
                 </AnimatePresence>
               </div>
 
-              {/* THANH PROGRESS CHẠY THEO THỜI GIAN 6S */}
-              <div className="quote-progress-bar">
-                <motion.div 
-                  key={currentIndex} // Restart animation mỗi khi đổi text
-                  className="quote-progress-fill"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 6, ease: "linear" }}
-                />
+              <div className="quote-controls">
+                <div className="quote-pagination">
+                  <button className="quote-nav-button" onClick={handlePrevStory}>
+                    Previous
+                  </button>
+
+                  <span className="quote-step-indicator">
+                    {currentIndex + 1} / {stories.length}
+                  </span>
+
+                  <button className="quote-nav-button" onClick={handleNextStory}>
+                    Next
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>

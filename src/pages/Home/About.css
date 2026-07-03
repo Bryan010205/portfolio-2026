@@ -82,14 +82,30 @@
   backdrop-filter: blur(10px);
 }
 
+.skill-icon-item {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-icon-figma .skill-img,
+.skill-icon-photoshop .skill-img {
+  width: 42px;
+  height: 42px;
+}
+
 .skill-img {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
-.skill-icon-item {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.skill-icon-item:hover {
+  transform: translateY(-8px) scale(1.1);
 }
 
 .skill-icon-item:hover {
@@ -135,19 +151,39 @@
   text-align: justify; 
 }
 
-/* PROGRESS BAR */
-.quote-progress-bar {
-  margin-top: 10px;
-  width: 100px;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
-  overflow: hidden;
+.quote-controls {
+  margin-top: 18px;
 }
 
-.quote-progress-fill {
-  height: 100%;
-  background-color: #5d5fef;
+.quote-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.quote-nav-button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  font-size: 0.98rem;
+}
+
+.quote-nav-button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.quote-nav-button:active {
+  transform: translateY(0);
+}
+
+.quote-step-indicator {
+  font-size: 0.95rem;
+  color: #9fa0f4;
 }
 
 /* =========================================
