@@ -57,13 +57,13 @@ const Hero = () => {
         
         <motion.div variants={itemVariants} className="hero-description-container">
           <p className="hero-description">
-            I’m a designer who simply loves making things work better and look clearer. 
-            For me, design is about finding the right balance between a <strong>creative spark</strong> and a <strong>solid structure</strong>.
+            I design user interfaces, make videos, and write a bit of code to turn my sketches into real, working websites.
+            I’m not a fan of flashy or overcomplicated things. To me, a good design should be clean, balanced, and easy on the eyes—but above all,
+            it must clearly deliver the right message to the audience.
           </p>
           <p className="hero-description">
-            I don't aim for anything flashy; I just want to build experiences that feel 
-            <strong> natural and meaningful</strong> to the person using them. Currently, I’m in Canada, 
-            turning honest ideas into digital products that people can actually connect with.
+            To everyone looking through this portfolio—whether you’re a recruiter, a client, or just a visitor—welcome!
+            I’m currently based in Vancouver, Canada, and I’m always ready to team up on practical projects with everyone.
           </p>
         </motion.div>
 
