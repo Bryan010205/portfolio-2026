@@ -17,7 +17,7 @@ const About = () => {
       id: 1,
       content: (
         <p>
-          I started my journey from the busy, lively streets of <strong>Vietnam</strong> and found my way to the peaceful landscapes of <strong>Canada</strong>. Moving across the world and stepping into a whole new culture was a big challenge, but it’s also what changed the way I look at design.
+          My journey with design actually started back in <strong>Vietnam</strong>, where I spent countless hours studying the craft and realizing that creating things was exactly what I wanted to do for the rest of my life. When I packed my bags and moved to <strong>Canada</strong>, I wasn’t just changing locations. I was bringing that exact same dream with me to a whole new world.
         </p>
       )
     },
@@ -25,7 +25,7 @@ const About = () => {
       id: 2,
       content: (
         <p>
-          For me, design isn’t just about making things look good on a screen. It’s like a <strong>bridge</strong>—a way to help people from different places understand each other through simple, intuitive experiences.
+          For me, design has never been just a career path. It’s always been about how visual language can tell a story and create a perfect balance that delivers meaningful messages to people in the most natural way.
         </p>
       )
     },
@@ -33,7 +33,7 @@ const About = () => {
       id: 3,
       content: (
         <p>
-          In the <strong>next two years</strong>, I’m focused on learning how to balance the 'art' of telling a story with the 'math' of technical precision. My goal is to help build UX/UI projects that actually mean something to the people who use them.
+          That desire to create is what keeps my motivation alive every single day in this new environment, and my goal right now is simply to keep learning, grow as a designer, and collaborate with others to build purposeful things.
         </p>
       )
     },
@@ -41,7 +41,7 @@ const About = () => {
       id: 4,
       content: (
         <p>
-          When I’m away from Figma, you’ll probably find me wandering through Canada’s beautiful trails or getting lost in the high-energy world of <strong>gaming culture</strong>. That’s where I go to recharge and find fresh ideas.
+          Outside of my work, I’m just someone who enjoys the simpler things in life, so when I need to clear my mind and find new inspiration, you’ll probably find me practicing my acoustic guitar, heading out for a run, or just relaxing at a local coffee shop.
         </p>
       )
     }
@@ -49,14 +49,13 @@ const About = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 2. Thiết lập tự động chuyển đoạn sau 6 giây
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
-    }, 10000); // 6 giây
+  const handleNextStory = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % stories.length);
+  };
 
-    return () => clearInterval(timer);
-  }, [stories.length]);
+  const handlePrevStory = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + stories.length) % stories.length);
+  };
 
   return (
     <section className="about-section" id="about">
@@ -84,8 +83,8 @@ const About = () => {
               <div className="skills-wrapper">
                 <p className="skills-label">My essential skills:</p>
                 <div className="skill-icons-row">
-                  <div className="skill-icon-item" title="Figma"><img src={figmaLogo} alt="Figma" className="skill-img" /></div>
-                  <div className="skill-icon-item" title="Photoshop"><img src={photoshopLogo} alt="Photoshop" className="skill-img" /></div>
+                  <div className="skill-icon-item skill-icon-figma" title="Figma"><img src={figmaLogo} alt="Figma" className="skill-img" /></div>
+                  <div className="skill-icon-item skill-icon-photoshop" title="Photoshop"><img src={photoshopLogo} alt="Photoshop" className="skill-img" /></div>
                   <div className="skill-icon-item" title="Illustrator"><img src={illustratorLogo} alt="Illustrator" className="skill-img" /></div>
                   <div className="skill-icon-item" title="After Effects"><img src={afterEffectsLogo} alt="After Effects" className="skill-img" /></div>
                 </div>
@@ -119,15 +118,20 @@ const About = () => {
                 </AnimatePresence>
               </div>
 
-              {/* THANH PROGRESS CHẠY THEO THỜI GIAN 6S */}
-              <div className="quote-progress-bar">
-                <motion.div 
-                  key={currentIndex} // Restart animation mỗi khi đổi text
-                  className="quote-progress-fill"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 6, ease: "linear" }}
-                />
+              <div className="quote-controls">
+                <div className="quote-pagination">
+                  <button className="quote-nav-button" onClick={handlePrevStory}>
+                    Previous
+                  </button>
+
+                  <span className="quote-step-indicator">
+                    {currentIndex + 1} / {stories.length}
+                  </span>
+
+                  <button className="quote-nav-button" onClick={handleNextStory}>
+                    Next
+                  </button>
+                </div>
               </div>
             </motion.div>
           </div>

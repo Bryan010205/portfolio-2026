@@ -48,22 +48,19 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          Hi, I’m Bryan Vo
+          Hi, I’m Bryan.
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
-          I'm a Graphic & UX/UI Designer
+          I'm a Graphic & UX/UI Designer, Video Editor
         </motion.h2>
         
         <motion.div variants={itemVariants} className="hero-description-container">
           <p className="hero-description">
-            I’m a designer who simply loves making things work better and look clearer. 
-            For me, design is about finding the right balance between a <strong>creative spark</strong> and a <strong>solid structure</strong>.
+            I’m a designer who also makes videos and writes a bit of code to turn sketches into real websites, and I always try to keep my work clean, balanced, and straightforward so that the main message gets across perfectly without getting lost in flashy or overcomplicated details.
           </p>
           <p className="hero-description">
-            I don't aim for anything flashy; I just want to build experiences that feel 
-            <strong> natural and meaningful</strong> to the person using them. Currently, I’m in Canada, 
-            turning honest ideas into digital products that people can actually connect with.
+            I'm really glad you stopped by to check out my portfolio, and whether you're a recruiter, a potential client, or just someone looking around, I'm always happy to connect and talk about building real projects together since I'm currently based right here in Vancouver.
           </p>
         </motion.div>
 
@@ -73,13 +70,13 @@ const Hero = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => {
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-              aboutSection.scrollIntoView({ behavior: 'smooth' });
+            const projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+              projectsSection.scrollIntoView({ behavior: 'smooth' });
             }
           }}
         >
-          More info <span className="arrow-icon">↗</span>
+          Explore My Work <span className="arrow-icon">↗</span>
         </motion.button>
       </motion.div>
 
