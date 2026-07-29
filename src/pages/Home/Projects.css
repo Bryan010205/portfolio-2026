@@ -43,7 +43,7 @@
   text-transform: uppercase;
   color: #fff;
   letter-spacing: 4px;
-  margin-bottom: 80px; 
+  margin-bottom: 10px; 
   z-index: 20;
   position: relative;
   cursor: pointer;
@@ -56,6 +56,29 @@
 
   animation: neonFlicker 2s infinite alternate;
   transition: all 0.3s ease;
+}
+
+.projects-section .section-note {
+  margin: 0 0 36px 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  z-index: 20;
+  position: relative;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  animation: noteGlow 2.2s ease-in-out infinite alternate;
+}
+
+.projects-section .section-note::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, transparent, #5d5fef, transparent);
+  opacity: 0.7;
 }
 
 .projects-section .section-title::after {
@@ -168,6 +191,18 @@
   }
 }
 
+@keyframes noteGlow {
+  from {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
+    transform: translateY(0);
+  }
+  to {
+    text-shadow: 0 0 10px rgba(93, 95, 239, 0.45), 0 0 20px rgba(93, 95, 239, 0.2);
+    transform: translateY(-1px);
+  }
+}
+
 @media (max-width: 768px) {
   .projects-section .section-title { font-size: 34px; }
+  .projects-section .section-note { font-size: 12px; margin-bottom: 24px; }
 }
