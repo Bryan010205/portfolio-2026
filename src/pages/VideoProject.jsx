@@ -28,7 +28,7 @@ const VideoProject = () => {
       {/* 1. HERO: YouTube Embed */}
       <section className="vp-hero">
         <motion.div
-          className="vp-video-wrapper"
+          className="video-wrapper"
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
