@@ -48,7 +48,7 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          Hi, I’m Bryan.
+          Hi, I’m Bryan
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
