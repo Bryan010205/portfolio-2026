@@ -48,7 +48,7 @@ const Hero = () => {
         animate="visible"
       >
         <motion.h1 variants={itemVariants} className="hero-title">
-          Hi, I’m Bryan.
+          Hi, I’m Bryan
         </motion.h1>
         
         <motion.h2 variants={itemVariants} className="hero-subtitle">
@@ -57,10 +57,14 @@ const Hero = () => {
         
         <motion.div variants={itemVariants} className="hero-description-container">
           <p className="hero-description">
-            I’m a designer who also makes videos and writes a bit of code to turn sketches into real websites, and I always try to keep my work clean, balanced, and straightforward so that the main message gets across perfectly without getting lost in flashy or overcomplicated details.
+            I’m a New Media Design & Web Development student at BCIT in Vancouver.
+
+My work spans UI/UX design, visual branding, video editing, and interactive web projects. I love taking complex concepts and shaping them into clean, functional, and visually engaging digital experiences.
+
+
           </p>
           <p className="hero-description">
-            I'm really glad you stopped by to check out my portfolio, and whether you're a recruiter, a potential client, or just someone looking around, I'm always happy to connect and talk about building real projects together since I'm currently based right here in Vancouver.
+            This portfolio highlights my growth, key projects, and creative journey. Take a look around! :)
           </p>
         </motion.div>
 

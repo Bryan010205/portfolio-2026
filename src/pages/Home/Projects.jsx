@@ -50,6 +50,7 @@ const Projects = () => {
   return (
     <section className="projects-section" id="projects">
       <h2 className="section-title">Project Gallery</h2>
+      <p className="section-note">Scroll horizontally to explore</p>
       
       <div className="carousel-3d-viewport">
         <motion.div 

@@ -27,10 +27,10 @@
 }
 
 .navbar-logo img {
-  width: 110px;
+  width: 180px;
   height: auto;
   object-fit: contain;
-  display: block; 
+  display: block;
 }
 
 /* === MENU LINKS (CĂN GIỮA TRÊN DESKTOP) === */
@@ -110,9 +110,9 @@
 }
 
 .profile-img-nav {
-  width: 42px !important;
-  height: 42px !important;
-  min-width: 42px !important;
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -162,9 +162,9 @@
   }
 
   .profile-img-nav {
-    width: 32px !important;
-    height: 32px !important;
-    min-width: 32px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
   }
 }
 
