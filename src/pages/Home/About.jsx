@@ -72,11 +72,11 @@ const About = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="video-wrapper">
+              <div className="about-image-wrapper">
                 <img 
                   src={aboutPortrait} 
                   alt="Bryan Vo" 
-                  className="video-thumbnail"
+                  className="about-image"
                 />
               </div>
 
