@@ -33,12 +33,22 @@ const Magnetic = ({ children }) => {
 
 const Footer = () => {
   const emailAddress = "vop8227@gmail.com";
+  const resumeUrl = new URL('../../assets/Phuoc_Vo_Resume .pdf', import.meta.url).href;
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'phuoc_vo_resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -66,27 +76,16 @@ const Footer = () => {
 
           <div className="footer-actions">
             <Magnetic>
-              <button className="footer-btn" onClick={handleCopy}>
+              <button className="footer-btn" onClick={handleDownloadResume}>
                 <AnimatePresence mode="wait">
-                  {copied ? (
-                    <motion.span
-                      key="copied"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      EMAIL COPIED! ✅
-                    </motion.span>
-                  ) : (
-                    <motion.span
-                      key="get-in-touch"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      GET IN TOUCH ↗
-                    </motion.span>
-                  )}
+                  <motion.span
+                    key="get-in-touch"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    My Resume!
+                  </motion.span>
                 </AnimatePresence>
               </button>
             </Magnetic>
