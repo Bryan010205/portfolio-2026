@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './ProjectDetail.css';
 
@@ -11,6 +11,16 @@ import topside from '../assets/Topside.jpg';
 import leftside from '../assets/Leftside.jpg';
 
 const ProjectDetail = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const processItems = [
+    { img: paperSketch, label: 'Conceptual Sketch', size: 'large' },
+    { img: digitalSketch, label: 'Digital Drafting', size: '' },
+    { img: topside, label: 'Top Side', size: '' },
+    { img: frontside, label: 'Front Side', size: 'large' },
+    { img: leftside, label: 'Detail Side', size: 'full-width' }
+  ];
+
   // Biến cấu hình hiệu ứng hiện hình (Dùng cho các phần tử con)
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -137,17 +147,21 @@ const ProjectDetail = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {[
-            { img: paperSketch, label: "Conceptual Sketch", size: "large" },
-            { img: digitalSketch, label: "Digital Drafting", size: "" },
-            { img: topside, label: "Top Side", size: "" },
-            { img: frontside, label: "Front Side", size: "large" },
-            { img: leftside, label: "Detail Side", size: "full-width" }
-          ].map((item, index) => (
+          {processItems.map((item, index) => (
             <motion.div 
               key={index}
               className={`process-item ${item.size}`}
               variants={fadeUp}
+              onClick={() => setSelectedImage(item)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  setSelectedImage(item);
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Open full image: ${item.label}`}
             >
               <img src={item.img} alt={item.label} />
               <span className="label-btn">{item.label}</span>
@@ -155,6 +169,29 @@ const ProjectDetail = () => {
           ))}
         </motion.div>
       </section>
+
+      {selectedImage && (
+        <div
+          className="image-lightbox"
+          onClick={() => setSelectedImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Full image preview"
+        >
+          <div className="image-lightbox-content" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="lightbox-close"
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close image preview"
+            >
+              ✕
+            </button>
+            <img src={selectedImage.img} alt={selectedImage.label} />
+            <span className="lightbox-label">{selectedImage.label}</span>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };

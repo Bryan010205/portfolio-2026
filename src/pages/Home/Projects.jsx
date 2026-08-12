@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import './Projects.css';
@@ -28,10 +28,18 @@ const Projects = () => {
   ];
 
   const rotationY = useMotionValue(0);
-  const rotationSpring = useSpring(rotationY, { stiffness: 100, damping: 20 });
+  const rotationSpring = useSpring(rotationY, { stiffness: 90, damping: 22, mass: 0.5 });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      rotationY.set((rotationY.get() + 1.2) % 360);
+    }, 35);
+
+    return () => clearInterval(interval);
+  }, [rotationY]);
 
   const handlePan = (event, info) => {
-    rotationY.set(rotationY.get() + info.delta.x * 0.4);
+    rotationY.set(rotationY.get() + info.delta.x * 0.7);
   };
 
   // Hàm xử lý điều hướng thông minh

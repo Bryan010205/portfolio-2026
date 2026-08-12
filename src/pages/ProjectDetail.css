@@ -106,6 +106,16 @@
   width: 100%;
   border-radius: 8px;
   border: 1px solid #333;
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.process-item {
+  cursor: pointer;
+}
+
+.process-item:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.08);
 }
 
 .label-btn {
@@ -117,6 +127,61 @@
   font-size: 11px;
   color: #999;
   text-transform: uppercase;
+}
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(10, 10, 12, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.image-lightbox-content {
+  position: relative;
+  max-width: min(90vw, 1200px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.image-lightbox-content img {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  background: rgba(27, 27, 31, 0.9);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.lightbox-label {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #f2f2f2;
 }
 
 /* Tấm Detail Side bự ở cuối (Nếu bạn vẫn muốn giữ nó bự) */
